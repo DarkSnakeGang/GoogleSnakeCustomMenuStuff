@@ -5,23 +5,23 @@ window.snake.customMenuStuff = function(settings = {}) {
   settings.darkSquares = settings.darkSquares || (settings.dark ? '#423C49' : '#A2D149');
   
 
-  //--SIZES--
+  /*--SIZES--*/
 
-  // beeg
+  /* beeg */
   let img = new Image;
   img.src = 'https://i.postimg.cc/xCbFM77f/index.png';
   img.width = 47;
   img.height = 47;
   document.querySelector('#size').appendChild(img);
 
-  // smol
+  /* smol */
   img = new Image;
   img.src = 'https://vignette.wikia.nocookie.net/joke-battles/images/1/11/Smol_Nozomi.png/revision/latest?cb=20170403050458';
   img.width = 47;
   img.height = 47;
   document.querySelector('#size').appendChild(img);
 
-  // custom, given in settings
+  /* custom, given in settings */
   img = new Image;
   img.src = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F35%2FOrange_question_mark.svg%2F1200px-Orange_question_mark.svg.png&f=1&nofb=1';
   img.width = 47;
@@ -29,72 +29,72 @@ window.snake.customMenuStuff = function(settings = {}) {
   document.querySelector('#size').appendChild(img);
 
   
-  //--SPEEDS--
+  /*--SPEEDS--*/
 
-  // lightning
+  /* lightning */
   img = new Image;
   img.src = 'https://i.postimg.cc/9Q9KJsnk/bolt.png';
   img.width = 47;
   img.height = 47;
   document.querySelector('#speed').appendChild(img);
 
-  // snail
+  /* snail */
   img = new Image;
   img.src = 'https://i.postimg.cc/vHkC7G39/snai.png';
   img.width = 47;
   img.height = 47;
   document.querySelector('#speed').appendChild(img);
 
-  // custom
+  /* custom */
   img = new Image;
   img.src = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F35%2FOrange_question_mark.svg%2F1200px-Orange_question_mark.svg.png&f=1&nofb=1';
   img.width = 47;
   img.height = 47;
   document.querySelector('#speed').appendChild(img);
 
-  //--COUNTS--
+  /*--COUNTS--*/
 
-  // 7
+  /* 7 */
   img = new Image;
   img.src = 'https://i.postimg.cc/ht263ZQB/7.png';
   img.width = 47;
   img.height = 47;
   document.querySelector('#count').appendChild(img);
 
-  // 9
+  /* 9 */
   img = new Image;
   img.src = 'https://i.postimg.cc/FKqqhfxC/9.png';
   img.width = 47;
   img.height = 47;
   document.querySelector('#count').appendChild(img);
 
-  // 11
+  /* 11 */
   img = new Image;
   img.src = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffree-tarot-reading.xyz%2FImagenes_TA%2FNumeros%2FNumero-11.png&f=1&nofb=1';
   img.width = 47;
   img.height = 47;
   document.querySelector('#count').appendChild(img);
 
-  // 13
+  /* 13 */
   img = new Image;
   img.src = 'https://i.postimg.cc/wB3ZK5Ds/13.png';
   img.width = 47;
   img.height = 47;
   document.querySelector('#count').appendChild(img);
 
-  // secret
+  /* secret */
   let shh = document.createElement('canvas');
   shh.width = 47;
   shh.height = 47;
   document.querySelector('#count').appendChild(shh);
 
-  // secret 2
+  /* secret 2 */
   shh = document.createElement('canvas');
   shh.width = 47;
   shh.height = 47;
   document.querySelector('#count').appendChild(shh);
 
-  // making do things
+  /* making do things */
   const scripts = document.getElementsByTagName('script');
   for(let script of scripts) {
     const req = new XMLHttpRequest();
@@ -144,6 +144,8 @@ window.snake.customMenuStuff = function(settings = {}) {
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 2));
                 
                 
+                
+                
               } else if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 5) {
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 0));
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, 2));
@@ -154,8 +156,10 @@ window.snake.customMenuStuff = function(settings = {}) {
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, 0));
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, -2));
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -2, -2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, 2));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -2, 0));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, 0));
+                
+                
                 
                 
               } else if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 6) {
@@ -168,10 +172,12 @@ window.snake.customMenuStuff = function(settings = {}) {
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, 0));
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, -2));
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -2, -2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, 2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, -1));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, 1));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -2, 0));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, 0));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, -1));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 1));
+                
+                
                 
               } else if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 7) {
                 for(let i = -10; i <= 10; i++)
