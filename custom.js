@@ -1,107 +1,175 @@
-window.snake.customMenuStuff = function(settings = {}) {
-  settings.speed = settings.speed || 10;
-  settings.size  = settings.size  || 20;
-  settings.lightSquares = settings.lightSquares || (settings.dark ? '#47404F' : '#AAD751');
-  settings.darkSquares = settings.darkSquares || (settings.dark ? '#423C49' : '#A2D149');
-  
+window.snake.more_menu = function () {
 
-  /*--SIZES--*/
-
-  /* beeg */
+  // micro
   let img = new Image;
-  img.src = 'https://i.postimg.cc/xCbFM77f/index.png';
+  img.src = 'https://i.postimg.cc/FHxxLK4m/micro-1.png';
   img.width = 47;
   img.height = 47;
   document.querySelector('#size').appendChild(img);
 
-  /* smol */
+  // tiny
   img = new Image;
-  img.src = 'https://vignette.wikia.nocookie.net/joke-battles/images/1/11/Smol_Nozomi.png/revision/latest?cb=20170403050458';
+  img.src = 'https://i.postimg.cc/dtr6JBNh/tiny-1.png';
   img.width = 47;
   img.height = 47;
   document.querySelector('#size').appendChild(img);
 
-  /* custom, given in settings */
+  // super big
   img = new Image;
-  img.src = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F35%2FOrange_question_mark.svg%2F1200px-Orange_question_mark.svg.png&f=1&nofb=1';
+  img.src = 'https://i.postimg.cc/mg4wkHK8/superbig-1.png';
   img.width = 47;
   img.height = 47;
   document.querySelector('#size').appendChild(img);
 
-  
+  // ultra big
+  img = new Image;
+  img.src = 'https://i.postimg.cc/1RLMxTBx/ultrabig-1.png';
+  img.width = 47;
+  img.height = 47;
+  document.querySelector('#size').appendChild(img);
+
+  // humongous
+  img = new Image;
+  img.src = 'https://i.postimg.cc/vmHtLdYn/humoungus-1.png';
+  img.width = 47;
+  img.height = 47;
+  document.querySelector('#size').appendChild(img);
+
+  // too big
+  img = new Image;
+  img.src = 'https://i.postimg.cc/8CKBZnc0/toobigg-1.png';
+  img.width = 47;
+  img.height = 47;
+  document.querySelector('#size').appendChild(img);
+
+  // too big
+  img = new Image;
+  img.src = 'https://i.postimg.cc/Fsdz2CRL/purgatory.png';
+  img.width = 47;
+  img.height = 47;
+  document.querySelector('#size').appendChild(img);
+
+
   /*--SPEEDS--*/
 
-  /* lightning */
-  img = new Image;
-  img.src = 'https://i.postimg.cc/9Q9KJsnk/bolt.png';
-  img.width = 47;
-  img.height = 47;
-  document.querySelector('#speed').appendChild(img);
-
-  /* snail */
+  // snail
   img = new Image;
   img.src = 'https://i.postimg.cc/vHkC7G39/snai.png';
   img.width = 47;
   img.height = 47;
+  img.class = 'DqMRee SsAred';
   document.querySelector('#speed').appendChild(img);
 
-  /* custom */
+  // lightning
   img = new Image;
-  img.src = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F35%2FOrange_question_mark.svg%2F1200px-Orange_question_mark.svg.png&f=1&nofb=1';
+  img.src = 'https://i.postimg.cc/9Q9KJsnk/bolt.png';
   img.width = 47;
   img.height = 47;
+  img.class = 'DqMRee SsAred';
   document.querySelector('#speed').appendChild(img);
+
+  // desert bus
+  img = new Image;
+  img.src = 'https://i.postimg.cc/HL6f0Hd9/bus.png';
+  img.width = 47;
+  img.height = 47;
+  img.class = 'DqMRee SsAred';
+  document.querySelector('#speed').appendChild(img);
+
+  // bullet
+  img = new Image;
+  img.src = 'https://i.postimg.cc/xCqBt7dD/bullet.png';
+  img.width = 47;
+  img.height = 47;
+  img.class = 'DqMRee SsAred';
+  document.querySelector('#speed').appendChild(img);
+
+  // hyperbullet
+  img = new Image;
+  img.src = 'https://i.postimg.cc/KYG6g4SY/hyperbullet.png';
+  img.width = 47;
+  img.height = 47;
+  img.class = 'DqMRee SsAred';
+  document.querySelector('#speed').appendChild(img);
+
+  // ultrabullet
+  img = new Image;
+  img.src = 'https://i.postimg.cc/7Znv60Rc/no.png';
+  img.width = 47;
+  img.height = 47;
+  img.class = 'DqMRee SsAred';
+  document.querySelector('#speed').appendChild(img);
+
+  // yeetbullet
+  img = new Image;
+  img.src = 'https://i.postimg.cc/NMCVrwR2/aaaaaaaaa.png';
+  img.width = 47;
+  img.height = 47;
+  img.class = 'DqMRee SsAred';
+  document.querySelector('#speed').appendChild(img);
+
+  // eternity
+  img = new Image;
+  img.src = 'https://i.postimg.cc/mDHJv50v/eternal.png';
+  img.width = 47;
+  img.height = 47;
+  img.class = 'DqMRee SsAred';
+  document.querySelector('#speed').appendChild(img);
+
+  // ultradeath
+  img = new Image;
+  img.src = 'https://i.postimg.cc/wjKWJBbb/ultradeath.png';
+  img.width = 47;
+  img.height = 47;
+  img.class = 'DqMRee SsAred';
+  document.querySelector('#speed').appendChild(img);
+
 
   /*--COUNTS--*/
 
-  /* 7 */
+  // 13
   img = new Image;
-  img.src = 'https://i.postimg.cc/ht263ZQB/7.png';
+  img.src = 'https://i.postimg.cc/sXM1sTcq/manyapples-1.png';
   img.width = 47;
   img.height = 47;
   document.querySelector('#count').appendChild(img);
 
-  /* 9 */
+  // 25
   img = new Image;
-  img.src = 'https://i.postimg.cc/FKqqhfxC/9.png';
+  img.src = 'https://i.postimg.cc/YSnj551Q/appletree-1.png';
   img.width = 47;
   img.height = 47;
   document.querySelector('#count').appendChild(img);
 
-  /* 11 */
+  // 87
   img = new Image;
-  img.src = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffree-tarot-reading.xyz%2FImagenes_TA%2FNumeros%2FNumero-11.png&f=1&nofb=1';
+  img.src = 'https://i.postimg.cc/mZmx4Tqc/alotactually.png';
   img.width = 47;
   img.height = 47;
   document.querySelector('#count').appendChild(img);
 
-  /* 13 */
+  // apple bomb
   img = new Image;
-  img.src = 'https://i.postimg.cc/wB3ZK5Ds/13.png';
+  img.src = 'https://i.postimg.cc/RZR0fWZM/applebomb.png';
   img.width = 47;
   img.height = 47;
   document.querySelector('#count').appendChild(img);
 
-  /* secret */
-  let shh = document.createElement('canvas');
-  shh.width = 47;
-  shh.height = 47;
-  document.querySelector('#count').appendChild(shh);
-
-  /* secret 2 */
-  shh = document.createElement('canvas');
-  shh.width = 47;
-  shh.height = 47;
-  document.querySelector('#count').appendChild(shh);
+  // apple nuke
+  img = new Image;
+  img.src = 'https://i.postimg.cc/fbvMtyDx/applenuke.png';
+  img.width = 47;
+  img.height = 47;
+  document.querySelector('#count').appendChild(img);
 
   /* making do things */
   const scripts = document.getElementsByTagName('script');
-  for(let script of scripts) {
+  for (let script of scripts) {
     const req = new XMLHttpRequest();
     req.open('GET', script.src);
-    req.onload = function() {
+    req.onload = function () {
       const code = this.responseText;
-      if(code.indexOf('#A2') === -1)
+      if (code.indexOf('#A2') === -1)
         return;
 
       const functio = code.match(
@@ -119,115 +187,140 @@ window.snake.customMenuStuff = function(settings = {}) {
 
       eval(
         functio.replace(
-          `if(${inevilmodes})`,
+          `if(c=${inevilmodes})`,
           `
           if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} > 2) {
             if(!(${inevilmodes})) {
               if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 3) {
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 0));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, 2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, -2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, -2));
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, 2));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 2));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, 2));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, 1));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -2, 1));
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, 0));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 0));
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, 0));
-                
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, -1));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -2, -1));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, -2));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, -2));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, -2));
               } else if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 4) {
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 0));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, 2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, -2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, -2));
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, 2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, 0));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, 0));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, -2));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, 2));
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 2));
-                
-                
-                
-                
-              } else if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 5) {
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 0));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -2, 2));
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, 2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, -2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, -2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, 2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, 0));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, 0));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, -2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -2, 0));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, 0));
-                
-                
-                
-                
-              } else if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 6) {
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 0));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, 2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, -2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, -2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, 2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, 0));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, 0));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, -2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 2));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -2, 0));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, 0));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, -1));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, 1));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, 1));
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 1));
-                
-                
-                
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -2, 1));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, 1));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, 0));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, 0));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 0));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -2, 0));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, 0));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, -1));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, -1));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, -1));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -2, -1));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, -1));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, -2));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, -2));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, -2));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -2, -2));
+                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -3, -2));
+              } else if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 5) {
+                for (i=-7;i<3;i++) {
+                  ${pafihwotyhopyplacetheiopafsjafijplesllllllll} i, -4));
+                }
+                for (i=-7;i<3;i++) {
+                  ${pafihwotyhopyplacetheiopafsjafijplesllllllll} i, -3));
+                }
+                for (i=-7;i<3;i++) {
+                  ${pafihwotyhopyplacetheiopafsjafijplesllllllll} i, -2));
+                }
+                for (i=-7;i<3;i++) {
+                  ${pafihwotyhopyplacetheiopafsjafijplesllllllll} i, -1));
+                }
+                for (i=-3;i<3;i++) {
+                  ${pafihwotyhopyplacetheiopafsjafijplesllllllll} i, 0));
+                }
+                for (i=-7;i<3;i++) {
+                  ${pafihwotyhopyplacetheiopafsjafijplesllllllll} i, 1));
+                }
+                for (i=-7;i<3;i++) {
+                  ${pafihwotyhopyplacetheiopafsjafijplesllllllll} i, 2));
+                }
+                for (i=-7;i<3;i++) {
+                  ${pafihwotyhopyplacetheiopafsjafijplesllllllll} i, 3));
+                }
+                for (i=-7;i<3;i++) {
+                  ${pafihwotyhopyplacetheiopafsjafijplesllllllll} i, 4));
+                }
+              } else if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 6) {
+                for (i=0;i<200;i++) {
+                  ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 0));
+                }
               } else if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 7) {
-                for(let i = -10; i <= 10; i++)
-                  for(let j = -10; j <= 10; j++)
-                    ${pafihwotyhopyplacetheiopafsjafijplesllllllll} i, j));
-              } else 
+                  for (i=0;i<10000;i++) {
+                    ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 0));
+                  }
+              }  else
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 100000, 1));
             } else {
-              for(
-                let i = 0; i < (
-                  ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 3
-                    ? 7
-                  : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 4
-                    ? 9
-                  : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 5
-                    ? 11
-                  : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 6
-                    ? 13
-                  : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 7
-                    ? 20
-                  : 0
-                ); i++
-              ) {
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} i - ~~((
-                  ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 3
-                    ? 7
-                  : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 4
-                    ? 9
-                  : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 5
-                    ? 11
-                  : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 6
-                    ? 13
-                  : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 7
-                    ? 20
-                  : 0
-                ) / 1.25), -4));
-                ${pafihwotyhopyplacetheiopafsjafijplesllllllll} i- ~~((
-                  ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 3
-                    ? 7
-                  : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 4
-                    ? 9
-                  : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 5
-                    ? 11
-                  : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 6
-                    ? 13
-                  : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 7
-                    ? 20
-                  : 0
-                ) / 1.25), 4));
-                
+              if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} < 6)
+                for(
+                  let i = 0; i < (
+                    ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 3
+                      ? 13
+                    : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 4
+                      ? 25
+                    : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 5
+                      ? 100
+                    : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 6
+                      ? 0
+                    : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 7
+                      ? 0
+                    : 0
+                  ); i++
+                ) {
+                  ${pafihwotyhopyplacetheiopafsjafijplesllllllll} i - ~~((
+                    ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 3
+                      ? 13
+                    : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 4
+                      ? 25
+                    : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 5
+                      ? 100
+                    : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 6
+                      ? 0
+                    : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 7
+                      ? 0
+                    : 0
+                  ) / 1.25), -4));
+                  ${pafihwotyhopyplacetheiopafsjafijplesllllllll} i- ~~((
+                    ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 3
+                      ? 13
+                    : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 4
+                      ? 25
+                    : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 5
+                      ? 100
+                    : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 6
+                      ? 0
+                    : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 7
+                      ? 0
+                    : 0
+                  ) / 1.25), 4));
+                  
+                }
+              else {
+                for(let i = 0; i < (
+                  ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 6
+                    ? 200
+                  : 10000
+                ); i++)
+                  ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, 0));
               }
             }
           } else if(${inevilmodes})
@@ -240,22 +333,16 @@ window.snake.customMenuStuff = function(settings = {}) {
           /[a-zA-Z0-9_$]{1,6}=function\(a\){switch\(a\.[a-zA-Z0-9_$]{1,6}\){case 1:return\.66[^}]*?1}}/
         )[0].replace(
           '1.33;',
-          `1.33;case 3:return 0.45;case 4:return 1.85;case 5:return ${settings.speed};`
+          `1.33;case 3:return 1.85;case 4:return 0.45;case 5:return 18.5;case 6:return 0.35;case 7:return 0.25;case 8:return 0.15;case 9:return 0.05;case 10:return 26640;case 11:return 0.00001;`
         )
       );
 
       eval(
         code.match(
-          /[a-zA-Z0-9_$]{1,6}\.prototype\.[a-zA-Z0-9_$]{1,6}=function\(\){var a=this,[^}]*?switch\(a\.[a-zA-Z0-9_$]{1,6}\){case 2:e=512[^}]*?}[^]*?};/
+          /[a-zA-Z0-9_$]{1,6}=function\(a\){switch\(a\.[a-zA-Z0-9_$]{1,6}\){case 2:return 512;[^]*?256}}/
         )[0].replace(
-          '96;break a;',
-          `96;break a;case 3:e = 1024;break a;case 4:e = 48;break a;case 5:e = ${settings.size};break a;`
-        ).replace(
-          '#AAD751',
-          settings.lightSquares
-        ).replace(
-          '#A2D149',
-          settings.darkSquares
+          '96;',
+          `96;case 3:return 25;case 4:return 48;case 5:return 1200;case 6:return 3500;case 7:return 10000;case 8:return 25000;case 9:return 100000;`
         )
       );
     };
