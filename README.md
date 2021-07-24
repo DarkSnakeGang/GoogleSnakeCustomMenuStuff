@@ -14,4 +14,5 @@ window.snake.customMenuStuff({
 Or simply click the bookmark.
 
 ## Contributors
-* Fishes <3
+* Fishes
+* ScienceCrafter
