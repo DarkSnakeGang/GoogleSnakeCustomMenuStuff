@@ -8,5 +8,5 @@ window.snake.customMenuStuff();
 Or simply click the bookmark.
 
 ## Contributors
-* Fishes
-* ScienceCrafter
+* [Fishes](https://github.com/fizhes)
+* [ScienceCrafter](https://github.com/ScienceCrafter)
