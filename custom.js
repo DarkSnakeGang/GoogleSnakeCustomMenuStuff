@@ -1,5 +1,5 @@
-window.snake.more_menu = function () {
-
+window.snake.more_menu = function() {
+  
   // micro
   let img = new Image;
   img.src = 'https://i.postimg.cc/FHxxLK4m/micro-1.png';
@@ -173,7 +173,7 @@ window.snake.more_menu = function () {
         return;
 
       const functio = code.match(
-        /[a-zA-Z0-9_$]{1,6}\.prototype\.[a-zA-Z0-9_$]{1,6}=function\(a\){a=void 0===a\?!0:a;[^]*?this,!1\)}/
+        /[a-zA-Z0-9_$]{1,6}\.prototype\.resetState=function\(a\){a=void 0===a\?!0:a;[^]*?this,!1\)}/
       )[0];
       const thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj = functio.match(
         /0!==this\.[a-zA-Z0-9_$]{1,6}/
@@ -276,7 +276,7 @@ window.snake.more_menu = function () {
                     ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 3
                       ? 13
                     : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 4
-                      ? 25
+                      ? 40
                     : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 5
                       ? 100
                     : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 6
@@ -290,7 +290,7 @@ window.snake.more_menu = function () {
                     ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 3
                       ? 13
                     : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 4
-                      ? 25
+                      ? 40
                     : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 5
                       ? 100
                     : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 6
@@ -303,7 +303,7 @@ window.snake.more_menu = function () {
                     ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 3
                       ? 13
                     : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 4
-                      ? 25
+                      ? 40
                     : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 5
                       ? 100
                     : ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 6
@@ -318,7 +318,7 @@ window.snake.more_menu = function () {
                 for(let i = 0; i < (
                   ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 6
                     ? 200
-                  : 10000
+                  : 20000
                 ); i++)
                   ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, 0));
               }
@@ -342,7 +342,7 @@ window.snake.more_menu = function () {
           /[a-zA-Z0-9_$]{1,6}=function\(a\){switch\(a\.[a-zA-Z0-9_$]{1,6}\){case 2:return 512;[^]*?256}}/
         )[0].replace(
           '96;',
-          `96;case 3:return 25;case 4:return 48;case 5:return 1200;case 6:return 3500;case 7:return 10000;case 8:return 25000;case 9:return 100000;`
+          `96;case 3:return ${e};case 4:return 48;case 5:return 1200;case 6:return 3500;case 7:return 10000;case 8:return 25000;case 9:return 100000;`
         )
       );
     };
