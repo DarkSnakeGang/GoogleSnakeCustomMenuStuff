@@ -1,4 +1,5 @@
-window.snake.more_menu = function() {
+window.snake.more_menu = function(e) {
+  e = e || 25;
   
   // micro
   let img = new Image;
