@@ -53,6 +53,14 @@ window.snake.more_menu = function(e) {
 
   /*--SPEEDS--*/
 
+  // blursed
+  img = new Image;
+  img.src = 'https://cdn.discordapp.com/attachments/723093815786864661/894286619530653726/unknown.png';
+  img.width = 47;
+  img.height = 47;
+  img.class = 'DqMRee SsAred';
+  document.querySelector('#speed').appendChild(img);
+
   // snail
   img = new Image;
   img.src = 'https://i.postimg.cc/vHkC7G39/snai.png';
@@ -383,14 +391,36 @@ window.snake.more_menu = function(e) {
         )
       );
 
+      const limesarebetter = code.match(
+        /[a-zA-Z0-9_$]{1,6}=function\(a\){switch\(a\.[a-zA-Z0-9_$]{1,6}\){case 1:return\.66[^}]*?1}}/
+      )[0];
+      const limename = limesarebetter.match(/[a-zA-Z0-9_$]{1,6}/)[0];
+      const limespeed = limesarebetter.match(/switch\(a\.[a-zA-Z0-9_$]{1,6}\)/)[0].replace('switch(a.', 'this.').replace(')', '');
+      const a = code.match(new RegExp(
+        `this\\.[a-zA-Z0-9_$]{1,6}=[a-zA-Z0-9_$]{1,6}\\*${limename}\\(this\\);`
+      ))[0];
+      console.log(limespeed);
       eval(
-        code.match(
-          /[a-zA-Z0-9_$]{1,6}=function\(a\){switch\(a\.[a-zA-Z0-9_$]{1,6}\){case 1:return\.66[^}]*?1}}/
-        )[0].replace(
+        limesarebetter.replace(
           '1.33;',
-          `1.33;case 3:return 1.85;case 4:return 0.45;case 5:return 18.5;case 6:return 0.35;case 7:return 0.25;case 8:return 0.15;case 9:return 0.05;case 10:return 26640;case 11:return 0.00001;`
+          `1.33;case 3:return _soup;case 4:return 1.85;case 5:return 0.45;case 6:return 18.5;case 7:return 0.35;case 8:return 0.25;case 9:return 0.15;case 10:return 0.05;case 11:return 26640;case 12:return 0.00001;`
         )
       );
+      
+      const soup = code.match(
+        /[a-zA-Z0-9_$]{1,6}\.prototype\.update=function\(\){[^]*?this\)}}}}/
+      )[0];
+      const f = soup.match(
+        /:this\.[a-zA-Z0-9_$]{1,6}\+=1;this\.[a-zA-Z0-9_$]{1,6}\+\+;/
+      )[0];
+      eval('var _soup = 1.33;');
+      eval(
+        soup.replace(
+          f,
+          f + `_soup = Math.random() < .5 ? .66 : 1.33;${limespeed} === 3 && (${a.replace(limename + '(this);', '_soup')});`
+        )
+      );
+      
 
       eval(
         code.match(
