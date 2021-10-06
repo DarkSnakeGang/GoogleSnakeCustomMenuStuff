@@ -61,13 +61,7 @@ window.snake.more_menu = function(e) {
   img.class = 'DqMRee SsAred';
   document.querySelector('#speed').appendChild(img);
 
-  // snail
-  img = new Image;
-  img.src = 'https://i.postimg.cc/vHkC7G39/snai.png';
-  img.width = 47;
-  img.height = 47;
-  img.class = 'DqMRee SsAred';
-  document.querySelector('#speed').appendChild(img);
+ 
 
   // lightning
   img = new Image;
@@ -77,9 +71,25 @@ window.snake.more_menu = function(e) {
   img.class = 'DqMRee SsAred';
   document.querySelector('#speed').appendChild(img);
 
+  // snail
+  img = new Image;
+  img.src = 'https://i.postimg.cc/vHkC7G39/snai.png';
+  img.width = 47;
+  img.height = 47;
+  img.class = 'DqMRee SsAred';
+  document.querySelector('#speed').appendChild(img);
+
+  // fast-slow 2: faster and slower
+  img = new Image;
+  img.src = 'https://i.postimg.cc/QxFkJtMD/bru.png';
+  img.width = 47;
+  img.height = 47;
+  img.class = 'DqMRee SsAred';
+  document.querySelector('#speed').appendChild(img);
+
   // desert bus
   img = new Image;
-  img.src = 'https://i.postimg.cc/HL6f0Hd9/bus.png';
+  img.src = 'https://cdn.discordapp.com/attachments/723093815786864661/894619150717177886/unknown.png';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -127,7 +137,7 @@ window.snake.more_menu = function(e) {
 
   // ultradeath
   img = new Image;
-  img.src = 'https://i.postimg.cc/wjKWJBbb/ultradeath.png';
+  img.src = 'https://cdn.discordapp.com/attachments/723093815786864661/894620725888040981/unknown.png';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -399,11 +409,10 @@ window.snake.more_menu = function(e) {
       const a = code.match(new RegExp(
         `this\\.[a-zA-Z0-9_$]{1,6}=[a-zA-Z0-9_$]{1,6}\\*${limename}\\(this\\);`
       ))[0];
-      console.log(limespeed);
       eval(
         limesarebetter.replace(
           '1.33;',
-          `1.33;case 3:return _soup;case 4:return 1.85;case 5:return 0.45;case 6:return 18.5;case 7:return 0.35;case 8:return 0.25;case 9:return 0.15;case 10:return 0.05;case 11:return 26640;case 12:return 0.00001;`
+          `1.33;case 3:return _soup;case 4:return 0.45;case 5:return 1.85;case 6:return _soep;case 7:return 18.5;case 8:return 0.35;case 9:return 0.25;case 10:return 0.15;case 11:return 0.05;case 12:return 26640;case 13:return 0.00001;`
         )
       );
       
@@ -414,10 +423,107 @@ window.snake.more_menu = function(e) {
         /:this\.[a-zA-Z0-9_$]{1,6}\+=1;this\.[a-zA-Z0-9_$]{1,6}\+\+;/
       )[0];
       eval('var _soup = 1.33;');
+      eval('var _soep = 1.85;');
       eval(
         soup.replace(
           f,
-          f + `_soup = Math.random() < .5 ? .66 : 1.33;${limespeed} === 3 && (${a.replace(limename + '(this);', '_soup')});`
+          f + `_soup = Math.random() < .5 ? .66 : 1.33;_soep = Math.random() < .5 ? .45 : 1.85;${limespeed} === 3 && (${a.replace(limename + '(this);', '_soup')});${limespeed} === 6 && (${a.replace(limename + '(this);', '_soep')});`
+        )
+      );
+
+      const fishes = code.match(
+        /[a-zA-Z0-9_$]{1,6}=function\(a\){[^}]*?h6Ousc[^]*?\(a\)}/
+      )[0];
+      const words = fishes.match(
+        /0!==a\.[a-zA-Z0-9_$]{1,6}/
+      )[0].replace('0!==', '');
+
+
+      eval(
+        fishes.replace(
+          '(a)}',
+          `(a)
+            if(${words} < 3) {
+              __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
+              [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
+            }
+            if(${words} === 3) {
+              __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
+              [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
+              __c = new Image;
+              __c.src = 'https://thumbs.dreamstime.com/z/number-isolated-white-background-110844960.jpg';
+              __c.width = __c.height = 47;
+              __c.style = 'position:fixed;top: 10px;';
+              __b.appendChild(__c);
+            }
+            if(${words} === 4) {
+              __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
+              [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
+              __c = new Image;
+              __c.src = 'https://thumbs.dreamstime.com/z/25-anniversary-8592773.jpg';
+              __c.width = __c.height = 47;
+              __c.style = 'position:fixed;top: 10px;';
+              __b.appendChild(__c);
+            }
+            if(${words} === 5) {
+              __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
+              [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
+              __c = new Image;
+              __c.src = 'https://www.funimada.com/assets/images/cards/big/40th-birthday-36.gif';
+              __c.width = __c.height = 47;
+              __c.style = 'position:fixed;top: 10px;';
+              __b.appendChild(__c);
+            }
+            if(${words} === 6) {
+              __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
+              [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
+              __c = new Image;
+              __c.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Bundesstra%C3%9Fe_87_number.svg/1200px-Bundesstra%C3%9Fe_87_number.svg.png';
+              __c.width = __c.height = 47;
+              __c.style = 'position:fixed;top: 10px;';
+              __b.appendChild(__c);
+            }
+            if(${words} === 7) {
+              __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
+              [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
+              __c = new Image;
+              __c.src = 'https://i.postimg.cc/RZR0fWZM/applebomb.png';
+              __c.width = __c.height = 47;
+              __c.style = 'position:fixed;top: 10px;';
+              __b.appendChild(__c);
+            }
+            if(${words} === 8) {
+              __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
+              [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
+              __c = new Image;
+              __c.src = 'https://i.postimg.cc/fbvMtyDx/applenuke.png';
+              __c.width = __c.height = 47;
+              __c.style = 'position:fixed;top: 10px;';
+              __b.appendChild(__c);
+            }
+          }`
+        )
+      );
+
+      const meat = code.match(
+        /[a-zA-Z0-9_$]{1,6}=function\(a\){a\.[a-zA-Z0-9_$]{1,6}\.clearRect\(0,0,[^]*?0\),0,b\)}/
+      )[0];
+      const ul = meat.match(
+        /var b=a\.[a-zA-Z0-9_$]{1,6}\.width/
+      )[0].replace('var b=', '');
+      const mDb = meat.match(
+        /a\.[a-zA-Z0-9_$]{1,6}\.render/g
+      )[1].replace('.render', '');
+      const Hw = meat.match(
+        /1===a\.[a-zA-Z0-9_$]{1,6}/
+      )[0].replace('1===', '');
+      eval(
+        meat.replace(
+          '&&',
+          '?'
+        ).replace(
+          'd));',
+          `d)) : ${Hw} !== 0 && (${mDb}.context.drawImage(document.querySelector('#speed').children[${Hw}], ${ul} - 80, c.y - 80, 80, 80));`
         )
       );
       
