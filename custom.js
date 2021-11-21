@@ -210,6 +210,15 @@ window.snake.more_menu = function(e) {
       const inevilmodes = functio.match(
         /[a-zA-Z0-9_$]{1,6}\(this,2\)\|\|[a-zA-Z0-9_$]{1,6}\(this,8\)\|\|[a-zA-Z0-9_$]{1,6}\(this,9\)/
       )[0];
+      const dothething = functio.match(
+        /d=[a-zA-Z0-9_$]{1,6}\(this\.[a-zA-Z0-9_$]{1,6}\);for\(b=d\.next\(\);!b\.done;b=d\.next\(\)\)b\.value\.type[^]*?this\)/
+      )[0];
+      const dothethingportalstyle = functio.match(
+        /b=Math\.floor\(21\/\(1===this\.[^}]*?type=this\.[a-zA-Z0-9_$]{1,6}\[d\]\.type\)/
+      )[0];
+      const modecheck = code.match(
+        /[a-zA-Z0-9_$]{1,6}=function\(a,b\){return 11===a[^}]*?===b}/
+      )[0].match(/[a-zA-Z0-9_$]{1,6}/)[0];
 
       eval(
         functio.replace(
@@ -336,6 +345,8 @@ window.snake.more_menu = function(e) {
                   }
               } else
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 100000, 1));
+
+              ${dothething}
             } else {
               if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} < 7)
                 for(
@@ -396,6 +407,7 @@ window.snake.more_menu = function(e) {
                   ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, 0));
               }
             }
+            if(${modecheck}(this, 2)) {${dothethingportalstyle}}
           } else if(${inevilmodes})
           `
         )
