@@ -55,7 +55,7 @@ window.snake.more_menu = function(e) {
 
   // blursed
   img = new Image;
-  img.src = 'https://cdn.discordapp.com/attachments/723093815786864661/894286619530653726/unknown.png';
+    img.src = 'https://i.postimg.cc/3yDHmPj4/blursed.png';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -89,7 +89,7 @@ window.snake.more_menu = function(e) {
 
   // desert bus
   img = new Image;
-  img.src = 'https://cdn.discordapp.com/attachments/723093815786864661/894619150717177886/unknown.png';
+    img.src = 'https://i.postimg.cc/2bRNw2TH/desertbus.png';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -137,7 +137,7 @@ window.snake.more_menu = function(e) {
 
   // ultradeath
   img = new Image;
-  img.src = 'https://cdn.discordapp.com/attachments/723093815786864661/894620725888040981/unknown.png';
+    img.src = 'https://i.postimg.cc/nXWJsHmf/ultradeath.png';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -553,3 +553,4 @@ window.snake.more_menu = function(e) {
     req.send();
   }
 };
+
