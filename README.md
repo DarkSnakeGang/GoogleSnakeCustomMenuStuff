@@ -10,3 +10,4 @@ Or simply click the bookmark.
 ## Contributors
 * [Fishes](https://github.com/fizhes)
 * [ScienceCrafter](https://github.com/ScienceCrafter)
+* [BrightyLighty](https://github.com/BrightyLighty), technically 
