@@ -3,7 +3,7 @@ window.snake.more_menu = function(e) {
   
   // micro
   let img = new Image;
-  img.src = 'https://i.postimg.cc/FHxxLK4m/micro-1.png';
+  img.src = 'https://www.google.com/search?q=person+smiling&rlz=1C1GCEU_enUS828US872&tbm=isch&source=iu&ictx=1&fir=7Fs4DCER-GQMIM%252C3y33U4l4v-Yf4M%252C_%253BIDxMSLqrSzmc5M%252Co6xhNSYLKwvOmM%252C_%253BMoRaSKlswhoCuM%252CuS7Hc4xanv1t-M%252C_%253BBTSGwjM5W3TquM%252Cb7HD6hGTlgEqyM%252C_%253B-zw0JgBem_ZVsM%252CO3dlGDXj746FAM%252C_%253BMnfIPcp2XfNszM%252C5T2ylkNUz7zaQM%252C_%253BXPPCqsZDRK8dtM%252CrOweV7Ft5efnMM%252C_%253Br0_9QfG5WP_6SM%252COb8BoUEUe74DtM%252C_%253BjDUHyoCrHBAWRM%252CzhvBbuEyRauq7M%252C_%253BeCGVQ4Zkxf6v-M%252CyLlh-PyMO3lvtM%252C_%253B7eW7fUIf5Wbw4M%252C66F9xdnwiLHGJM%252C_%253B6wT8bgPnWLdNOM%252C9zzavRj3PEsIPM%252C_&vet=1&usg=AI4_-kSbPwATzwONQQtPV-qGVTJ2n29bZQ&sa=X&ved=2ahUKEwiPv-ufsMj0AhXVAp0JHQTqB70Q9QF6BAgJEAE#imgrc=IDxMSLqrSzmc5M';
   img.width = 47;
   img.height = 47;
   document.querySelector('#size').appendChild(img);
@@ -55,7 +55,7 @@ window.snake.more_menu = function(e) {
 
   // blursed
   img = new Image;
-    img.src = 'https://i.postimg.cc/3yDHmPj4/blursed.png';
+    img.src = 'https://www.plowzandmowz.com/wp-content/uploads/2014/05/Smiling-Man.jpg';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -65,7 +65,7 @@ window.snake.more_menu = function(e) {
 
   // lightning
   img = new Image;
-  img.src = 'https://i.postimg.cc/9Q9KJsnk/bolt.png';
+  img.src = 'https://www.plowzandmowz.com/wp-content/uploads/2014/05/Smiling-Man.jpg';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -73,7 +73,7 @@ window.snake.more_menu = function(e) {
 
   // snail
   img = new Image;
-  img.src = 'https://i.postimg.cc/vHkC7G39/snai.png';
+  img.src = 'https://www.plowzandmowz.com/wp-content/uploads/2014/05/Smiling-Man.jpg';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -81,7 +81,7 @@ window.snake.more_menu = function(e) {
 
   // fast-slow 2: faster and slower
   img = new Image;
-  img.src = 'https://i.postimg.cc/QxFkJtMD/bru.png';
+  img.src = 'https://www.plowzandmowz.com/wp-content/uploads/2014/05/Smiling-Man.jpg';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -89,7 +89,7 @@ window.snake.more_menu = function(e) {
 
   // desert bus
   img = new Image;
-    img.src = 'https://i.postimg.cc/2bRNw2TH/desertbus.png';
+    img.src = 'https://www.plowzandmowz.com/wp-content/uploads/2014/05/Smiling-Man.jpg';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -97,7 +97,7 @@ window.snake.more_menu = function(e) {
 
   // bullet
   img = new Image;
-  img.src = 'https://i.postimg.cc/xCqBt7dD/bullet.png';
+  img.src = 'https://www.plowzandmowz.com/wp-content/uploads/2014/05/Smiling-Man.jpg';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -105,7 +105,7 @@ window.snake.more_menu = function(e) {
 
   // hyperbullet
   img = new Image;
-  img.src = 'https://i.postimg.cc/KYG6g4SY/hyperbullet.png';
+  img.src = 'https://www.plowzandmowz.com/wp-content/uploads/2014/05/Smiling-Man.jpg';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -113,7 +113,7 @@ window.snake.more_menu = function(e) {
 
   // ultrabullet
   img = new Image;
-  img.src = 'https://i.postimg.cc/7Znv60Rc/no.png';
+  img.src = 'https://www.plowzandmowz.com/wp-content/uploads/2014/05/Smiling-Man.jpg';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -121,7 +121,7 @@ window.snake.more_menu = function(e) {
 
   // yeetbullet
   img = new Image;
-  img.src = 'https://i.postimg.cc/NMCVrwR2/aaaaaaaaa.png';
+  img.src = 'https://www.plowzandmowz.com/wp-content/uploads/2014/05/Smiling-Man.jpg';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -129,7 +129,7 @@ window.snake.more_menu = function(e) {
 
   // eternity
   img = new Image;
-  img.src = 'https://i.postimg.cc/mDHJv50v/eternal.png';
+  img.src = 'https://www.plowzandmowz.com/wp-content/uploads/2014/05/Smiling-Man.jpg';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -137,7 +137,7 @@ window.snake.more_menu = function(e) {
 
   // ultradeath
   img = new Image;
-    img.src = 'https://i.postimg.cc/nXWJsHmf/ultradeath.png';
+    img.src = 'https://www.plowzandmowz.com/wp-content/uploads/2014/05/Smiling-Man.jpg';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
