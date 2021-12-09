@@ -55,7 +55,7 @@ window.snake.more_menu = function(e) {
 
   // blursed
   img = new Image;
-    img.src = 'https://i.postimg.cc/3yDHmPj4/blursed.png';
+  img.src = 'https://cdn.discordapp.com/attachments/723093815786864661/894286619530653726/unknown.png';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -89,7 +89,7 @@ window.snake.more_menu = function(e) {
 
   // desert bus
   img = new Image;
-    img.src = 'https://i.postimg.cc/2bRNw2TH/desertbus.png';
+  img.src = 'https://cdn.discordapp.com/attachments/723093815786864661/894619150717177886/unknown.png';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -137,7 +137,7 @@ window.snake.more_menu = function(e) {
 
   // ultradeath
   img = new Image;
-    img.src = 'https://i.postimg.cc/nXWJsHmf/ultradeath.png';
+  img.src = 'https://cdn.discordapp.com/attachments/723093815786864661/894620725888040981/unknown.png';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -196,7 +196,7 @@ window.snake.more_menu = function(e) {
     req.open('GET', script.src);
     req.onload = function () {
       const code = this.responseText;
-      if (code.indexOf('#A2') === -1)
+      if (code.indexOf('trophy') === -1)
         return;
 
       const functio = code.match(
@@ -209,16 +209,16 @@ window.snake.more_menu = function(e) {
         /this\.[a-zA-Z0-9_$]{1,6}\.push\([a-zA-Z0-9_$]{1,6}\(this,/
       )[0];
       const inevilmodes = functio.match(
-        /[a-zA-Z0-9_$]{1,6}\(this,2\)\|\|[a-zA-Z0-9_$]{1,6}\(this,8\)\|\|[a-zA-Z0-9_$]{1,6}\(this,9\)/
+        /[a-zA-Z0-9_$]{1,6}\(this,2\)\|\|[a-zA-Z0-9_$]{1,6}\(this,8\)\|\|[a-zA-Z0-9_$]{1,6}\(this,9\)\|\|[a-zA-Z0-9_$]{1,6}\(this,10\)/
       )[0];
       const dothething = functio.match(
         /d=[a-zA-Z0-9_$]{1,6}\(this\.[a-zA-Z0-9_$]{1,6}\);for\(b=d\.next\(\);!b\.done;b=d\.next\(\)\)b\.value\.type[^]*?this\)/
       )[0];
       const dothethingportalstyle = functio.match(
-        /b=Math\.floor\(21\/\(1===this\.[^}]*?type=this\.[a-zA-Z0-9_$]{1,6}\[d\]\.type\)/
+        /for\(b=Math\.floor\(21\/\(1===this\.[^}]*?type=this\.[a-zA-Z0-9_$]{1,6}\[d\]\.type\)/
       )[0];
       const modecheck = code.match(
-        /[a-zA-Z0-9_$]{1,6}=function\(a,b\){return 11===a[^}]*?===b}/
+        /[a-zA-Z0-9_$]{1,6}=function\(a,b\){return 12===a[^}]*?===b}/
       )[0].match(/[a-zA-Z0-9_$]{1,6}/)[0];
 
       eval(
@@ -433,14 +433,14 @@ window.snake.more_menu = function(e) {
         /[a-zA-Z0-9_$]{1,6}\.prototype\.update=function\(\){[^]*?this\)}}}}/
       )[0];
       const f = soup.match(
-        /:this\.[a-zA-Z0-9_$]{1,6}\+=1;this\.[a-zA-Z0-9_$]{1,6}\+\+;/
+        /:this\.[a-zA-Z0-9_$]{1,6}\+=1,this\.[a-zA-Z0-9_$]{1,6}\+\+,/
       )[0];
       eval('var _soup = 1.33;');
       eval('var _soep = 1.85;');
       eval(
         soup.replace(
           f,
-          f + `_soup = Math.random() < .5 ? .66 : 1.33;_soep = Math.random() < .5 ? .45 : 1.85;${limespeed} === 3 && (${a.replace(limename + '(this);', '_soup')});${limespeed} === 6 && (${a.replace(limename + '(this);', '_soep')});`
+          f + `_soup = Math.random() < .5 ? .66 : 1.33, _soep = Math.random() < .5 ? .45 : 1.85, ${limespeed} === 3 && (${a.replace(limename + '(this);', '_soup')}), ${limespeed} === 6 && (${a.replace(limename + '(this);', '_soep')}),`
         )
       );
 
@@ -553,4 +553,3 @@ window.snake.more_menu = function(e) {
     req.send();
   }
 };
-
