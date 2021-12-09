@@ -212,7 +212,7 @@ window.snake.more_menu = function(e) {
         /[a-zA-Z0-9_$]{1,6}\(this,2\)\|\|[a-zA-Z0-9_$]{1,6}\(this,8\)\|\|[a-zA-Z0-9_$]{1,6}\(this,9\)\|\|[a-zA-Z0-9_$]{1,6}\(this,10\)/
       )[0];
       const dothething = functio.match(
-        /d=[a-zA-Z0-9_$]{1,6}\(this\.[a-zA-Z0-9_$]{1,6}\);for\(b=d\.next\(\);!b\.done;b=d\.next\(\)\)b\.value\.type[^]*?this\)/
+        /for\(d=[a-zA-Z0-9_$]{1,6}\(this\.[a-zA-Z0-9_$]{1,6}\),[^}]*?this\)/
       )[0];
       const dothethingportalstyle = functio.match(
         /for\(b=Math\.floor\(21\/\(1===this\.[^}]*?type=this\.[a-zA-Z0-9_$]{1,6}\[d\]\.type\)/
@@ -409,8 +409,14 @@ window.snake.more_menu = function(e) {
               }
             }
             if(${modecheck}(this, 2)) {${dothethingportalstyle}}
+            if(${modecheck}(this, 10)) {${dothething}}
           } else if(${inevilmodes})
           `
+        ).replace(
+          'this,!1)}',
+          `this,!1);
+          this.gW[-1] = this.gW[0];
+          }`
         )
       );
 
