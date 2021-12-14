@@ -97,31 +97,31 @@ window.snake.more_menu = function(e) {
 
   // bullet
   img = new Image;
-  img.src = 'https://i.postimg.cc/xCqBt7dD/bullet.png';
+  img.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Bullet.png?raw=true';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
   document.querySelector('#speed').appendChild(img);
 
-  // hyperbullet
+  // hyperbullet (red)
   img = new Image;
-  img.src = 'https://i.postimg.cc/KYG6g4SY/hyperbullet.png';
+  img.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Red%20bullet.png?raw=true';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
   document.querySelector('#speed').appendChild(img);
 
-  // ultrabullet
+  // ultrabullet (purple)
   img = new Image;
-  img.src = 'https://i.postimg.cc/7Znv60Rc/no.png';
+  img.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Purple%20bullet.png?raw=true';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
   document.querySelector('#speed').appendChild(img);
 
-  // yeetbullet
+  // yeetbullet (blue)
   img = new Image;
-  img.src = 'https://i.postimg.cc/NMCVrwR2/aaaaaaaaa.png';
+  img.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Blue%20Bullet.png?raw=true';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
