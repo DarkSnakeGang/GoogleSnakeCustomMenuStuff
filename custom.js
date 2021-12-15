@@ -470,7 +470,7 @@ window.snake.more_menu = function(e) {
               __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
               [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
               __c = new Image;
-              __c.src = 'https://thumbs.dreamstime.com/z/number-isolated-white-background-110844960.jpg';
+              __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/13.png?raw=true';
               __c.width = __c.height = 47;
               __c.style = 'position:fixed;top: 10px;';
               __b.appendChild(__c);
@@ -479,7 +479,7 @@ window.snake.more_menu = function(e) {
               __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
               [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
               __c = new Image;
-              __c.src = 'https://thumbs.dreamstime.com/z/25-anniversary-8592773.jpg';
+              __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/25.png?raw=true';
               __c.width = __c.height = 47;
               __c.style = 'position:fixed;top: 10px;';
               __b.appendChild(__c);
@@ -488,7 +488,7 @@ window.snake.more_menu = function(e) {
               __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
               [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
               __c = new Image;
-              __c.src = 'https://www.funimada.com/assets/images/cards/big/40th-birthday-36.gif';
+              __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/40.png?raw=true';
               __c.width = __c.height = 47;
               __c.style = 'position:fixed;top: 10px;';
               __b.appendChild(__c);
@@ -497,7 +497,7 @@ window.snake.more_menu = function(e) {
               __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
               [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
               __c = new Image;
-              __c.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Bundesstra%C3%9Fe_87_number.svg/1200px-Bundesstra%C3%9Fe_87_number.svg.png';
+              __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/87.png?raw=true';
               __c.width = __c.height = 47;
               __c.style = 'position:fixed;top: 10px;';
               __b.appendChild(__c);
@@ -506,16 +506,16 @@ window.snake.more_menu = function(e) {
               __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
               [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
               __c = new Image;
-              __c.src = 'https://i.postimg.cc/RZR0fWZM/applebomb.png';
+              __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Apple%20Bomb.png?raw=true';
               __c.width = __c.height = 47;
               __c.style = 'position:fixed;top: 10px;';
               __b.appendChild(__c);
             }
-            if(${words} === 8) {
+            if(${words} === 8) { 
               __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
               [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
               __c = new Image;
-              __c.src = 'https://i.postimg.cc/fbvMtyDx/applenuke.png';
+              __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/nuke.png?raw=true';
               __c.width = __c.height = 47;
               __c.style = 'position:fixed;top: 10px;';
               __b.appendChild(__c);
