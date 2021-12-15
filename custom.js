@@ -439,7 +439,7 @@ window.snake.more_menu = function(e) {
         /[a-zA-Z0-9_$]{1,6}\.prototype\.update=function\(\){[^]*?this\)}}}}/
       )[0];
       const f = soup.match(
-        /:this\.[a-zA-Z0-9_$]{1,6}\+=1,this\.[a-zA-Z0-9_$]{1,6}\+\+,/
+        /:this\.[a-zA-Z0-9_$]{1,6}\+=\n?1,this\.[a-zA-Z0-9_$]{1,6}\+\+,/
       )[0];
       eval('var _soup = 1.33;');
       eval('var _soep = 1.85;');
