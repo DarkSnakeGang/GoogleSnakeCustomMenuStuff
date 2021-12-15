@@ -55,7 +55,7 @@ window.snake.more_menu = function(e) {
 
   // blursed
   img = new Image;
-  img.src = 'https://cdn.discordapp.com/attachments/723093815786864661/894286619530653726/unknown.png';
+  img.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/blursed.png?raw=true';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -65,7 +65,7 @@ window.snake.more_menu = function(e) {
 
   // lightning
   img = new Image;
-  img.src = 'https://i.postimg.cc/9Q9KJsnk/bolt.png';
+  img.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/lightning.png?raw=true';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -129,7 +129,7 @@ window.snake.more_menu = function(e) {
 
   // eternity
   img = new Image;
-  img.src = 'https://i.postimg.cc/mDHJv50v/eternal.png';
+  img.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/eternal.png?raw=true';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -137,7 +137,7 @@ window.snake.more_menu = function(e) {
 
   // ultradeath
   img = new Image;
-  img.src = 'https://cdn.discordapp.com/attachments/723093815786864661/894620725888040981/unknown.png';
+  img.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/ultradeath.png?raw=true';
   img.width = 47;
   img.height = 47;
   img.class = 'DqMRee SsAred';
@@ -148,7 +148,7 @@ window.snake.more_menu = function(e) {
 
   // 13
   img = new Image;
-  img.src = 'https://i.postimg.cc/sXM1sTcq/manyapples-1.png';
+  img.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/13.png?raw=true';
   img.width = 47;
   img.height = 47;
   document.querySelector('#count').appendChild(img);
@@ -169,7 +169,7 @@ window.snake.more_menu = function(e) {
 
   // 87
   img = new Image;
-  img.src = 'https://i.postimg.cc/mZmx4Tqc/alotactually.png';
+  img.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/87.png?raw=true';
   img.width = 47;
   img.height = 47;
   document.querySelector('#count').appendChild(img);
@@ -183,7 +183,7 @@ window.snake.more_menu = function(e) {
 
   // apple nuke
   img = new Image;
-  img.src = 'https://i.postimg.cc/fbvMtyDx/applenuke.png';
+  img.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/nuke.png?raw=true';
   img.width = 47;
   img.height = 47;
   document.querySelector('#count').appendChild(img);
