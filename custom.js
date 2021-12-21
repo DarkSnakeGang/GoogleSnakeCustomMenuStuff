@@ -1,5 +1,6 @@
 window.snake.more_menu = function(e) {
   e = e || 25;
+  https://github.com/DarkSnakeGang/GoogleSnakeCustomMenuStuff.git
   
   // micro
   let img = new Image;
