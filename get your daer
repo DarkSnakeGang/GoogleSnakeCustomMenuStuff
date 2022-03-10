@@ -1,1 +1,3 @@
 "save my dader"
+window.snake.more_menu();
+window.snake.more_life();
