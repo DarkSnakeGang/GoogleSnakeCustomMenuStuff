@@ -208,10 +208,10 @@ window.snake.more_menu = function() {
         return;
 
       const functio = code.match(
-        /[a-zA-Z0-9_$]{1,6}\.prototype\.resetState=function\(a\){a=void 0===a\?!0:a;[^]*?this,!1\)}/
+        /[a-zA-Z0-9_$]{1,8}\.prototype\.reset=function\(\){this\.direction="NONE";[^]*?=0}/
       )[0];
       const thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj = functio.match(
-        /0!==this\.[a-zA-Z0-9_$]{1,6}/
+        /0!==this\.settings\.[a-zA-Z0-9_$]{1,6}/
       )[0].replace('0!==', '');
       const pafihwotyhopyplacetheiopafsjafijplesllllllll = functio.match(
         /this\.[a-zA-Z0-9_$]{1,6}\.push\([a-zA-Z0-9_$]{1,6}\(this,/
@@ -221,17 +221,67 @@ window.snake.more_menu = function() {
       )[0].match(/[a-zA-Z0-9_$]{1,6}/)[0];
       console.log(inevilmodesf);
 
-      const dothethingportalstyle = functio.match(
-        /for\(b=Math\.floor\(42\/\n?this\.[a-zA-Z0-9_$]{1,6}\.length\),[^]*?\);/
-      )[0];
-      console.log(dothethingportalstyle);
+      // const dothethingportalstyle = functio.match(
+      //   /for\(b=Math\.floor\(42\/\n?this\.[a-zA-Z0-9_$]{1,6}\.length\),[^]*?\);/
+      // )[0];
+      // const Aa = dothethingportalstyle.match(/this\.[a-zA-Z0-9_$]{1,6}/)[0];
+      // console.log(dothethingportalstyle, Aa);
       const modecheck = code.match(
         /[a-zA-Z0-9_$]{1,6}=function\(a,b\){return 13===a[^}]*?===b}/
       )[0].match(/[a-zA-Z0-9_$]{1,6}/)[0];
 
+      
+
+          
+      const defaultTileLength = code.match(/[a-zA-Z0-9_$]{1,6}=[a-zA-Z0-9_$]{1,6}\?175:135/)[0].match(
+        /[a-zA-Z0-9_$]{1,6}/
+      )[0];console.log(defaultTileLength);
+      const reg = new RegExp(`this\\.[a-zA-Z0-9_$]{1,6}=${defaultTileLength}\\*a`);
+      console.log(reg);
+      const realTileLength = code.match(reg)[0].match(
+        /this\.[a-zA-Z0-9_$]{1,6}/
+      )[0];
+      const speed = code.match(/switch\(this\.settings\.[a-zA-Z0-9_$]{1,6}\){case 1:a=\.66/)[0].match(
+        /this\.settings\.[a-zA-Z0-9_$]{1,6}/
+      )[0];
+      
+      const soup = code.match(
+        /[a-zA-Z0-9_$]{1,6}\.prototype\.tick=function\(\){[^]*?this\)}}}}/
+      )[0];
+      const f = soup.match(
+        /:this\.[a-zA-Z0-9_$]{1,6}\+=\n?1;this\.[a-zA-Z0-9_$]{1,6}\+\+;/
+      )[0];
+      eval('var _soup = 1.33;');
+      eval('var _soep = 1.85;');
+      eval(
+        soup.replace(
+          f,
+          f + `_soup = Math.random() < .5 ? .66 : 1.33;
+          _soep = Math.random() < .5 ? .45 : 1.85;
+          let _le;
+          switch(${speed}) {
+            case 1:  _le = .66;    break;
+            case 2:  _le = 1.33;   break;
+            case 3:  _le = _soup;  break;
+            case 4:  _le = .45;    break;
+            case 5:  _le = 1.85;   break;
+            case 6:  _le = _soep;  break;
+            case 7:  _le = 18.5;   break;
+            case 8:  _le = .35;    break;
+            case 9:  _le = .25;    break;
+            case 10: _le = .15;    break;
+            case 11: _le = .05;    break;
+            case 12: _le = 26640;  break;
+            case 13: _le = .00001; break;
+            default: _le = 1;      break;
+          }
+          ${realTileLength} = ${defaultTileLength} * _le;
+          `
+        )
+      );
       eval(
         functio.replace(
-          `if(d=${inevilmodesf}(this))`,
+          `if(c=${inevilmodesf}(this.settings))`,
           `
           if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} > 2) {
             if(!(${inevilmodesf}(this))) {
@@ -416,120 +466,99 @@ window.snake.more_menu = function() {
               }
             }
 
-            if(${modecheck}(this,2)) { ${dothethingportalstyle} }
-          } else if(d=${inevilmodesf}(this))
+            
+          } else if(c=${inevilmodesf}(this.settings))
           `
         ).replace(
           'this,!1)}',
           `this,!1);
           this.gW[-1] = this.gW[0];
           }`
-        )
+        ).replace(/{case 1:a=\.66[^}]*?1}/, `{
+          case 1:  a = .66;    break a;
+          case 2:  a = 1.33;   break a;
+          case 3:  a = _soup;  break a;
+          case 4:  a = .45;    break a;
+          case 5:  a = 1.85;   break a;
+          case 6:  a = _soep;  break a;
+          case 7:  a = 18.5;   break a;
+          case 8:  a = .35;    break a;
+          case 9:  a = .25;    break a;
+          case 10: a = .15;    break a;
+          case 11: a = .05;    break a;
+          case 12: a = 26640;  break a;
+          case 13: a = .00001; break a;
+          default: a = 1;      break a;
+        }`)
       );
 
-      const limesarebetter = code.match(
-        /[a-zA-Z0-9_$]{1,6}=function\(a\){switch\(a\.[a-zA-Z0-9_$]{1,6}\){case 1:return\.66[^}]*?1}}/
-      )[0];
-      const limename = limesarebetter.match(/[a-zA-Z0-9_$]{1,6}/)[0];
-      const limespeed = limesarebetter.match(/switch\(a\.[a-zA-Z0-9_$]{1,6}\)/)[0].replace('switch(a.', 'this.').replace(')', '');
-      const a = code.match(new RegExp(
-        `this\\.[a-zA-Z0-9_$]{1,6}=[a-zA-Z0-9_$]{1,6}\\*${limename}\\(this\\);`
-      ))[0];
-      eval(
-        limesarebetter.replace(
-          '1.33;',
-          `1.33;case 3:return _soup;case 4:return 0.45;case 5:return 1.85;case 6:return _soep;case 7:return 18.5;case 8:return 0.35;case 9:return 0.25;case 10:return 0.15;case 11:return 0.05;case 12:return 26640;case 13:return 0.00001;`
-        )
-      );
+      // const fishes = code.match(
+      //   /[a-zA-Z0-9_$]{1,6}=function\(a\){[a-zA-Z0-9_$]{1,6}\.call\(this,a\.[a-zA-Z0-9_$]{1,6}\);var b=this;this\.settings[^]*?h6Ousc[^]*?\(\)\)}/
+      // )[0];
       
-      const soup = code.match(
-        /[a-zA-Z0-9_$]{1,6}\.prototype\.update=function\(\){[^]*?this\)}}}}/
-      )[0];
-      const f = soup.match(
-        /:this\.[a-zA-Z0-9_$]{1,6}\+=\n?1,this\.[a-zA-Z0-9_$]{1,6}\+\+,/
-      )[0];
-      eval('var _soup = 1.33;');
-      eval('var _soep = 1.85;');
-      eval(
-        soup.replace(
-          f,
-          f + `_soup = Math.random() < .5 ? .66 : 1.33, _soep = Math.random() < .5 ? .45 : 1.85, ${limespeed} === 3 && (${a.replace(limename + '(this);', '_soup')}), ${limespeed} === 6 && (${a.replace(limename + '(this);', '_soep')}),`
-        )
-      );
-
-      const fishes = code.match(
-        /[a-zA-Z0-9_$]{1,6}=function\(a\){[^}]*?h6Ousc[^]*?\(a\)}/
-      )[0];
-      const words = fishes.match(
-        /0!==a\.[a-zA-Z0-9_$]{1,6}/
-      )[0].replace('0!==', '');
-
-
-      eval(
-        fishes.replace(
-          '(a)}',
-          `(a)
-            if(${words} < 3) {
-              __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
-              [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
-            }
-            if(${words} === 3) {
-              __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
-              [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
-              __c = new Image;
-              __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/13.png?raw=true';
-              __c.width = __c.height = 47;
-              __c.style = 'position:fixed;top: 10px;';
-              __b.appendChild(__c);
-            }
-            if(${words} === 4) {
-              __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
-              [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
-              __c = new Image;
-              __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/25.png?raw=true';
-              __c.width = __c.height = 47;
-              __c.style = 'position:fixed;top: 10px;';
-              __b.appendChild(__c);
-            }
-            if(${words} === 5) {
-              __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
-              [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
-              __c = new Image;
-              __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/40.png?raw=true';
-              __c.width = __c.height = 47;
-              __c.style = 'position:fixed;top: 10px;';
-              __b.appendChild(__c);
-            }
-            if(${words} === 6) {
-              __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
-              [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
-              __c = new Image;
-              __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/87.png?raw=true';
-              __c.width = __c.height = 47;
-              __c.style = 'position:fixed;top: 10px;';
-              __b.appendChild(__c);
-            }
-            if(${words} === 7) {
-              __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
-              [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
-              __c = new Image;
-              __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Apple%20Bomb.png?raw=true';
-              __c.width = __c.height = 47;
-              __c.style = 'position:fixed;top: 10px;';
-              __b.appendChild(__c);
-            }
-            if(${words} === 8) { 
-              __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
-              [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
-              __c = new Image;
-              __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/nuke.png?raw=true';
-              __c.width = __c.height = 47;
-              __c.style = 'position:fixed;top: 10px;';
-              __b.appendChild(__c);
-            }
-          }`
-        )
-      );
+      const thing = document.querySelector('#count').parentNode;
+      thing.onmousemove = thing.onclick = function() {
+        const count_ = [...document.querySelector('#count').children].indexOf(document.querySelector('#count').getElementsByClassName('tuJOWd')[0])
+        if(count_ < 3) {
+          __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
+          [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
+        }
+        if(count_ === 3) {
+          __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
+          [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
+          __c = new Image;
+          __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/13.png?raw=true';
+          __c.width = __c.height = 47;
+          __c.style = 'position:fixed;top: 10px;';
+          __b.appendChild(__c);
+        }
+        if(count_ === 4) {
+          __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
+          [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
+          __c = new Image;
+          __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/25.png?raw=true';
+          __c.width = __c.height = 47;
+          __c.style = 'position:fixed;top: 10px;';
+          __b.appendChild(__c);
+        }
+        if(count_ === 5) {
+          __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
+          [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
+          __c = new Image;
+          __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/40.png?raw=true';
+          __c.width = __c.height = 47;
+          __c.style = 'position:fixed;top: 10px;';
+          __b.appendChild(__c);
+        }
+        if(count_ === 6) {
+          __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
+          [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
+          __c = new Image;
+          __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/87.png?raw=true';
+          __c.width = __c.height = 47;
+          __c.style = 'position:fixed;top: 10px;';
+          __b.appendChild(__c);
+        }
+        if(count_ === 7) {
+          __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
+          [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
+          __c = new Image;
+          __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Apple%20Bomb.png?raw=true';
+          __c.width = __c.height = 47;
+          __c.style = 'position:fixed;top: 10px;';
+          __b.appendChild(__c);
+        }
+        if(count_ === 8) { 
+          __b = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
+          [...__b.children].forEach((e, i) => i > 1 && (__b.removeChild(__b.children[i])));
+          __c = new Image;
+          __c.src = 'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/nuke.png?raw=true';
+          __c.width = __c.height = 47;
+          __c.style = 'position:fixed;top: 10px;';
+          __b.appendChild(__c);
+        }
+      };
+      
 
       const meat = code.match(
         /[a-zA-Z0-9_$]{1,6}=function\(a\){a\.[a-zA-Z0-9_$]{1,6}\.clearRect\(0,0,[^]*?0\),0,b\)}/
@@ -540,8 +569,8 @@ window.snake.more_menu = function() {
       const mDb = meat.match(
         /a\.[a-zA-Z0-9_$]{1,6}\.render/g
       )[1].replace('.render', '');
-      const Hw = meat.match(
-        /1===a\.[a-zA-Z0-9_$]{1,6}/
+      const Na = meat.match(
+        /1===a\.settings\.[a-zA-Z0-9_$]{1,6}/
       )[0].replace('1===', '');
       eval(
         meat.replace(
@@ -549,55 +578,39 @@ window.snake.more_menu = function() {
           '?'
         ).replace(
           'd));',
-          `d)) : ${Hw} !== 0 && (${mDb}.context.drawImage(document.querySelector('#speed').children[${Hw}], ${ul} - 80, c.y - 80, 80, 80));`
+          `d)) : ${Na} !== 0 && (${mDb}.context.drawImage(document.querySelector('#speed').children[${Na}], ${ul} - 80, c.y - 80, 80, 80));`
         )
       );
-      
 
-      // eval(
-      //   code.match(
-      //     /[a-zA-Z0-9_$]{1,6}=function\(a\){switch\(a\.[a-zA-Z0-9_$]{1,6}\){case 2:return 512;[^]*?256}}/
-      //   )[0].replace(
-      //     '96;',
-      //     `96;case 3:return 25;case 4:return 48;case 5:return 1200;case 6:return 3500;case 7:return 10000;case 8:return 25000;case 9:return 100000;`
-      //   )
-      // );
+      let latests_ = code.match(/s_=[a-zA-Z0-9_$]{1,8}\.prototype/g);
+      latests_ = latests_[latests_.length - 1].replace('s_=', '');
+      console.log(latests_);
 
       const c = code.match(
-        /[a-zA-Z0-9_$]{1,8}\.prototype\.[a-zA-Z0-9_$]{1,8}=function\(\){var a=this,b=[^]*?canvas[^]*?\);return b\.promise}/
+        /s_\.[a-zA-Z0-9_$]{1,8}=function\(\){var a=[a-zA-Z0-9_$]{1,8}\(this\.renderer\.canvas\);[^]*?canvas[^]*?a\)}}/
+      )[0].replace('s_', latests_);
+      const dec = c.match(
+        /d\.[a-zA-Z0-9_$]{1,8}=new [a-zA-Z0-9_$]{1,8}\(Math\.floor\(b\/d\.[a-zA-Z0-9_$]{1,8}\),Math\.floor\(c\/d\.[a-zA-Z0-9_$]{1,8}\)\)\);/
       )[0];
-      const wa = c.match(
-        /a\.[a-zA-Z0-9_$]{1,8}\/128/
-      )[0].replace('/128', '');
-      const size = code.match(
-        /1===this\.[a-zA-Z0-9_$]{1,8}\|\|\(e\+=1\)/
-      )[0].replace('1===this.', '').replace('||(e+=1)', '');
-      console.log(size);
-      
-      // console.log(lightSquares, darkSquares);
-
+      const wa = dec.match(/b\/d\.[a-zA-Z0-9_$]{1,8}/)[0].replace('b/', '');
+      const beeeeeeaniebaby = `[...document.querySelector('#size').children].indexOf(document.querySelector('#size').getElementsByClassName('tuJOWd')[0])`;
       eval(
-        c.replaceAll(
-          '#AAD751',
-          window.snake_scheme_epic_cool.light_squares
-        ).replaceAll(
-          '#a2d149',
-          window.snake_scheme_epic_cool.dark_squares
-        ).replace(
-          `Math.floor(c/${wa}),Math.floor(d/${wa})));`,
-          `
-          window.bwidth  = a.${size} === 3 ? 5 : a.${size} === 4 ? 7 : a.${size} === 5 ? 12 : a.${size} === 6 ? 37 : a.${size} === 7 ? 64 : a.${size} === 8 ? 105 : a.${size} === 9 ? 168 : a.${size} === 10 ? 600 : Math.floor(c/${wa}),
-          window.bheight = a.${size} === 3 ? 4 : a.${size} === 4 ? 6 : a.${size} === 5 ? 11 : a.${size} === 6 ? 32 : a.${size} === 7 ? 56 : a.${size} === 8 ? 92  : a.${size} === 9 ? 147 : a.${size} === 10 ? 530 : Math.floor(d/${wa})));
-
-          let squareSize = 600 / (window.bwidth);
-          if(squareSize * window.bheight > 530)
-            squareSize = 530 / window.bheight;
+        c.replace(
+          dec,
+          `${dec.match(/d\.[a-zA-Z0-9_$]{1,8}/)} = {
+            width: (${beeeeeeaniebaby}) === 3 ? 5 : (${beeeeeeaniebaby}) === 4 ? 7 : (${beeeeeeaniebaby}) === 5 ? 12 : (${beeeeeeaniebaby}) === 6 ? 37 : (${beeeeeeaniebaby}) === 7 ? 64 : (${beeeeeeaniebaby}) === 8 ? 105 : (${beeeeeeaniebaby}) === 9 ? 168 : (${beeeeeeaniebaby}) === 10 ? 600 : Math.floor(b/${wa}),
+            height: (${beeeeeeaniebaby}) === 3 ? 4 : (${beeeeeeaniebaby}) === 4 ? 6 : (${beeeeeeaniebaby}) === 5 ? 11 : (${beeeeeeaniebaby}) === 6 ? 32 : (${beeeeeeaniebaby}) === 7 ? 56 : (${beeeeeeaniebaby}) === 8 ? 92  : (${beeeeeeaniebaby}) === 9 ? 147 : (${beeeeeeaniebaby}) === 10 ? 530 : Math.floor(c/${wa})
+          });
+          let squareSize = 600 / (${dec.match(/d\.[a-zA-Z0-9_$]{1,8}/)}).width;
+          if(squareSize * (${dec.match(/d\.[a-zA-Z0-9_$]{1,8}/)}).height > 530)
+            squareSize = 530 / (${dec.match(/d\.[a-zA-Z0-9_$]{1,8}/)}).height;
           squareSize = squareSize * .98;
           if(squareSize > 1)squareSize = ~~squareSize;
-          a.${size} >= 3 && (${wa} = squareSize);
-          console.log(a.${size});`
+          (${beeeeeeaniebaby}) >= 3 && (${wa} = squareSize);
+          `
         )
       );
+      
     };
     req.send();
   }
