@@ -69,7 +69,7 @@ window.snake.more_menu = function() {
   img.class = 'DqMRee SsAred';
   document.querySelector('#speed').appendChild(img);
 
- 
+
 
   // lightning
   img = new Image;
@@ -221,11 +221,11 @@ window.snake.more_menu = function() {
       )[0].match(/[a-zA-Z0-9_$]{1,6}/)[0];
       console.log(inevilmodesf);
 
-      // const dothethingportalstyle = functio.match(
-      //   /for\(b=Math\.floor\(42\/\n?this\.[a-zA-Z0-9_$]{1,6}\.length\),[^]*?\);/
-      // )[0];
-      // const Aa = dothethingportalstyle.match(/this\.[a-zA-Z0-9_$]{1,6}/)[0];
-      // console.log(dothethingportalstyle, Aa);
+      const dothethingportalstyle = functio.match(
+        /if\([a-zA-Z0-9_$]{1,6}\(this\.settings,2\)\)for\(a=Math\.floor\(42\/?this\.[a-zA-Z0-9_$]{1,6}\.length\),[^]*?\);/
+      )[0];
+      const apples = dothethingportalstyle.match(/this\.[a-zA-Z0-9_$]{1,6}\.length/)[0].replace('.length', '');
+      console.log(dothethingportalstyle, apples);
       const modecheck = code.match(
         /[a-zA-Z0-9_$]{1,6}=function\(a,b\){return 13===a[^}]*?===b}/
       )[0].match(/[a-zA-Z0-9_$]{1,6}/)[0];
@@ -284,7 +284,7 @@ window.snake.more_menu = function() {
           `if(c=${inevilmodesf}(this.settings))`,
           `
           if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} > 2) {
-            if(!(${inevilmodesf}(this))) {
+            if(!(${inevilmodesf}(this.settings))) {
               if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} === 3) {
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 1, 2));
                 ${pafihwotyhopyplacetheiopafsjafijplesllllllll} -1, 2));
@@ -465,14 +465,20 @@ window.snake.more_menu = function() {
                   ${pafihwotyhopyplacetheiopafsjafijplesllllllll} 0, 0));
               }
             }
-
+            
+            
             
           } else if(c=${inevilmodesf}(this.settings))
           `
         ).replace(
-          'this,!1)}',
-          `this,!1);
-          this.gW[-1] = this.gW[0];
+          '=0}',
+          `=0;
+            if(${modecheck}(this.settings, 2) && ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} > 3) {
+              console.log('te');
+              for(let __i___ = 0; __i___ < ${apples}.length; __i___ += 2) {
+                ${apples}[__i___].type = ${apples}[__i___ + 1].type = ~~(Math.random() * 21);
+              }
+            }
           }`
         ).replace(/{case 1:a=\.66[^}]*?1}/, `{
           case 1:  a = .66;    break a;
