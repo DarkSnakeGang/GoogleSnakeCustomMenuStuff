@@ -208,7 +208,7 @@ window.snake.more_menu = function() {
         return;
 
       const functio = code.match(
-        /[a-zA-Z0-9_$]{1,8}\.prototype\.reset=function\(\){this\.direction="NONE";[^]*?=0}/
+        /[a-zA-Z0-9_$]{1,8}\.prototype\.reset=function\(a\){this\.[a-zA-Z0-9_$]{1,8}=\[\];[^]*?Set\)}/
       )[0];
       const thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj = functio.match(
         /0!==this\.settings\.[a-zA-Z0-9_$]{1,6}/
@@ -221,11 +221,7 @@ window.snake.more_menu = function() {
       )[0].match(/[a-zA-Z0-9_$]{1,6}/)[0];
       console.log(inevilmodesf);
 
-      const dothethingportalstyle = functio.match(
-        /if\([a-zA-Z0-9_$]{1,6}\(this\.settings,2\)\)for\(a=Math\.floor\(42\/?this\.[a-zA-Z0-9_$]{1,6}\.length\),[^]*?\);/
-      )[0];
-      const apples = dothethingportalstyle.match(/this\.[a-zA-Z0-9_$]{1,6}\.length/)[0].replace('.length', '');
-      console.log(dothethingportalstyle, apples);
+      const apples = pafihwotyhopyplacetheiopafsjafijplesllllllll.match(/this\.[a-zA-Z0-9_$]{1,6}/)[0];
       const modecheck = code.match(
         /[a-zA-Z0-9_$]{1,6}=function\(a,b\){return 14===a[^}]*?===b}/
       )[0].match(/[a-zA-Z0-9_$]{1,6}/)[0];
@@ -246,10 +242,10 @@ window.snake.more_menu = function() {
       )[0];
       
       const soup = code.match(
-        /[a-zA-Z0-9_$]{1,6}\.prototype\.tick=function\(\){[^]*?this\)}}}}/
+        /[a-zA-Z0-9_$]{1,8}\.prototype\.tick=function\(\){[^]*?this\.keys,this\.[a-zA-Z0-9_$]{1,8}\)}}}}/
       )[0];
       const f = soup.match(
-        /:this\.[a-zA-Z0-9_$]{1,6}\+=\n?1;this\.[a-zA-Z0-9_$]{1,6}\+\+;/
+        /:this\.[a-zA-Z0-9_$]{1,6}\.[a-zA-Z0-9_$]{1,8}\+=1;this\.[a-zA-Z0-9_$]{1,6}\+\+;/
       )[0];
       eval('var _soup = 1.33;');
       eval('var _soep = 1.85;');
@@ -471,8 +467,8 @@ window.snake.more_menu = function() {
           } else if(c=${inevilmodesf}(this.settings))
           `
         ).replace(
-          '=0}',
-          `=0;
+          'Set)}',
+          `Set);
             if(${modecheck}(this.settings, 2) && ${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} > 3) {
               console.log('te');
               for(let __i___ = 0; __i___ < ${apples}.length; __i___ += 2) {
@@ -480,7 +476,16 @@ window.snake.more_menu = function() {
               }
             }
           }`
-        ).replace(/{case 1:a=\.66[^}]*?1}/, `{
+        )
+      );
+        
+        
+        
+        
+      eval(
+        code.match(
+          /[a-zA-Z0-9_$]{1,8}\.prototype\.reset=function\(\){this\.[a-zA-Z0-9_$]{1,8}=null;[^]*?!0\)\)}/
+        )[0].replace(/{case 1:a=\.66[^}]*?1}/, `{
           case 1:  a = .66;    break a;
           case 2:  a = 1.33;   break a;
           case 3:  a = _soup;  break a;
@@ -593,23 +598,23 @@ window.snake.more_menu = function() {
       console.log(latests_);
 
       const c = code.match(
-        /s_\.[a-zA-Z0-9_$]{1,8}=function\(\){var a=[a-zA-Z0-9_$]{1,8}\(this\.renderer\.canvas\);[^]*?canvas[^]*?a\)}}/
+        /s_\.[a-zA-Z0-9_$]{1,8}=function\(\){var a=[a-zA-Z0-9_$]{1,8}\(this\.[a-zA-Z0-9_$]{1,8}\.canvas\);[^]*?a\)}}/
       )[0].replace('s_', latests_);
       const dec = c.match(
-        /d\.[a-zA-Z0-9_$]{1,8}=new [a-zA-Z0-9_$]{1,8}\(Math\.floor\(b\/d\.[a-zA-Z0-9_$]{1,8}\),Math\.floor\(c\/d\.[a-zA-Z0-9_$]{1,8}\)\)\);/
+        /f\.[a-zA-Z0-9_$]{1,8}=new [a-zA-Z0-9_$]{1,8}\(Math\.floor\(b\/f\.[a-zA-Z0-9_$]{1,8}\),Math\.floor\(c\/f\.[a-zA-Z0-9_$]{1,8}\)\)\);/
       )[0];
-      const wa = dec.match(/b\/d\.[a-zA-Z0-9_$]{1,8}/)[0].replace('b/', '');
+      const wa = dec.match(/b\/f\.[a-zA-Z0-9_$]{1,8}/)[0].replace('b/', '');
       const beeeeeeaniebaby = `[...document.querySelector('#size').children].indexOf(document.querySelector('#size').getElementsByClassName('tuJOWd')[0])`;
       eval(
         c.replace(
           dec,
-          `${dec.match(/d\.[a-zA-Z0-9_$]{1,8}/)} = {
+          `${dec.match(/f\.[a-zA-Z0-9_$]{1,8}/)} = {
             width: (${beeeeeeaniebaby}) === 3 ? 5 : (${beeeeeeaniebaby}) === 4 ? 7 : (${beeeeeeaniebaby}) === 5 ? 12 : (${beeeeeeaniebaby}) === 6 ? 37 : (${beeeeeeaniebaby}) === 7 ? 64 : (${beeeeeeaniebaby}) === 8 ? 105 : (${beeeeeeaniebaby}) === 9 ? 168 : (${beeeeeeaniebaby}) === 10 ? 600 : Math.floor(b/${wa}),
             height: (${beeeeeeaniebaby}) === 3 ? 4 : (${beeeeeeaniebaby}) === 4 ? 6 : (${beeeeeeaniebaby}) === 5 ? 11 : (${beeeeeeaniebaby}) === 6 ? 32 : (${beeeeeeaniebaby}) === 7 ? 56 : (${beeeeeeaniebaby}) === 8 ? 92  : (${beeeeeeaniebaby}) === 9 ? 147 : (${beeeeeeaniebaby}) === 10 ? 530 : Math.floor(c/${wa})
           });
-          let squareSize = 600 / (${dec.match(/d\.[a-zA-Z0-9_$]{1,8}/)}).width;
-          if(squareSize * (${dec.match(/d\.[a-zA-Z0-9_$]{1,8}/)}).height > 530)
-            squareSize = 530 / (${dec.match(/d\.[a-zA-Z0-9_$]{1,8}/)}).height;
+          let squareSize = 600 / (${dec.match(/f\.[a-zA-Z0-9_$]{1,8}/)}).width;
+          if(squareSize * (${dec.match(/f\.[a-zA-Z0-9_$]{1,8}/)}).height > 530)
+            squareSize = 530 / (${dec.match(/f\.[a-zA-Z0-9_$]{1,8}/)}).height;
           squareSize = squareSize * .98;
           if(squareSize > 1)squareSize = ~~squareSize;
           (${beeeeeeaniebaby}) >= 3 && (${wa} = squareSize);
