@@ -277,7 +277,7 @@ window.snake.more_menu = function() {
       );
       eval(
         functio.replace(
-          `if(c=${inevilmodesf}(this.settings))`,
+          `if(b)`,
           `
           if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} > 2) {
             if(!(${inevilmodesf}(this.settings))) {
@@ -464,7 +464,7 @@ window.snake.more_menu = function() {
             
             
             
-          } else if(c=${inevilmodesf}(this.settings))
+          } else if(b)
           `
         ).replace(
           'Set)}',
