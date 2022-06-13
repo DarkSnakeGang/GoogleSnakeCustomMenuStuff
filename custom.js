@@ -241,8 +241,9 @@ window.snake.more_menu = function() {
         /this\.settings\.[a-zA-Z0-9_$]{1,6}/
       )[0];
       
+      let corrects_ = code.match(/s_=[a-zA-Z0-9_$]{1,8}\.prototype;\n?s_\.reset=function/)[0].match(/[a-zA-Z0-9_$]{1,8}\.prototype/)[0];
       const soup = code.match(
-        /[a-zA-Z0-9_$]{1,8}\.prototype\.tick=function\(\){[^]*?this\.[a-zA-Z0-9_$]{1,8}\.keys,this\.[a-zA-Z0-9_$]{1,8}\.[a-zA-Z0-9_$]{1,8}\)}}}}/
+        /s_\.tick=function\(\){[^]*?this\.[a-zA-Z0-9_$]{1,8}\.keys,this\.[a-zA-Z0-9_$]{1,8}\.[a-zA-Z0-9_$]{1,8}\)}}}}/
       )[0];
       const f = soup.match(
         /:this\.[a-zA-Z0-9_$]{1,6}\.[a-zA-Z0-9_$]{1,8}\+=1;this\.[a-zA-Z0-9_$]{1,6}\+\+;/
@@ -250,7 +251,7 @@ window.snake.more_menu = function() {
       eval('var _soup = 1.33;');
       eval('var _soep = 1.85;');
       eval(
-        soup.replace(
+        soup.replace('s_', corrects_).replace(
           f,
           f + `_soup = Math.random() < .5 ? .66 : 1.33;
           _soep = Math.random() < .5 ? .45 : 1.85;
@@ -484,8 +485,8 @@ window.snake.more_menu = function() {
         
       eval(
         code.match(
-          /[a-zA-Z0-9_$]{1,8}\.prototype\.reset=function\(\){this\.[a-zA-Z0-9_$]{1,8}=null;[^]*?!0\)\)}/
-        )[0].replace(/{case 1:a=\.66[^}]*?1}/, `{
+          /s_\.reset=function\(\){this\.[a-zA-Z0-9_$]{1,8}=null;[^]*?!0\)\)}/
+        )[0].replace('s_', corrects_).replace(/{case 1:a=\.66[^}]*?1}/, `{
           case 1:  a = .66;    break a;
           case 2:  a = 1.33;   break a;
           case 3:  a = _soup;  break a;
