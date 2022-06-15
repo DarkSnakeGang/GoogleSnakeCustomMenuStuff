@@ -208,7 +208,7 @@ window.snake.more_menu = function() {
         return;
 
       const functio = code.match(
-        /[a-zA-Z0-9_$]{1,8}\.prototype\.reset=function\(a\){this\.[a-zA-Z0-9_$]{1,8}=\[\];[^]*?Set\)}/
+        /[a-zA-Z0-9_$]{1,8}\.prototype\.reset=function\(\){this\.[a-zA-Z0-9_$]{1,8}=\[\];[^]*?Set\)}/
       )[0];
       const thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj = functio.match(
         /0!==this\.settings\.[a-zA-Z0-9_$]{1,6}/
@@ -278,7 +278,7 @@ window.snake.more_menu = function() {
       );
       eval(
         functio.replace(
-          `if(b)`,
+          `if(a)`,
           `
           if(${thjaselcdtctedaboupplelcountthingffjfjfjfjfjfjfjfjfjfj} > 2) {
             if(!(${inevilmodesf}(this.settings))) {
@@ -465,7 +465,7 @@ window.snake.more_menu = function() {
             
             
             
-          } else if(b)
+          } else if(a)
           `
         ).replace(
           'Set)}',
