@@ -594,9 +594,10 @@ window.snake.more_menu = function() {
         )
       );
 
-      let latests_ = code.match(/s_=[a-zA-Z0-9_$]{1,8}\.prototype/g);
-      latests_ = latests_[latests_.length - 1].replace('s_=', '');
-      console.log(latests_);
+      let latests_ = code.match(
+        /s_=[a-zA-Z0-9_$]{1,8}\.prototype;\n?s_\.[a-zA-Z0-9_$]{1,8}=function\(\){var a=this\.[a-zA-Z0-9_$]{1,8}\("IoE5Ec[^]*?200\)}/
+      )[0].match(/[a-zA-Z0-9_$]{1,8}\.prototype/)[0];
+      
 
       const c = code.match(
         /s_\.[a-zA-Z0-9_$]{1,8}=function\(\){var a=[a-zA-Z0-9_$]{1,8}\(this\.[a-zA-Z0-9_$]{1,8}\.canvas\);[^]*?a\)}}/
