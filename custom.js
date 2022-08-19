@@ -223,7 +223,7 @@ window.snake.more_menu = function() {
 
       const apples = pafihwotyhopyplacetheiopafsjafijplesllllllll.match(/this\.[a-zA-Z0-9_$]{1,6}/)[0];
       const modecheck = code.match(
-        /[a-zA-Z0-9_$]{1,6}=function\(a,b\){return 14===a[^}]*?===b}/
+        /[a-zA-Z0-9_$]{1,6}=function\(a,b\){return 15===a[^}]*?===b}/
       )[0].match(/[a-zA-Z0-9_$]{1,6}/)[0];
 
       
