@@ -243,7 +243,7 @@ window.snake.more_menu = function() {
       
       let corrects_ = code.match(/s_=[a-zA-Z0-9_$]{1,8}\.prototype;\n?s_\.reset=function/)[0].match(/[a-zA-Z0-9_$]{1,8}\.prototype/)[0];
       const soup = code.match(
-        /s_\.tick=function\(\){[^]*?this\.[a-zA-Z0-9_$]{1,8}\.keys,this\.[a-zA-Z0-9_$]{1,8}\.[a-zA-Z0-9_$]{1,8}\)}}}}/
+        /s_\.tick=function\(\){[^]*?this\.[a-zA-Z0-9_$]{1,8}\.keys,\n?this\.[a-zA-Z0-9_$]{1,8}\.[a-zA-Z0-9_$]{1,8}\)}}}}/
       )[0];
       const f = soup.match(
         /:this\.[a-zA-Z0-9_$]{1,6}\.[a-zA-Z0-9_$]{1,8}\+=1;this\.[a-zA-Z0-9_$]{1,6}\+\+;/
