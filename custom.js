@@ -601,7 +601,7 @@ window.snake.more_menu = function() {
       
 
       const c = code.match(
-        /s_\.[a-zA-Z0-9_$]{1,8}=function\(\){var a=[a-zA-Z0-9_$]{1,8}\(this\.[a-zA-Z0-9_$]{1,8}\.canvas\);[^]*?a\)}}/
+        /s_\.[a-zA-Z0-9_$]{1,8}=function\(\){var a=[a-zA-Z0-9_$]{1,8}\.[a-zA-Z0-9_$]{1,8}\(this\.[a-zA-Z0-9_$]{1,8}\.canvas\);[^]*?a\)}}/
       )[0].replace('s_', latests_);
       const dec = c.match(
         /f\.[a-zA-Z0-9_$]{1,8}=new [a-zA-Z0-9_$]{1,8}\(Math\.floor\(b\/f\.[a-zA-Z0-9_$]{1,8}\),Math\.floor\(c\/f\.[a-zA-Z0-9_$]{1,8}\)\)\);/
