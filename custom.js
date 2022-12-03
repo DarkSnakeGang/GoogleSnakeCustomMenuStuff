@@ -223,7 +223,7 @@ window.snake.more_menu = function() {
 
       const apples = pafihwotyhopyplacetheiopafsjafijplesllllllll.match(/this\.[a-zA-Z0-9_$]{1,6}/)[0];
       const modecheck = code.match(
-        /[a-zA-Z0-9_$]{1,6}=function\(a,b\){return 15===a[^}]*?===b}/
+        /[a-zA-Z0-9_$]{1,6}=function\(a,b\){return 16===a[^}]*?===b}/
       )[0].match(/[a-zA-Z0-9_$]{1,6}/)[0];
 
       
@@ -246,7 +246,7 @@ window.snake.more_menu = function() {
         /s_\.tick=function\(\){[^]*?this\.[a-zA-Z0-9_$]{1,8}\.keys,\n?this\.[a-zA-Z0-9_$]{1,8}\.[a-zA-Z0-9_$]{1,8}\)}}}}/
       )[0];
       const f = soup.match(
-        /:this\.[a-zA-Z0-9_$]{1,6}\.[a-zA-Z0-9_$]{1,8}\+=1;this\.[a-zA-Z0-9_$]{1,6}\+\+;/
+        /\.5:1\.25\);this\.[a-zA-Z0-9_$]{1,6}\+\+;/
       )[0];
       eval('var _soup = 1.33;');
       eval('var _soep = 1.85;');
