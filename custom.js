@@ -574,24 +574,24 @@ window.snake.more_menu = function() {
       
 
       const meat = code.match(
-        /[a-zA-Z0-9_$]{1,6}=function\(a\){a\.[a-zA-Z0-9_$]{1,6}\.clearRect\(0,0,[^]*?0\),0,b\)}/
+        /[a-zA-Z0-9_$]{1,6}=function\(a\){var b=1===a\.settings\.[a-zA-Z0-9_$]{1,6};a\.[a-zA-Z0-9_$]{1,6}\.clearRect\(0,0,[^]*?0\),0,c,b\)}/
       )[0];
       const ul = meat.match(
-        /var b=a\.[a-zA-Z0-9_$]{1,6}\.width/
-      )[0].replace('var b=', '');
+        /var c=a\.[a-zA-Z0-9_$]{1,6}\.width/
+      )[0].replace('var c=', '');
       const mDb = meat.match(
         /a\.[a-zA-Z0-9_$]{1,6}\.render/g
       )[1].replace('.render', '');
       const Na = meat.match(
-        /1===a\.settings\.[a-zA-Z0-9_$]{1,6}/
-      )[0].replace('1===', '');
+        /1===a\.settings\.[a-zA-Z0-9_$]{1,6}/g
+      )[1].replace('1===', '');
       eval(
         meat.replace(
           '&&',
           '?'
         ).replace(
-          'd));',
-          `d)) : ${Na} !== 0 && (${mDb}.context.drawImage(document.querySelector('#speed').children[${Na}], ${ul} - 80, c.y - 80, 80, 80));`
+          'b));',
+          `b)) : ${Na} !== 0 && (${mDb}.context.drawImage(document.querySelector('#speed').children[${Na}], ${ul} - 80, d.y - 80, 80, 80));`
         )
       );
 
