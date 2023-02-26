@@ -1,0 +1,445 @@
+window.moreMenu = {};
+
+moreMenu.runCodeBefore = function() {
+  window.uiImage = function(src) {
+    let img = new Image();
+    img.src = src;
+    img.width = 40;
+    img.height = 40;
+    img.class = 'DqMRee SsAred';
+    return img;
+  };
+  
+
+  /*--sizes--*/
+  for(let src of [
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Micro.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Tiny.png?raw=true',
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAvCAYAAABzJ5OsAAABYElEQVRoQ+2Y2w7DIAxD1///6E2VRsUYJXZuFIm9AuHEMSzleC38OxZmf214oXrvZtxNMEugAtWL0QLX/JY9f3SwBGLgz31G81VHLwq+B1NXw7LvFdsSRKOkZs1tVTY8aNilbeNqmVOwTNssC+9umUzl3VXf8OC5WVb5EL9n2CYMPBPeciVPaw9CvF6ysSiCgIV9iFhtg7Q0oR8lFuUR+HrOKBGVEzLh3ROZBS99aUGWfhI8a0NTS0xv5r1ghvLIFQvl+SR4OikGvhec3XDU67CxKM+3wTVNF/JQBQsKT6xevMo1RislvJrR8Rj4E7r3L8nEmKZ8D54Br9ePHmfhmPDE792l8Xm59qS1qbbRJn63LhQ+w+9QT6NpQe9aWrQCroeVybL1q+TfUdfoclg18PXGjEelZJlYlzBoyaFGaTBJgpPGu6E3PFAWSVlp/NHKA/n/T8myjQpOWrThJYWixj+UTlgwJgIXFAAAAABJRU5ErkJggg==',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Super%20Big.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Too%20Big.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Humongous.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Too%20Big.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Way%20Too%20Big.png?raw=true',
+  ]) document.querySelector('#size').appendChild(uiImage(src));
+  
+
+
+  /*--SPEEDS--*/
+
+  for(let src of [
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/blursed.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/lightning.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Snail.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Faster%20And%20Slower.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Desert%20Bus.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Bullet.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Red%20bullet.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Purple%20bullet.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Blue%20Bullet.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/eternal.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/ultradeath.png?raw=true',
+  ]) document.querySelector('#speed').appendChild(uiImage(src));
+
+
+  /*--COUNTS--*/
+  
+  for(let src of [
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/13.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/25.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/40.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/87.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Apple%20Bomb.png?raw=true',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/nuke.png?raw=true',
+  ]) document.querySelector('#count').appendChild(uiImage(src));
+
+};
+
+moreMenu.alterSnakeCode = function(code) {
+  const resetFunction = code.match(
+    /[a-zA-Z0-9_$]{1,8}\.prototype\.reset=function\(\){this\.[a-zA-Z0-9_$]{1,8}=\[\];[^]*?Set\)}/
+  )[0];
+
+  const selectedAppleCount = resetFunction.match(
+    /0!==this\.settings\.[a-zA-Z0-9_$]{1,8}/
+  )[0].replace('0!==', '');
+
+  const applePlacementStem = resetFunction.match(
+    /this\.[a-zA-Z0-9_$]{1,8}\.push\([a-zA-Z0-9_$]{1,8}\(this,/
+  )[0];
+  const appleArray = applePlacementStem.match(/this\.[a-zA-Z0-9_$]{1,8}/)[0];
+
+  const isInBadMode = code.match(
+    /[a-zA-Z0-9_$]{1,8}=function\(a\){return [a-zA-Z0-9_$]{1,8}\(a,2\)\|\|[a-zA-Z0-9_$]{1,8}\(a,8\)\|\|[a-zA-Z0-9_$]{1,8}\(a,9\)\|\|[a-zA-Z0-9_$]{1,8}\(a,10\)}/
+  )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0];
+  const isModeSelected = code.match(
+    /[a-zA-Z0-9_$]{1,8}=function\(a,b\){return 16===a[^}]*?===b}/
+  )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0];
+
+  // handle new apple counts
+  code = code.assertReplace(resetFunction,
+    resetFunction.assertReplace(
+      'if(a)',
+      `
+      if(${selectedAppleCount} > 2) {
+        if(!${isInBadMode}(this.settings)) {
+          if(${selectedAppleCount} === 3) {
+            ${applePlacementStem} 1, 2));
+            ${applePlacementStem} -1, 2));
+            ${applePlacementStem} -3, 2));
+            ${applePlacementStem} 0, 1));
+            ${applePlacementStem} -2, 1));
+            ${applePlacementStem} 1, 0));
+            ${applePlacementStem} -1, 0));
+            ${applePlacementStem} -3, 0));
+            ${applePlacementStem} 0, -1));
+            ${applePlacementStem} -2, -1));
+            ${applePlacementStem} 1, -2));
+            ${applePlacementStem} -1, -2));
+            ${applePlacementStem} -3, -2));
+          } else if(${selectedAppleCount} === 4) {
+            ${applePlacementStem} 1, 2));
+            ${applePlacementStem} 0, 2));
+            ${applePlacementStem} -1, 2));
+            ${applePlacementStem} -2, 2));
+            ${applePlacementStem} -3, 2));
+            ${applePlacementStem} 1, 1));
+            ${applePlacementStem} 0, 1));
+            ${applePlacementStem} -1, 1));
+            ${applePlacementStem} -2, 1));
+            ${applePlacementStem} -3, 1));
+            ${applePlacementStem} 1, 0));
+            ${applePlacementStem} 0, 0));
+            ${applePlacementStem} -1, 0));
+            ${applePlacementStem} -2, 0));
+            ${applePlacementStem} -3, 0));
+            ${applePlacementStem} 1, -1));
+            ${applePlacementStem} 0, -1));
+            ${applePlacementStem} -1, -1));
+            ${applePlacementStem} -2, -1));
+            ${applePlacementStem} -3, -1));
+            ${applePlacementStem} 1, -2));
+            ${applePlacementStem} 0, -2));
+            ${applePlacementStem} -1, -2));
+            ${applePlacementStem} -2, -2));
+            ${applePlacementStem} -3, -2));
+          } else if(${selectedAppleCount} === 5) {
+            ${applePlacementStem} 1, 2));
+            ${applePlacementStem} 0, 2));
+            ${applePlacementStem} -1, 2));
+            ${applePlacementStem} -2, 2));
+            ${applePlacementStem} -3, 2));
+            ${applePlacementStem} 1, 1));
+            ${applePlacementStem} 0, 1));
+            ${applePlacementStem} -1, 1));
+            ${applePlacementStem} -2, 1));
+            ${applePlacementStem} -3, 1));
+            ${applePlacementStem} 1, 0));
+            ${applePlacementStem} 0, 0));
+            ${applePlacementStem} -1, 0));
+            ${applePlacementStem} -2, 0));
+            ${applePlacementStem} -3, 0));
+            ${applePlacementStem} 1, -1));
+            ${applePlacementStem} 0, -1));
+            ${applePlacementStem} -1, -1));
+            ${applePlacementStem} -2, -1));
+            ${applePlacementStem} -3, -1));
+            ${applePlacementStem} 1, -2));
+            ${applePlacementStem} 0, -2));
+            ${applePlacementStem} -1, -2));
+            ${applePlacementStem} -2, -2));
+            ${applePlacementStem} -3, -2));
+            ${applePlacementStem} -3, -3));
+            ${applePlacementStem} -2, -3));
+            ${applePlacementStem} -1, -3));
+            ${applePlacementStem} 0, -3));
+            ${applePlacementStem} 1, -3));
+            ${applePlacementStem} 2, -2));
+            ${applePlacementStem} 2, -1));
+            ${applePlacementStem} 2, 0));
+            ${applePlacementStem} 2, 1));
+            ${applePlacementStem} 2, 2));
+            ${applePlacementStem} 1, 3));
+            ${applePlacementStem} 0, 3));
+            ${applePlacementStem} -1, 3));
+            ${applePlacementStem} -2, 3));
+            ${applePlacementStem} -3, 3));
+          } else if(${selectedAppleCount} === 6) {
+            for (i=-7;i<3;i++) {
+              ${applePlacementStem} i, -4));
+            }
+            for (i=-7;i<3;i++) {
+              ${applePlacementStem} i, -3));
+            }
+            for (i=-7;i<3;i++) {
+              ${applePlacementStem} i, -2));
+            }
+            for (i=-7;i<3;i++) {
+              ${applePlacementStem} i, -1));
+            }
+            for (i=-3;i<3;i++) {
+              ${applePlacementStem} i, 0));
+            }
+            for (i=-7;i<3;i++) {
+              ${applePlacementStem} i, 1));
+            }
+            for (i=-7;i<3;i++) {
+              ${applePlacementStem} i, 2));
+            }
+            for (i=-7;i<3;i++) {
+              ${applePlacementStem} i, 3));
+            }
+            for (i=-7;i<3;i++) {
+              ${applePlacementStem} i, 4));
+            }
+          } else if(${selectedAppleCount} === 7) {
+            for (i=0;i<200;i++) {
+              ${applePlacementStem} -1, 0));
+            }
+          } else if(${selectedAppleCount} === 8) {
+              for (i=0;i<10000;i++) {
+                ${applePlacementStem} -1, 0));
+              }
+          } else
+            ${applePlacementStem} 100000, 1));
+
+        } else {
+          if(${selectedAppleCount} < 7)
+            for(
+              let i = 0; i < (
+                ${selectedAppleCount} === 3
+                  ? 13
+                : ${selectedAppleCount} === 4
+                  ? 25
+                : ${selectedAppleCount} === 5
+                  ? 40
+                : ${selectedAppleCount} === 6
+                  ? 100
+                : ${selectedAppleCount} === 7
+                  ? 0
+                : ${selectedAppleCount} === 8
+                  ? 0
+                : 0
+              ); i++
+            ) {
+              ${applePlacementStem} i - ~~((
+                ${selectedAppleCount} === 3
+                  ? 13
+                : ${selectedAppleCount} === 4
+                  ? 25
+                : ${selectedAppleCount} === 5
+                  ? 40
+                : ${selectedAppleCount} === 6
+                  ? 100
+                : ${selectedAppleCount} === 7
+                  ? 0
+                : ${selectedAppleCount} === 8
+                  ? 0
+                : 0
+              ) / 1.25), -4));
+              ${applePlacementStem} i- ~~((
+                ${selectedAppleCount} === 3
+                  ? 13
+                : ${selectedAppleCount} === 4
+                  ? 25
+                : ${selectedAppleCount} === 5
+                  ? 40
+                : ${selectedAppleCount} === 6
+                  ? 100
+                : ${selectedAppleCount} === 7
+                  ? 0
+                : ${selectedAppleCount} === 8
+                  ? 0
+                : 0
+              ) / 1.25), 4));
+              
+            }
+          else {
+            for(let i = 0; i < (
+              ${selectedAppleCount} === 7
+                ? 200
+              : 20000
+            ); i++)
+              ${applePlacementStem} 0, 0));
+          }
+        }
+      } else if(a)
+      `
+    ).assertReplace(
+      'Set)}',
+      `Set);
+        if(${isModeSelected}(this.settings, 2) && ${selectedAppleCount} > 3) {
+          for(let __i___ = 0; __i___ < ${appleArray}.length; __i___ += 2) {
+            ${appleArray}[__i___].type = ${appleArray}[__i___ + 1].type = ~~(Math.random() * 21);
+          }
+        }
+        
+      }`
+    )
+  );
+
+  
+  const defaultTileLength = code.match(
+    /[a-zA-Z0-9_$]{1,8}=_\.[a-zA-Z0-9_$]{1,8}\?175:135/
+  )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0];
+  const realTileLength = code.match(
+    new RegExp(`this\\.[a-zA-Z0-9_$]{1,8}=${defaultTileLength}\\*a;`)
+  )[0].match(/this\.[a-zA-Z0-9_$]{1,8}/)[0];
+  const selectedSpeed = code.match(
+    /switch\(this\.settings\.[a-zA-Z0-9_$]{1,8}\){case 1:a=\.66/
+  )[0].match(
+    /this\.settings\.[a-zA-Z0-9_$]{1,8}/
+  )[0];
+
+  const tickFunction = code.match(
+    /_\.[a-zA-Z0-9_$]{1,8}\.tick=function\(\){[^]*?this\.[a-zA-Z0-9_$]{1,8}\.keys,this\.[a-zA-Z0-9_$]{1,8}\.[a-zA-Z0-9_$]{1,8}\)}}}}/
+  )[0];
+  const replacePoint = tickFunction.match(
+    /\.5:1\.25\);this\.[a-zA-Z0-9_$]{1,8}\+\+;/
+  )[0];
+
+  window.bunnyTurtleSpeed = 1.33;
+  window.lightningSnailSpeed = 1.85;
+
+  code = code.assertReplace(tickFunction,
+    tickFunction.assertReplace(
+      replacePoint,
+      replacePoint + `
+        window.bunnyTurtleSpeed = Math.random() < .5 ? .66 : 1.33;
+        window.lightningSnailSpeed = Math.random() < .5 ? .45 : 1.85;
+        let speedMultiplier;
+        switch(${selectedSpeed}) {
+          case 1:  speedMultiplier = .66;                        break;
+          case 2:  speedMultiplier = 1.33;                       break;
+          case 3:  speedMultiplier = window.bunnyTurtleSpeed;    break;
+          case 4:  speedMultiplier = .45;                        break;
+          case 5:  speedMultiplier = 1.85;                       break;
+          case 6:  speedMultiplier = window.lightningSnailSpeed; break;
+          case 7:  speedMultiplier = 18.5;                       break;
+          case 8:  speedMultiplier = .35;                        break;
+          case 9:  speedMultiplier = .25;                        break;
+          case 10: speedMultiplier = .15;                        break;
+          case 11: speedMultiplier = .05;                        break;
+          case 12: speedMultiplier = 26640;                      break;
+          case 13: speedMultiplier = .00001;                     break;
+          default: speedMultiplier = 1;                          break;
+        }
+        ${realTileLength} = ${defaultTileLength} * speedMultiplier;
+      `
+    )
+  );
+
+  const resetFunction1 = code.match(
+    /_\.[a-zA-Z0-9_$]{1,8}\.reset=function\(\){this\.[a-zA-Z0-9_$]{1,8}=null[^]*?\.66[^]*?!0\)\)}/
+  )[0];
+
+  code = code.assertReplace(resetFunction1,
+    resetFunction1.assertReplace(
+      /{case 1:a=\.66[^}]*?1}/,
+      `{
+        case 1:  a = .66;                        break a;
+        case 2:  a = 1.33;                       break a;
+        case 3:  a = window.bunnyTurtleSpeed;    break a;
+        case 4:  a = .45;                        break a;
+        case 5:  a = 1.85;                       break a;
+        case 6:  a = window.lightningSnailSpeed; break a;
+        case 7:  a = 18.5;                       break a;
+        case 8:  a = .35;                        break a;
+        case 9:  a = .25;                        break a;
+        case 10: a = .15;                        break a;
+        case 11: a = .05;                        break a;
+        case 12: a = 26640;                      break a;
+        case 13: a = .00001;                     break a;
+        default: a = 1;                          break a;
+      }`
+    )
+  );
+
+  const speedIconFunction = code.match(
+    /[a-zA-Z0-9_$]{1,8}=function\(a\){var b=1===a\.settings\.[a-zA-Z0-9_$]{1,8};a\.[a-zA-Z0-9_$]{1,8}\.clearRect\(0,0,[^]*?0\),0,c,b\)}/
+  )[0];
+  const canvWidth = speedIconFunction.match(
+    /var c=a\.[a-zA-Z0-9_$]{1,8}\.width/
+  )[0].assertReplace('var c=', '');
+  const canv = speedIconFunction.match(
+    /a\.[a-zA-Z0-9_$]{1,8}\.render/g
+  )[1].assertReplace('.render', '');
+  const selectedSpeed1 = speedIconFunction.match(
+    /1===a\.settings\.[a-zA-Z0-9_$]{1,8}/g
+  )[1].assertReplace('1===', '');
+
+  code = code.assertReplace(speedIconFunction,
+    speedIconFunction.assertReplace(
+      '&&', '?'
+    ).assertReplace(
+      'b));',
+      `b)) : ${selectedSpeed1} !== 0 && (${canv}.context.drawImage(document.querySelector('#speed').children[${selectedSpeed1}], ${canvWidth} - 80, d.y - 80, 80, 80));`
+    )
+  );
+
+
+  const sizeHandleFunction = code.match(
+    /_\.[a-zA-Z0-9_$]{1,8}\.[a-zA-Z0-9_$]{1,8}=function\(\){var a=_\.[a-zA-Z0-9_$]{1,8}\.[a-zA-Z0-9_$]{1,8}\(this\.[a-zA-Z0-9_$]{1,8}\.canvas\);[^]*?a\)}}/
+  )[0];
+  const selectedSize = sizeHandleFunction.match(
+    /switch\(this\.settings\.[a-zA-Z0-9_$]{1,8}\){case 2:/
+  )[0].match(/this\.settings\.[a-zA-Z0-9_$]{1,8}/)[0];
+  const sizeHold = sizeHandleFunction.match(
+    /f\.[a-zA-Z0-9_$]{1,8}=new _\.[a-zA-Z0-9_$]{1,8}\(Math\.floor\(b\/f\.[a-zA-Z0-9_$]{1,8}\),Math\.floor\(c\/f\.[a-zA-Z0-9_$]{1,8}\)\)\);/
+  )[0];
+  const sizeHolder = sizeHold.match(/f\.[a-zA-Z0-9_$]{1,8}/)[0];
+  const dim = sizeHold.match(/b\/f\.[a-zA-Z0-9_$]{1,8}/)[0].replace('b/', '');
+
+  code = code.assertReplace(sizeHandleFunction,
+    sizeHandleFunction.assertReplace(
+      sizeHold,
+      `
+      ${sizeHolder} = {
+        width:  ${selectedSize} === 3 ? 5 : ${selectedSize} === 4 ? 7 : ${selectedSize} === 5 ? 12 : ${selectedSize} === 6 ? 37 : ${selectedSize} === 7 ? 64 : ${selectedSize} === 8 ? 105 : ${selectedSize} === 9 ? 168 : ${selectedSize} === 10 ? 600 : Math.floor(b/${dim}),
+        height: ${selectedSize} === 3 ? 4 : ${selectedSize} === 4 ? 6 : ${selectedSize} === 5 ? 11 : ${selectedSize} === 6 ? 32 : ${selectedSize} === 7 ? 56 : ${selectedSize} === 8 ? 92  : ${selectedSize} === 9 ? 147 : ${selectedSize} === 10 ? 530 : Math.floor(c/${dim})
+      });
+
+      let squareSize = 600 / ${sizeHolder}.width;
+      if(squareSize * ${sizeHolder}.height > 530)
+        squareSize = 530 / ${sizeHolder}.height;
+      squareSize *= .98;
+      if(squareSize > 1) squareSize = ~~squareSize;
+      ${selectedSize} >= 3 && (${dim} = squareSize);
+      `
+    )
+  );
+
+  const menuUpdateFunction = code.match(
+    /[a-zA-Z0-9_$]{1,8}\.prototype\.[a-zA-Z0-9_$]{1,8}=function\(\){if\([a-zA-Z0-9_$]{1,8}\(this\)\)[^]*?"thso6e"\)}}/
+  )[0];
+  const selectedAppleCount1 = `([...document.querySelector('#count').children].indexOf(document.querySelector('#count').getElementsByClassName('tuJOWd')[0]))`;
+
+
+  code = code.assertReplace(
+    menuUpdateFunction,
+    menuUpdateFunction.assertReplace(
+      '}}',
+      `}
+        const appleCountDisplay = document.body.getElementsByClassName('UJhXPd wSwbef EWyEF')[0];
+
+        [...appleCountDisplay.children].forEach((e, i) => i > 1 && (appleCountDisplay.removeChild(appleCountDisplay.children[i])));
+
+        if(${selectedAppleCount1} > 2) {
+          const __src = document.querySelector('#count').children[${selectedAppleCount1}].src;
+          const __img = window.uiImage(__src);
+          __img.style.position = 'relative';
+          __img.style.left = '50px';
+          appleCountDisplay.appendChild(__img);
+        }
+      }
+      `
+    )
+  );
+  
+
+  return code;
+};
+
+moreMenu.runCodeAfter = function() {
+
+};
