@@ -57,23 +57,23 @@ moreMenu.runCodeBefore = function() {
 
 moreMenu.alterSnakeCode = function(code) {
   const resetFunction = code.match(
-    /[a-zA-Z0-9_$]{1,8}\.prototype\.reset=function\(\){this\.[a-zA-Z0-9_$]{1,8}=\[\];[^]*?Set\)}/
+    /[a-zA-Z0-9_$]{1,8}\n?\.\n?prototype\n?\.\n?reset\n?=\n?function\n?\(\)\n?{\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?\[\];[^]*?Set\n?\)\n?}/
   )[0];
 
   const selectedAppleCount = resetFunction.match(
-    /0!==this\.settings\.[a-zA-Z0-9_$]{1,8}/
-  )[0].replace('0!==', '');
+    /0\n?!==\n?this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}/
+  )[0].replace(/0\n?!==/, '').replace(/\n/g, '');
 
   const applePlacementStem = resetFunction.match(
-    /this\.[a-zA-Z0-9_$]{1,8}\.push\([a-zA-Z0-9_$]{1,8}\(this,/
+    /this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?push\n?\(\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?this\n?,/
   )[0];
-  const appleArray = applePlacementStem.match(/this\.[a-zA-Z0-9_$]{1,8}/)[0];
+  const appleArray = applePlacementStem.match(/this\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0];
 
   const isInBadMode = code.match(
-    /[a-zA-Z0-9_$]{1,8}=function\(a\){return [a-zA-Z0-9_$]{1,8}\(a,2\)\|\|[a-zA-Z0-9_$]{1,8}\(a,8\)\|\|[a-zA-Z0-9_$]{1,8}\(a,9\)\|\|[a-zA-Z0-9_$]{1,8}\(a,10\)}/
+    /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(a\)\n?{\n?return [a-zA-Z0-9_$]{1,8}\n?\(\n?a\n?,\n?2\n?\)\n?\|\|\n?[a-zA-Z0-9_$]{1,8}\n?\(a\n?,\n?8\n?\)\n?\|\|\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?a\n?,\n?9\n?\)\n?\|\|\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?a\n?,\n?10\n?\)\n?}/
   )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0];
   const isModeSelected = code.match(
-    /[a-zA-Z0-9_$]{1,8}=function\(a,b\){return 16===a[^}]*?===b}/
+    /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\n?a\n?,\n?b\n?\)\n?{\n?return 16\n?===\n?a[^}]*?===\n?b\n?}/
   )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0];
 
   // handle new apple counts
@@ -280,22 +280,22 @@ moreMenu.alterSnakeCode = function(code) {
 
   
   const defaultTileLength = code.match(
-    /[a-zA-Z0-9_$]{1,8}=_\.[a-zA-Z0-9_$]{1,8}\?175:135/
+    /[a-zA-Z0-9_$]{1,8}\n?=\n?_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\?\n?175\n?:\n?135/
   )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0];
   const realTileLength = code.match(
-    new RegExp(`this\\.[a-zA-Z0-9_$]{1,8}=${defaultTileLength}\\*a;`)
+    new RegExp(`this\\n?\\.\\n?[a-zA-Z0-9_$]{1,8}\\n?=\\n?${defaultTileLength}\\n?\\*\\n?a;`)
   )[0].match(/this\.[a-zA-Z0-9_$]{1,8}/)[0];
   const selectedSpeed = code.match(
-    /switch\(this\.settings\.[a-zA-Z0-9_$]{1,8}\){case 1:a=\.66/
+    /switch\n?\(\n?this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?{\n?case 1:\n?a\n?=\n?\.66/
   )[0].match(
-    /this\.settings\.[a-zA-Z0-9_$]{1,8}/
+    /this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}/
   )[0];
 
   const tickFunction = code.match(
-    /_\.[a-zA-Z0-9_$]{1,8}\.tick=function\(\){[^]*?this\.[a-zA-Z0-9_$]{1,8}\.keys,this\.[a-zA-Z0-9_$]{1,8}\.[a-zA-Z0-9_$]{1,8}\)}}}}/
+    /_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?tick\n?=\n?function\n?\(\)\n?{\n?[^]*?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?keys\n?,\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}\n?}\n?}\n?}/
   )[0];
   const replacePoint = tickFunction.match(
-    /\.5:1\.25\);this\.[a-zA-Z0-9_$]{1,8}\+\+;/
+    /\.5\n?:\n?1\.25\n?\);\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\+\+;/
   )[0];
 
   window.bunnyTurtleSpeed = 1.33;
@@ -330,7 +330,7 @@ moreMenu.alterSnakeCode = function(code) {
   );
 
   const resetFunction1 = code.match(
-    /_\.[a-zA-Z0-9_$]{1,8}\.reset=function\(\){this\.[a-zA-Z0-9_$]{1,8}=null[^]*?\.66[^]*?!0\)\)}/
+    /_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?reset\n?=\n?function\n?\(\)\n?{\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?null[^]*?\.66[^]*?!0\n?\)\n?\)\n?}/
   )[0];
 
   code = code.assertReplace(resetFunction1,
@@ -356,17 +356,17 @@ moreMenu.alterSnakeCode = function(code) {
   );
 
   const speedIconFunction = code.match(
-    /[a-zA-Z0-9_$]{1,8}=function\(a\){var b=1===a\.settings\.[a-zA-Z0-9_$]{1,8};a\.[a-zA-Z0-9_$]{1,8}\.clearRect\(0,0,[^]*?0\),0,c,b\)}/
+    /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(a\)\n?{\n?var b\n?=\n?1\n?===\n?a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8};\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?clearRect\n?\(\n?0\n?,\n?0\n?,\n?[^]*?\n?0\n?\)\n?,\n?0\n?,\n?c\n?,\n?b\n?\)\n?}/
   )[0];
   const canvWidth = speedIconFunction.match(
-    /var c=a\.[a-zA-Z0-9_$]{1,8}\.width/
-  )[0].assertReplace('var c=', '');
+    /var c\n?=\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?width/
+  )[0].assertReplace(/var c\n?=/, '');
   const canv = speedIconFunction.match(
-    /a\.[a-zA-Z0-9_$]{1,8}\.render/g
-  )[1].assertReplace('.render', '');
+    /a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?render/g
+  )[1].assertReplace(/.\n?render/, '');
   const selectedSpeed1 = speedIconFunction.match(
-    /1===a\.settings\.[a-zA-Z0-9_$]{1,8}/g
-  )[1].assertReplace('1===', '');
+    /1\n?===\n?a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}/g
+  )[1].assertReplace(/1\n?===/, '');
 
   code = code.assertReplace(speedIconFunction,
     speedIconFunction.assertReplace(
@@ -379,16 +379,16 @@ moreMenu.alterSnakeCode = function(code) {
 
 
   const sizeHandleFunction = code.match(
-    /_\.[a-zA-Z0-9_$]{1,8}\.[a-zA-Z0-9_$]{1,8}=function\(\){var a=_\.[a-zA-Z0-9_$]{1,8}\.[a-zA-Z0-9_$]{1,8}\(this\.[a-zA-Z0-9_$]{1,8}\.canvas\);[^]*?a\)}}/
+    /_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\)\n?{\n?var a\n?=\n?_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?canvas\n?\);\n?[^]*?\n?a\n?\)\n?}\n?}/
   )[0];
   const selectedSize = sizeHandleFunction.match(
-    /switch\(this\.settings\.[a-zA-Z0-9_$]{1,8}\){case 2:/
-  )[0].match(/this\.settings\.[a-zA-Z0-9_$]{1,8}/)[0];
+    /switch\n?\(\n?this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?{\n?case 2\n?:/
+  )[0].match(/this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0];
   const sizeHold = sizeHandleFunction.match(
-    /f\.[a-zA-Z0-9_$]{1,8}=new _\.[a-zA-Z0-9_$]{1,8}\(Math\.floor\(b\/f\.[a-zA-Z0-9_$]{1,8}\),Math\.floor\(c\/f\.[a-zA-Z0-9_$]{1,8}\)\)\);/
+    /f\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?new _\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?Math\n?\.\n?floor\n?\(\n?b\n?\/\n?f\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?,\n?Math\n?\.\n?floor\n?\(\n?c\n?\/\n?f\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?\)\n?\)\n?;/
   )[0];
-  const sizeHolder = sizeHold.match(/f\.[a-zA-Z0-9_$]{1,8}/)[0];
-  const dim = sizeHold.match(/b\/f\.[a-zA-Z0-9_$]{1,8}/)[0].replace('b/', '');
+  const sizeHolder = sizeHold.match(/f\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0];
+  const dim = sizeHold.match(/b\n?\/\n?f\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0].replace(/b\n?\//, '');
 
   code = code.assertReplace(sizeHandleFunction,
     sizeHandleFunction.assertReplace(
@@ -410,7 +410,7 @@ moreMenu.alterSnakeCode = function(code) {
   );
 
   const menuUpdateFunction = code.match(
-    /[a-zA-Z0-9_$]{1,8}\.prototype\.[a-zA-Z0-9_$]{1,8}=function\(\){if\([a-zA-Z0-9_$]{1,8}\(this\)\)[^]*?"thso6e"\)}}/
+    /[a-zA-Z0-9_$]{1,8}\n?\.\n?prototype\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\)\n?{\n?if\n?\(\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?this\n?\)\n?\)\n?[^]*?"thso6e"\n?\)\n?}\n?}/
   )[0];
   const selectedAppleCount1 = `([...document.querySelector('#count').children].indexOf(document.querySelector('#count').getElementsByClassName('tuJOWd')[0]))`;
 
