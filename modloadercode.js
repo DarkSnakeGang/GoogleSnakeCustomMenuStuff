@@ -1,3 +1,4 @@
+
 window.moreMenu = {};
 
 moreMenu.runCodeBefore = function() {
@@ -330,7 +331,7 @@ moreMenu.alterSnakeCode = function(code) {
   );
 
   const resetFunction1 = code.match(
-    /_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?reset\n?=\n?function\n?\(\)\n?{\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?null[^]*?\.66[^]*?!0\n?\)\n?\)\n?}/
+    /_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?reset\n?=\n?function\n?\(a\)\n?{\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?null[^]*?\.66[^]*?!0\n?\)\n?\)\n?}/
   )[0];
 
   code = code.assertReplace(resetFunction1,
