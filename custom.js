@@ -1,3 +1,65 @@
+//Mod no longer works. Show popup message.
+
+let messageBoxEl = document.createElement('div');
+let messageStyle = `
+background-color: #ebebebd9;
+    border-radius: 1.5vh;
+    position: absolute;
+    height: unset;
+    z-index: 1000000;
+    top: 30px;
+    left: 50%;
+    backdrop-filter: blur(5px);
+    text-align: center;
+    padding: 40px;
+    transform: translate(-50%, 0);
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.4);
+    border: 1px solid #f0f0f0;
+    font-size: 2.4vh;
+`;
+let messageHtml = `
+<span id="message-close" style="
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 0.9em;
+">&#x2715</span>
+<h1 style="
+    font-family: helvetica, sans-serif;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-size: 2em;
+    font-weight: bold;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+">This mod has moved.</h1>
+<a href="https://github.com/DarkSnakeGang/GoogleSnakeModLoader" style="
+    font-family: helvetica, sans-serif;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+">https://github.com/DarkSnakeGang/GoogleSnakeModLoader</a>
+<br><br>
+<img src="https://github.com/DarkSnakeGang/GoogleSnakeModLoader/blob/main/docs/mod-loader-transparent-bg.png?raw=true" style="
+    width: 345px;
+    height: auto;
+    min-width: 65%;
+    filter: drop-shadow(0px 0px 4px rgba(0,0,0,0.2));
+">
+<br>
+<p style="
+    font-family: helvetica,sans-serif;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+">Get the new mod by clicking on the above link and following the instructions. The new mod combines several different mods together. The bookmark method no longer works as Google unintentionally broke it. We have a more detailed explanation <a href="https://github.com/DarkSnakeGang/GoogleSnakeModLoader/blob/main/docs/why_not_bookmarks.md" target="_blank">here</a>.
+The mods now require a browser extension to work. <br><br>We apologise for the inconvenience of this.</p>
+`;
+messageBoxEl.id = 'message-box';
+messageBoxEl.style = messageStyle;
+messageBoxEl.innerHTML = messageHtml;
+document.body.appendChild(messageBoxEl);
+
+document.getElementById('message-close').addEventListener('click', function() {
+  document.getElementById('message-box').remove();
+});
+
 window.snake.more_menu = function() {
   window.snake_scheme_epic_cool = window.snake_scheme_epic_cool || { light_squares: '#AAD751', dark_squares:  '#A2D149' };
   window.snake_scheme_epic_cool = window.snake_scheme_epic_cool || { light_squares: '#AAD751', dark_squares:  '#A2D149' };
@@ -229,7 +291,7 @@ window.snake.more_menu = function() {
       
 
           
-      const defaultTileLength = code.match(/[a-zA-Z0-9_$]{1,6}=[a-zA-Z0-9_$]{1,6}\?175:135/)[0].match(
+      const defaultTileLength = code.match(/[a-zA-Z0-9_$]{1,6}=_\.[a-zA-Z0-9_$]{1,6}\?175:135/)[0].match(
         /[a-zA-Z0-9_$]{1,6}/
       )[0];console.log(defaultTileLength);
       const reg = new RegExp(`this\\.[a-zA-Z0-9_$]{1,6}=${defaultTileLength}\\*a`);
