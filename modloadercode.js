@@ -29,29 +29,29 @@ moreMenu.runCodeBefore = function() {
   /*--SPEEDS--*/
 
   for(let src of [
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/blursed.png?raw=true',
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/lightning.png?raw=true',
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Snail.png?raw=true',
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Faster%20And%20Slower.png?raw=true',
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Desert%20Bus.png?raw=true',
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Bullet.png?raw=true',
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Red%20bullet.png?raw=true',
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Purple%20bullet.png?raw=true',
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Blue%20Bullet.png?raw=true',
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/eternal.png?raw=true',
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/ultradeath.png?raw=true',
+    'https://i.postimg.cc/bNYJfjyZ/Turtle-Bunny.png',
+    'https://i.postimg.cc/GtdppWvS/Lightning.png',
+    'https://i.postimg.cc/L43XWspd/Snail.png',
+    'https://i.postimg.cc/brgwSmTY/Lightning-Snail.png',
+    'https://i.postimg.cc/yN3xpXVn/Desert-Bus.png',
+    'https://i.postimg.cc/dVLVDmTv/Bullet.png',
+    'https://i.postimg.cc/4N83JFyB/Red-Bullet.png',
+    'https://i.postimg.cc/MpNKBMyB/Purple-Bullet.png',
+    'https://i.postimg.cc/qRdJmPDM/Blue-Bullet.png',
+    'https://i.postimg.cc/fL4LGtys/Eternal.png',
+    'https://i.postimg.cc/LXzX29g1/Fire-Bunny.png',
   ]) document.querySelector('#speed').appendChild(uiImage(src));
 
 
   /*--COUNTS--*/
   
   for(let src of [
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/13.png?raw=true',
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/25.png?raw=true',
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/40.png?raw=true',
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/87.png?raw=true',
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Apple%20Bomb.png?raw=true',
-    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/nuke.png?raw=true',
+    'https://i.postimg.cc/3wxCkqFN/13.png',
+    'https://i.postimg.cc/HWq26Bdv/25.png',
+    'https://i.postimg.cc/c4fc2wJx/40.png',
+    'https://i.postimg.cc/dVBjtFdg/87.png',
+    'https://i.postimg.cc/YCkxH041/Apple-Bomb.png',
+    'https://i.postimg.cc/tRZkdLQV/nuke.png',
   ]) document.querySelector('#count').appendChild(uiImage(src));
 
 };
