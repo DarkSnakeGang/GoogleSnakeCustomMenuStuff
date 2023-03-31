@@ -51,7 +51,7 @@ moreMenu.runCodeBefore = function() {
     'https://i.postimg.cc/c4fc2wJx/40.png',
     'https://i.postimg.cc/dVBjtFdg/87.png',
     'https://i.postimg.cc/YCkxH041/Apple-Bomb.png',
-    'https://i.postimg.cc/tRZkdLQV/nuke.png',
+    'https://i.postimg.cc/wMx20pWL/Nuke.png',
   ]) document.querySelector('#count').appendChild(uiImage(src));
 
 };
