@@ -49,7 +49,7 @@ moreMenu.runCodeBefore = function() {
     'https://i.postimg.cc/cJx1Lt2W/13-cr.png',
     'https://i.postimg.cc/HWq26Bdv/25.png',
     'https://i.postimg.cc/c4fc2wJx/40.png',
-    'https://i.postimg.cc/dVBjtFdg/87.png',
+    'https://i.postimg.cc/50sStLRc/87.png',
     'https://i.postimg.cc/YCkxH041/Apple-Bomb.png',
     'https://i.postimg.cc/wMx20pWL/Nuke.png',
   ]) document.querySelector('#count').appendChild(uiImage(src));
