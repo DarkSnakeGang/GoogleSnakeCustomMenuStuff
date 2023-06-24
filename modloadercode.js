@@ -70,21 +70,22 @@ moreMenu.alterSnakeCode = function(code) {
   )[0];
   const appleArray = applePlacementStem.match(/this\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0];
 
-  const isInBadMode = code.match(
+  const checkBadMode = code.match(
     /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(a\)\n?{\n?return [a-zA-Z0-9_$]{1,8}\n?\(\n?a\n?,\n?2\n?\)\n?\|\|\n?[a-zA-Z0-9_$]{1,8}\n?\(a\n?,\n?8\n?\)\n?\|\|\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?a\n?,\n?9\n?\)\n?\|\|\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?a\n?,\n?10\n?\)\n?}/
   )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0];
   const isModeSelected = code.match(
     /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\n?a\n?,\n?b\n?\)\n?{\n?return 16\n?===\n?a[^}]*?===\n?b\n?}/
   )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0];
 
+
   // handle new apple counts
   code = code.assertReplace(resetFunction,
     resetFunction.assertReplace(
       'if(a)',
       `
-      if(${selectedAppleCount} > 2) {
-        if(!${isInBadMode}(this.settings)) {
-          if(${selectedAppleCount} === 3) {
+      if(${selectedAppleCount} > 3) {
+        if(!${checkBadMode}(this.settings)) {
+          if(${selectedAppleCount} === 4) {
             ${applePlacementStem} 1, 2));
             ${applePlacementStem} -1, 2));
             ${applePlacementStem} -3, 2));
@@ -98,7 +99,7 @@ moreMenu.alterSnakeCode = function(code) {
             ${applePlacementStem} 1, -2));
             ${applePlacementStem} -1, -2));
             ${applePlacementStem} -3, -2));
-          } else if(${selectedAppleCount} === 4) {
+          } else if(${selectedAppleCount} === 5) {
             ${applePlacementStem} 1, 2));
             ${applePlacementStem} 0, 2));
             ${applePlacementStem} -1, 2));
@@ -124,7 +125,7 @@ moreMenu.alterSnakeCode = function(code) {
             ${applePlacementStem} -1, -2));
             ${applePlacementStem} -2, -2));
             ${applePlacementStem} -3, -2));
-          } else if(${selectedAppleCount} === 5) {
+          } else if(${selectedAppleCount} === 6) {
             ${applePlacementStem} 1, 2));
             ${applePlacementStem} 0, 2));
             ${applePlacementStem} -1, 2));
@@ -165,7 +166,7 @@ moreMenu.alterSnakeCode = function(code) {
             ${applePlacementStem} -1, 3));
             ${applePlacementStem} -2, 3));
             ${applePlacementStem} -3, 3));
-          } else if(${selectedAppleCount} === 6) {
+          } else if(${selectedAppleCount} === 7) {
             for (i=-7;i<3;i++) {
               ${applePlacementStem} i, -4));
             }
@@ -193,11 +194,11 @@ moreMenu.alterSnakeCode = function(code) {
             for (i=-7;i<3;i++) {
               ${applePlacementStem} i, 4));
             }
-          } else if(${selectedAppleCount} === 7) {
+          } else if(${selectedAppleCount} === 8) {
             for (i=0;i<200;i++) {
               ${applePlacementStem} -1, 0));
             }
-          } else if(${selectedAppleCount} === 8) {
+          } else if(${selectedAppleCount} === 9) {
               for (i=0;i<10000;i++) {
                 ${applePlacementStem} -1, 0));
               }
@@ -205,51 +206,51 @@ moreMenu.alterSnakeCode = function(code) {
             ${applePlacementStem} 100000, 1));
 
         } else {
-          if(${selectedAppleCount} < 7)
+          if(${selectedAppleCount} < 8)
             for(
               let i = 0; i < (
-                ${selectedAppleCount} === 3
+                ${selectedAppleCount} === 4
                   ? 13
-                : ${selectedAppleCount} === 4
-                  ? 25
                 : ${selectedAppleCount} === 5
-                  ? 40
+                  ? 25
                 : ${selectedAppleCount} === 6
-                  ? 100
+                  ? 40
                 : ${selectedAppleCount} === 7
-                  ? 0
+                  ? 100
                 : ${selectedAppleCount} === 8
+                  ? 0
+                : ${selectedAppleCount} === 9
                   ? 0
                 : 0
               ); i++
             ) {
               ${applePlacementStem} i - ~~((
-                ${selectedAppleCount} === 3
+                ${selectedAppleCount} === 4
                   ? 13
-                : ${selectedAppleCount} === 4
-                  ? 25
                 : ${selectedAppleCount} === 5
-                  ? 40
+                  ? 25
                 : ${selectedAppleCount} === 6
-                  ? 100
+                  ? 40
                 : ${selectedAppleCount} === 7
-                  ? 0
+                  ? 100
                 : ${selectedAppleCount} === 8
+                  ? 0
+                : ${selectedAppleCount} === 9
                   ? 0
                 : 0
               ) / 1.25), -4));
               ${applePlacementStem} i- ~~((
-                ${selectedAppleCount} === 3
+                ${selectedAppleCount} === 4
                   ? 13
-                : ${selectedAppleCount} === 4
-                  ? 25
                 : ${selectedAppleCount} === 5
-                  ? 40
+                  ? 25
                 : ${selectedAppleCount} === 6
-                  ? 100
+                  ? 40
                 : ${selectedAppleCount} === 7
-                  ? 0
+                  ? 100
                 : ${selectedAppleCount} === 8
+                  ? 0
+                : ${selectedAppleCount} === 9
                   ? 0
                 : 0
               ) / 1.25), 4));
@@ -257,7 +258,7 @@ moreMenu.alterSnakeCode = function(code) {
             }
           else {
             for(let i = 0; i < (
-              ${selectedAppleCount} === 7
+              ${selectedAppleCount} === 8
                 ? 200
               : 20000
             ); i++)
@@ -269,7 +270,7 @@ moreMenu.alterSnakeCode = function(code) {
     ).assertReplace(
       'Set)}',
       `Set);
-        if(${isModeSelected}(this.settings, 2) && ${selectedAppleCount} > 3) {
+        if(${isModeSelected}(this.settings, 2) && ${selectedAppleCount} > 4) {
           for(let __i___ = 0; __i___ < ${appleArray}.length; __i___ += 2) {
             ${appleArray}[__i___].type = ${appleArray}[__i___ + 1].type = ~~(Math.random() * 21);
           }
@@ -293,7 +294,7 @@ moreMenu.alterSnakeCode = function(code) {
   )[0];
 
   const tickFunction = code.match(
-    /_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?tick\n?=\n?function\n?\(\)\n?{\n?[^]*?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?keys\n?,\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}\n?}\n?}\n?}/
+    /[a-zA-Z0-9_$]{1,8}\n?\.\n?prototype\n?\.\n?tick\n?=\n?function\n?\(\)\n?{\n?[^]*?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?keys\n?,\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}\n?}\n?}\n?}/
   )[0];
   const replacePoint = tickFunction.match(
     /\.5\n?:\n?1\.25\n?\);\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\+\+;/
@@ -331,7 +332,7 @@ moreMenu.alterSnakeCode = function(code) {
   );
 
   const resetFunction1 = code.match(
-    /_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?reset\n?=\n?function\n?\(a\)\n?{\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?null[^]*?\.66[^]*?!0\n?\)\n?\)\n?}/
+    /[a-zA-Z0-9_$]{1,8}\n?\.\n?prototype\n?\.\n?reset\n?=\n?function\n?\(a\)\n?{\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?null[^]*?\.66[^]*?!0\n?\)\n?\)\n?}/
   )[0];
 
   code = code.assertReplace(resetFunction1,
