@@ -443,5 +443,9 @@ moreMenu.alterSnakeCode = function(code) {
 };
 
 moreMenu.runCodeAfter = function() {
-
+  let modIndicator = document.createElement('div');
+  modIndicator.style = 'position:absolute;font-family:Roboto,Arial,sans-serif;color:white;font-size:14px;padding-top:4px;padding-left:30px;user-select: none;';
+  modIndicator.textContent = 'More Menu Mod';
+  let canvasNode = document.getElementsByClassName('jNB0Ic')[0];
+  document.getElementsByClassName('EjCLSb')[0].insertBefore(modIndicator, canvasNode);
 };
