@@ -281,17 +281,14 @@ moreMenu.alterSnakeCode = function(code) {
   );
 
   
-  const defaultTileLength = code.match(
-    /[a-zA-Z0-9_$]{1,8}\n?=\n?_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\?\n?175\n?:\n?135/
-  )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0];
-  const realTileLength = code.match(
-    new RegExp(`this\\n?\\.\\n?[a-zA-Z0-9_$]{1,8}\\n?=\\n?${defaultTileLength}\\n?\\*\\n?a;`)
-  )[0].match(/this\.[a-zA-Z0-9_$]{1,8}/)[0];
-  const selectedSpeed = code.match(
-    /switch\n?\(\n?this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?{\n?case 1:\n?a\n?=\n?\.66/
-  )[0].match(
-    /this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}/
+  const tileLengthSetLine = code.match(
+    /this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?\(\n?a\n?\.\n?isMobile\n?\?\n?175\n?:\n?135\n?\)\n?\*\n?b\n?;/
   )[0];
+  const selectedSpeed = code.match(
+    /switch\n?\(\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?{\n?case( |\n)1\n?:\n?b\n?=\n?\.66/
+  )[0].match( 
+    /a\n?\.\n?[a-zA-Z0-9_$]{1,8}/
+  )[0].replace('a', 'this.settings');
 
   const tickFunction = code.match(
     /[a-zA-Z0-9_$]{1,8}\n?\.\n?prototype\n?\.\n?tick\n?=\n?function\n?\(\)\n?{\n?[^]*?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?keys\n?,\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}\n?}\n?}\n?}/
@@ -326,7 +323,7 @@ moreMenu.alterSnakeCode = function(code) {
           case 13: speedMultiplier = .00001;                     break;
           default: speedMultiplier = 1;                          break;
         }
-        ${realTileLength} = ${defaultTileLength} * speedMultiplier;
+        ${tileLengthSetLine.replace(/\*\n?b/, '* speedMultiplier')}
       `
     )
   );
@@ -337,28 +334,28 @@ moreMenu.alterSnakeCode = function(code) {
 
   code = code.assertReplace(resetFunction1,
     resetFunction1.assertReplace(
-      /{case 1:a=\.66[^}]*?1}/,
+      /{case 1:b=\.66[^}]*?1}/,
       `{
-        case 1:  a = .66;                        break a;
-        case 2:  a = 1.33;                       break a;
-        case 3:  a = window.bunnyTurtleSpeed;    break a;
-        case 4:  a = .45;                        break a;
-        case 5:  a = 1.85;                       break a;
-        case 6:  a = window.lightningSnailSpeed; break a;
-        case 7:  a = 18.5;                       break a;
-        case 8:  a = .35;                        break a;
-        case 9:  a = .25;                        break a;
-        case 10: a = .15;                        break a;
-        case 11: a = .05;                        break a;
-        case 12: a = 26640;                      break a;
-        case 13: a = .00001;                     break a;
-        default: a = 1;                          break a;
+        case 1:  b = .66;                        break a;
+        case 2:  b = 1.33;                       break a;
+        case 3:  b = window.bunnyTurtleSpeed;    break a;
+        case 4:  b = .45;                        break a;
+        case 5:  b = 1.85;                       break a;
+        case 6:  b = window.lightningSnailSpeed; break a;
+        case 7:  b = 18.5;                       break a;
+        case 8:  b = .35;                        break a;
+        case 9:  b = .25;                        break a;
+        case 10: b = .15;                        break a;
+        case 11: b = .05;                        break a;
+        case 12: b = 26640;                      break a;
+        case 13: b = .00001;                     break a;
+        default: b = 1;                          break a;
       }`
     )
   );
 
   const speedIconFunction = code.match(
-    /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(a\)\n?{\n?var b\n?=\n?1\n?===\n?a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8};\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?clearRect\n?\(\n?0\n?,\n?0\n?,\n?[^]*?\n?0\n?\)\n?,\n?0\n?,\n?c\n?,\n?b\n?\)\n?}/
+    /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(a\)\n?{\n?var b\n?=\n?1\n?===\n?a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8};\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?clearRect\n?\(\n?0\n?,\n?0\n?,\n?[^]*?\n?0\n?\)\n?,\n?0\n?,\n?c\n?,\n?a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}/
   )[0];
   const canvWidth = speedIconFunction.match(
     /var c\n?=\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?width/
@@ -374,8 +371,8 @@ moreMenu.alterSnakeCode = function(code) {
     speedIconFunction.assertReplace(
       '&&', '?'
     ).assertReplace(
-      'b));',
-      `b)) : ${selectedSpeed1} !== 0 && (${canv}.context.drawImage(document.querySelector('#speed').children[${selectedSpeed1}], ${canvWidth} - 80, d.y - 80, 80, 80));`
+      /\)\n?\)\n?;/,
+      `)) : ${selectedSpeed1} !== 0 && (${canv}.context.drawImage(document.querySelector('#speed').children[${selectedSpeed1}], ${canvWidth} - 80, d.y - 80, 80, 80));`
     )
   );
 
@@ -387,10 +384,10 @@ moreMenu.alterSnakeCode = function(code) {
     /switch\n?\(\n?this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?{\n?case 2\n?:/
   )[0].match(/this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0];
   const sizeHold = sizeHandleFunction.match(
-    /f\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?new _\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?Math\n?\.\n?floor\n?\(\n?b\n?\/\n?f\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?,\n?Math\n?\.\n?floor\n?\(\n?c\n?\/\n?f\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?\)\n?\)\n?;/
+    /d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?new _\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?Math\n?\.\n?floor\n?\(\n?b\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?,\n?Math\n?\.\n?floor\n?\(\n?c\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?\)\n?\)\n?;/
   )[0];
-  const sizeHolder = sizeHold.match(/f\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0];
-  const dim = sizeHold.match(/b\n?\/\n?f\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0].replace(/b\n?\//, '');
+  const sizeHolder = sizeHold.match(/d\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0];
+  const dim = sizeHold.match(/b\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0].replace(/b\n?\//, '');
 
   code = code.assertReplace(sizeHandleFunction,
     sizeHandleFunction.assertReplace(
