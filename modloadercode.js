@@ -58,7 +58,7 @@ moreMenu.runCodeBefore = function() {
 
 moreMenu.alterSnakeCode = function(code) {
   const resetFunction = code.match(
-    /[a-zA-Z0-9_$]{1,8}\n?\.\n?prototype\n?\.\n?reset\n?=\n?function\n?\(\)\n?{\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?\[\];[^]*?Set\n?\)\n?}/
+    /[a-zA-Z0-9_$]{1,8}\n?\.\n?prototype\n?\.\n?reset\n?=\n?function\n?\(\)\n?{\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?\[\];[^]*?pos\n?\)\n?}/
   )[0];
 
   const selectedAppleCount = resetFunction.match(
@@ -74,7 +74,7 @@ moreMenu.alterSnakeCode = function(code) {
     /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(a\)\n?{\n?return [a-zA-Z0-9_$]{1,8}\n?\(\n?a\n?,\n?2\n?\)\n?\|\|\n?[a-zA-Z0-9_$]{1,8}\n?\(a\n?,\n?8\n?\)\n?\|\|\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?a\n?,\n?9\n?\)\n?\|\|\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?a\n?,\n?10\n?\)\n?}/
   )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0];
   const isModeSelected = code.match(
-    /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\n?a\n?,\n?b\n?\)\n?{\n?return 16\n?===\n?a[^}]*?===\n?b\n?}/
+    /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\n?a\n?,\n?b\n?\)\n?{\n?return 17\n?===\n?a[^}]*?===\n?b\n?}/
   )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0];
 
 
@@ -268,8 +268,8 @@ moreMenu.alterSnakeCode = function(code) {
       } else if(a)
       `
     ).assertReplace(
-      'Set)}',
-      `Set);
+      'pos)}',
+      `pos)
         if(${isModeSelected}(this.settings, 2) && ${selectedAppleCount} > 4) {
           for(let __i___ = 0; __i___ < ${appleArray}.length; __i___ += 2) {
             ${appleArray}[__i___].type = ${appleArray}[__i___ + 1].type = ~~(Math.random() * 21);
@@ -390,12 +390,16 @@ moreMenu.alterSnakeCode = function(code) {
   const dim = sizeHold.match(/b\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0].replace(/b\n?\//, '');
 
   code = code.assertReplace(sizeHandleFunction,
+  // console.log(
     sizeHandleFunction.assertReplace(
       sizeHold,
       `
-      ${sizeHolder} = {
+      ${sizeHolder} = !this.settings.isMobile ? {
         width:  ${selectedSize} === 3 ? 5 : ${selectedSize} === 4 ? 7 : ${selectedSize} === 5 ? 12 : ${selectedSize} === 6 ? 37 : ${selectedSize} === 7 ? 64 : ${selectedSize} === 8 ? 105 : ${selectedSize} === 9 ? 168 : ${selectedSize} === 10 ? 600 : Math.floor(b/${dim}),
         height: ${selectedSize} === 3 ? 4 : ${selectedSize} === 4 ? 6 : ${selectedSize} === 5 ? 11 : ${selectedSize} === 6 ? 32 : ${selectedSize} === 7 ? 56 : ${selectedSize} === 8 ? 92  : ${selectedSize} === 9 ? 147 : ${selectedSize} === 10 ? 530 : Math.floor(c/${dim})
+      } : {
+        width:  ${selectedSize} === 3 ? 5 : ${selectedSize} === 4 ? 7 : ${selectedSize} === 5 ? 12 : Math.floor(b/${dim}),
+        height: ${selectedSize} === 3 ? 4 : ${selectedSize} === 4 ? 6 : ${selectedSize} === 5 ? 11 : Math.floor(c/${dim})
       });
 
       let squareSize = 600 / ${sizeHolder}.width;
@@ -403,7 +407,34 @@ moreMenu.alterSnakeCode = function(code) {
         squareSize = 530 / ${sizeHolder}.height;
       squareSize *= .98;
       if(squareSize > 1) squareSize = ~~squareSize;
-      ${selectedSize} >= 3 && (${dim} = squareSize);
+      if(${selectedSize} >= 3 && !this.settings.isMobile) ${dim} = squareSize;
+      if(this.settings.isMobile && [3, 4, 5].includes(${selectedSize}) && window.innerWidth / window.innerHeight < .55) {
+        squareSize *= window.innerWidth / window.innerHeight * 1.25
+        if(squareSize > 1) squareSize = ~~squareSize
+        ${dim} = squareSize
+      }
+      `
+    ).assertReplace(
+      'default:e=256}',
+      `
+      case 6:
+        e = 1200
+        break
+      case 7:
+        e = 3600
+        break
+      case 8:
+        e = 9700
+        break
+      case 9:
+        e = 25000
+        break
+      case 10:
+        e = 250000
+        break
+      default:
+        e = 256
+      }
       `
     )
   );
