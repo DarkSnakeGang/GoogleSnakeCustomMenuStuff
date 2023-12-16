@@ -430,12 +430,14 @@ moreMenu.alterSnakeCode = function(code) {
         e = 25000
         break
       case 10:
-        e = 250000
+        e = 318000
         break
       default:
         e = 256
       }
       `
+    ).assertReplace(
+      'Math.floor(Math.sqrt(e))', 'Math.max(1, Math.floor(Math.sqrt(e)))'
     )
   );
 
