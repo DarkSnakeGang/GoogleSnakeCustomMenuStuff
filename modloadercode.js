@@ -262,7 +262,7 @@ moreMenu.alterSnakeCode = function(code) {
                 ? 200
               : 20000
             ); i++)
-              ${applePlacementStem} 0, 0));
+              ${applePlacementStem} 0, 0)); 
           }
         }
       } else if(a)
@@ -467,6 +467,18 @@ moreMenu.alterSnakeCode = function(code) {
       `
     )
   );
+
+
+  code = code.assertReplace(
+    /switch\(\n?Math\.floor\(4\*Math\.random\(\)\)\){default:case[^}]*?}/,
+    'g = Math.floor(10 * Math.random());'
+  ).assertReplace(
+    /e=\.25>Math.random\(\)\?\.25>Math\.random\(\)\?2:1:0/,
+    'e = Math.floor(14 * Math.random())'
+  ).assertReplace(
+    /f=\.25>Math.random\(\)\?\.25>Math\.random\(\)\?2:1:0/,
+    'f = Math.floor(11 * Math.random())'
+  )
   
 
   return code;
