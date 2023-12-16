@@ -323,7 +323,7 @@ moreMenu.alterSnakeCode = function(code) {
           case 13: speedMultiplier = .00001;                     break;
           default: speedMultiplier = 1;                          break;
         }
-        ${tileLengthSetLine.replace(/\*\n?b/, '* speedMultiplier')}
+        ${tileLengthSetLine.replace(/\*\n?b/, '* speedMultiplier').replace('a.isMobile', 'this.settings.isMobile')}
       `
     )
   );
