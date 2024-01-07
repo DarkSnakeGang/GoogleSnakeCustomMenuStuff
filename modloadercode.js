@@ -18,7 +18,7 @@ moreMenu.runCodeBefore = function() {
     'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Tiny.png?raw=true',
     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAvCAYAAABzJ5OsAAABYElEQVRoQ+2Y2w7DIAxD1///6E2VRsUYJXZuFIm9AuHEMSzleC38OxZmf214oXrvZtxNMEugAtWL0QLX/JY9f3SwBGLgz31G81VHLwq+B1NXw7LvFdsSRKOkZs1tVTY8aNilbeNqmVOwTNssC+9umUzl3VXf8OC5WVb5EL9n2CYMPBPeciVPaw9CvF6ysSiCgIV9iFhtg7Q0oR8lFuUR+HrOKBGVEzLh3ROZBS99aUGWfhI8a0NTS0xv5r1ghvLIFQvl+SR4OikGvhec3XDU67CxKM+3wTVNF/JQBQsKT6xevMo1RislvJrR8Rj4E7r3L8nEmKZ8D54Br9ePHmfhmPDE792l8Xm59qS1qbbRJn63LhQ+w+9QT6NpQe9aWrQCroeVybL1q+TfUdfoclg18PXGjEelZJlYlzBoyaFGaTBJgpPGu6E3PFAWSVlp/NHKA/n/T8myjQpOWrThJYWixj+UTlgwJgIXFAAAAABJRU5ErkJggg==',
     'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Super%20Big.png?raw=true',
-    'https://i.postimg.cc/8cCNxZkR/Too-Big2.png',
+    'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Too%20Big.png?raw=true',
     'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Humongous.png?raw=true',
     'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Too%20Big.png?raw=true',
     'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Way%20Too%20Big.png?raw=true',
@@ -384,7 +384,7 @@ moreMenu.alterSnakeCode = function(code) {
     /switch\n?\(\n?this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?{\n?case 2\n?:/
   )[0].match(/this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0];
   const sizeHold = sizeHandleFunction.match(
-    /d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?new _\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?Math\n?\.\n?floor\n?\(\n?b\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?,\n?Math\n?\.\n?floor\n?\(\n?c\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?\)\n?\)\n?;/
+    /d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?new( |\n)_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?Math\n?\.\n?floor\n?\(\n?b\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?,\n?Math\n?\.\n?floor\n?\(\n?c\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?\)\n?[^]*?;/
   )[0];
   const sizeHolder = sizeHold.match(/d\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0];
   const dim = sizeHold.match(/b\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0].replace(/b\n?\//, '');
@@ -393,14 +393,14 @@ moreMenu.alterSnakeCode = function(code) {
   // console.log(
     sizeHandleFunction.assertReplace(
       sizeHold,
-      `
+      `${sizeHold}
       ${sizeHolder} = !this.settings.isMobile ? {
         width:  ${selectedSize} === 3 ? 5 : ${selectedSize} === 4 ? 7 : ${selectedSize} === 5 ? 12 : ${selectedSize} === 6 ? 37 : ${selectedSize} === 7 ? 64 : ${selectedSize} === 8 ? 105 : ${selectedSize} === 9 ? 168 : ${selectedSize} === 10 ? 600 : Math.floor(b/${dim}),
         height: ${selectedSize} === 3 ? 4 : ${selectedSize} === 4 ? 6 : ${selectedSize} === 5 ? 11 : ${selectedSize} === 6 ? 32 : ${selectedSize} === 7 ? 56 : ${selectedSize} === 8 ? 92  : ${selectedSize} === 9 ? 147 : ${selectedSize} === 10 ? 530 : Math.floor(c/${dim})
       } : {
         width:  ${selectedSize} === 3 ? 5 : ${selectedSize} === 4 ? 7 : ${selectedSize} === 5 ? 12 : Math.floor(b/${dim}),
         height: ${selectedSize} === 3 ? 4 : ${selectedSize} === 4 ? 6 : ${selectedSize} === 5 ? 11 : Math.floor(c/${dim})
-      });
+      }
 
       let squareSize = 600 / ${sizeHolder}.width;
       if(squareSize * ${sizeHolder}.height > 530)
