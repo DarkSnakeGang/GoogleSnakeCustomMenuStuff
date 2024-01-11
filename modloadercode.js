@@ -74,7 +74,7 @@ moreMenu.alterSnakeCode = function(code) {
     /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(a\)\n?{\n?return [a-zA-Z0-9_$]{1,8}\n?\(\n?a\n?,\n?2\n?\)\n?\|\|\n?[a-zA-Z0-9_$]{1,8}\n?\(a\n?,\n?8\n?\)\n?\|\|\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?a\n?,\n?9\n?\)\n?\|\|\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?a\n?,\n?10\n?\)\n?}/
   )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0];
   const isModeSelected = code.match(
-    /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\n?a\n?,\n?b\n?\)\n?{\n?return 17\n?===\n?a[^}]*?===\n?b\n?}/
+    /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\n?a\n?,\n?b\n?\)\n?{\n?return 18\n?===\n?a[^}]*?===\n?b\n?}/
   )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0];
 
 
@@ -390,33 +390,30 @@ moreMenu.alterSnakeCode = function(code) {
   const dim = sizeHold.match(/b\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0].replace(/b\n?\//, '');
 
   code = code.assertReplace(sizeHandleFunction,
-  // console.log(
     sizeHandleFunction.assertReplace(
-      sizeHold,
-      `${sizeHold}
-      ${sizeHolder} = !this.settings.isMobile ? {
-        width:  ${selectedSize} === 3 ? 5 : ${selectedSize} === 4 ? 7 : ${selectedSize} === 5 ? 12 : ${selectedSize} === 6 ? 37 : ${selectedSize} === 7 ? 64 : ${selectedSize} === 8 ? 105 : ${selectedSize} === 9 ? 168 : ${selectedSize} === 10 ? 600 : Math.floor(b/${dim}),
-        height: ${selectedSize} === 3 ? 4 : ${selectedSize} === 4 ? 6 : ${selectedSize} === 5 ? 11 : ${selectedSize} === 6 ? 32 : ${selectedSize} === 7 ? 56 : ${selectedSize} === 8 ? 92  : ${selectedSize} === 9 ? 147 : ${selectedSize} === 10 ? 530 : Math.floor(c/${dim})
-      } : {
-        width:  ${selectedSize} === 3 ? 5 : ${selectedSize} === 4 ? 7 : ${selectedSize} === 5 ? 12 : Math.floor(b/${dim}),
-        height: ${selectedSize} === 3 ? 4 : ${selectedSize} === 4 ? 6 : ${selectedSize} === 5 ? 11 : Math.floor(c/${dim})
-      }
-
-      let squareSize = 600 / ${sizeHolder}.width;
-      if(squareSize * ${sizeHolder}.height > 530)
-        squareSize = 530 / ${sizeHolder}.height;
-      squareSize *= .98;
-      if(squareSize > 1) squareSize = ~~squareSize;
-      if(${selectedSize} >= 3 && !this.settings.isMobile) ${dim} = squareSize;
-      if(this.settings.isMobile && [3, 4, 5].includes(${selectedSize}) && window.innerWidth / window.innerHeight < .55) {
-        squareSize *= window.innerWidth / window.innerHeight * 1.25
-        if(squareSize > 1) squareSize = ~~squareSize
-        ${dim} = squareSize
+      'Math.floor(Math.sqrt(e))', 'Math.max(1, Math.floor(Math.sqrt(e)))'
+    )
+    .assertReplace(
+      /new(\n| )_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?Math\n?\.\n?floor[^]*?\)\n?\)/,
+      `
+      {
+        width:  ${selectedSize} === 3 ? 5 : ${selectedSize} === 4 ? 7 : ${selectedSize} === 5 ? 12 : Math.floor(b / ${dim}),
+        height: ${selectedSize} === 3 ? 4 : ${selectedSize} === 4 ? 6 : ${selectedSize} === 5 ? 11 : Math.floor(c / ${dim})
       }
       `
-    ).assertReplace(
+    )
+    .assertReplace(
       'default:e=256}',
       `
+      case 3:
+        e = 20
+        break
+      case 4:
+        e = 42
+        break
+      case 5:
+        e = 132
+        break
       case 6:
         e = 1200
         break
@@ -437,7 +434,49 @@ moreMenu.alterSnakeCode = function(code) {
       }
       `
     ).assertReplace(
-      'Math.floor(Math.sqrt(e))', 'Math.max(1, Math.floor(Math.sqrt(e)))'
+      /21\n?\)\n?}/,
+      `
+        21)
+        break
+      case 3:
+        ${sizeHolder} = { width: 5, height: 4 }
+        break
+      case 4:
+        ${sizeHolder} = { width: 7, height: 6 }
+        break
+      case 5:
+        ${sizeHolder} = { width: 12, height: 11 }
+        break
+      case 6:
+        ${sizeHolder} = { width: 37, height: 32 }
+        break
+      case 7:
+        ${sizeHolder} = { width: 64, height: 56 }
+        break
+      case 8:
+        ${sizeHolder} = { width: 105, height: 92 }
+        break
+      case 9:
+        ${sizeHolder} = { width: 168, height: 147 }
+        break
+      case 10:
+        ${sizeHolder} = { width: 600, height: 530 }
+        break
+      }
+      if(this.settings.isMobile && [3, 4, 5].includes(${selectedSize})) {
+        let squareSize = b / ${sizeHolder}.width
+        if(squareSize * ${sizeHolder}.height > c)
+          squareSize = c / ${sizeHolder}.height
+        squareSize *= .98
+        if(squareSize > 1) squareSize = ~~squareSize
+        ${dim} = squareSize
+        if(window.innerWidth / window.innerHeight < .55) {
+          squareSize *= window.innerWidth / window.innerHeight * 1.75
+          if(squareSize > 1) squareSize = ~~squareSize
+          ${dim} = squareSize
+        }
+      }
+      `
     )
   );
 
