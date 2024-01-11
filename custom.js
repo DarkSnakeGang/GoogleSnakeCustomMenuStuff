@@ -33,12 +33,12 @@ let messageHtml = `
     margin-block-start: 0.67em;
     margin-block-end: 0.67em;
 ">This mod has moved.</h1>
-<a href="https://github.com/DarkSnakeGang/GoogleSnakeModLoader" style="
+<a href="https://googlesnakemods.com/v/current/index.html?mod=moreMenu" style="
     font-family: helvetica, sans-serif;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-">https://github.com/DarkSnakeGang/GoogleSnakeModLoader</a>
+">https://googlesnakemods.com</a>
 <br><br>
-<img src="https://github.com/DarkSnakeGang/GoogleSnakeModLoader/blob/main/docs/mod-loader-transparent-bg.png?raw=true" style="
+<img src="https://github.com/DarkSnakeGang/GoogleSnakeModLoader/blob/main/docs/mod-loader-transparent-bg-1-0-9.png?raw=true" style="
     width: 345px;
     height: auto;
     min-width: 65%;
@@ -48,8 +48,9 @@ let messageHtml = `
 <p style="
     font-family: helvetica,sans-serif;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-">Get the new mod by clicking on the above link and following the instructions. The new mod combines several different mods together. The bookmark method no longer works as Google unintentionally broke it. We have a more detailed explanation <a href="https://github.com/DarkSnakeGang/GoogleSnakeModLoader/blob/main/docs/why_not_bookmarks.md" target="_blank">here</a>.
-The mods now require a browser extension to work. <br><br>We apologise for the inconvenience of this.</p>
+">We now have a standalone site with mods built in.
+The link above will take you to a page with this mod and several others.
+The bookmark method no longer works as Google unintentionally broke it.</p>
 `;
 messageBoxEl.id = 'message-box';
 messageBoxEl.style = messageStyle;
