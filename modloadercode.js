@@ -10,7 +10,6 @@ moreMenu.runCodeBefore = function() {
     img.class = 'DqMRee SsAred';
     return img;
   };
-  
 
   /*--sizes--*/
   for(let src of [
@@ -23,7 +22,7 @@ moreMenu.runCodeBefore = function() {
     'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Too%20Big.png?raw=true',
     'https://github.com/carlgustavh/GoogleSnakeCustomMenuStuffImages/blob/main/Way%20Too%20Big.png?raw=true',
   ]) document.querySelector('#size').appendChild(uiImage(src));
-  
+
 
 
   /*--SPEEDS--*/
@@ -44,7 +43,7 @@ moreMenu.runCodeBefore = function() {
 
 
   /*--COUNTS--*/
-  
+
   for(let src of [
     'https://i.postimg.cc/cJx1Lt2W/13-cr.png',
     'https://i.postimg.cc/HWq26Bdv/25.png',
@@ -254,7 +253,7 @@ moreMenu.alterSnakeCode = function(code) {
                   ? 0
                 : 0
               ) / 1.25), 4));
-              
+
             }
           else {
             for(let i = 0; i < (
@@ -262,7 +261,7 @@ moreMenu.alterSnakeCode = function(code) {
                 ? 200
               : 20000
             ); i++)
-              ${applePlacementStem} 0, 0)); 
+              ${applePlacementStem} 0, 0));
           }
         }
       } else if(a)
@@ -275,18 +274,18 @@ moreMenu.alterSnakeCode = function(code) {
             ${appleArray}[__i___].type = ${appleArray}[__i___ + 1].type = ~~(Math.random() * 21);
           }
         }
-        
+
       }`
     )
   );
 
-  
+
   const tileLengthSetLine = code.match(
     /this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?\(\n?a\n?\.\n?isMobile\n?\?\n?175\n?:\n?135\n?\)\n?\*\n?b\n?;/
   )[0];
   const selectedSpeed = code.match(
     /switch\n?\(\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?{\n?case( |\n)1\n?:\n?b\n?=\n?\.66/
-  )[0].match( 
+  )[0].match(
     /a\n?\.\n?[a-zA-Z0-9_$]{1,8}/
   )[0].replace('a', 'this.settings');
 
@@ -518,7 +517,7 @@ moreMenu.alterSnakeCode = function(code) {
     /f=\.25>Math.random\(\)\?\.25>Math\.random\(\)\?2:1:0/,
     'f = Math.floor(11 * Math.random())'
   )
-  
+
 
   return code;
 };
