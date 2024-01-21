@@ -504,7 +504,25 @@ moreMenu.alterSnakeCode = function(code) {
       }
       `
     )
-  );
+  )
+
+
+  const pixelIssueFunction = code.match(
+    /[a-zA-Z0-9_$]{1,8}=function\(a\){var b=a\.[a-zA-Z0-9_$]{1,8};if[^]*?9\)}}/
+  )[0]
+  const pixelIssueB = pixelIssueFunction.match(
+    /var b=a\.[a-zA-Z0-9_$]{1,8}/
+  )[0].replace('var b=', '')
+  const boardDimensions = pixelIssueFunction.match(
+    /b\.[a-zA-Z0-9_$]{1,8}\.height/
+  )[0].replace('b', pixelIssueB).replace('.height', '')
+  const boardThing = pixelIssueFunction.match(
+    /b\.[a-zA-Z0-9_$]{1,8}\.[a-zA-Z0-9_$]{1,8}\[e\.y\]\[e\.x\]/
+  )[0].replace('[e.y][e.x]', '')
+  code = code.assertReplaceAll(
+    `${boardThing}[e.y][e.x]=d`,
+    `e.y >= 0 && e.y < ${boardDimensions}.height && e.x >= 0 && e.x < ${boardDimensions}.width && (${boardThing}[e.y][e.x]=d, console.log(${boardThing}))`
+  )
 
 
   code = code.assertReplace(
