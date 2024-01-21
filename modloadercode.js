@@ -521,7 +521,7 @@ moreMenu.alterSnakeCode = function(code) {
   )[0].replace('[e.y][e.x]', '')
   code = code.assertReplaceAll(
     `${boardThing}[e.y][e.x]=d`,
-    `e.y >= 0 && e.y < ${boardDimensions}.height && e.x >= 0 && e.x < ${boardDimensions}.width && (${boardThing}[e.y][e.x]=d, console.log(${boardThing}))`
+    `e.y >= 0 && e.y < ${boardDimensions}.height && e.x >= 0 && e.x < ${boardDimensions}.width && (${boardThing}[e.y][e.x] = d)`
   )
 
 
