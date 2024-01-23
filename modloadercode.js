@@ -215,11 +215,7 @@ moreMenu.alterSnakeCode = function(code) {
                 : ${selectedAppleCount} === 6
                   ? 40
                 : ${selectedAppleCount} === 7
-                  ? 100
-                : ${selectedAppleCount} === 8
-                  ? 0
-                : ${selectedAppleCount} === 9
-                  ? 0
+                  ? 87
                 : 0
               ); i++
             ) {
@@ -231,11 +227,7 @@ moreMenu.alterSnakeCode = function(code) {
                 : ${selectedAppleCount} === 6
                   ? 40
                 : ${selectedAppleCount} === 7
-                  ? 100
-                : ${selectedAppleCount} === 8
-                  ? 0
-                : ${selectedAppleCount} === 9
-                  ? 0
+                  ? 87
                 : 0
               ) / 1.25), -4));
               ${applePlacementStem} i- ~~((
@@ -246,11 +238,7 @@ moreMenu.alterSnakeCode = function(code) {
                 : ${selectedAppleCount} === 6
                   ? 40
                 : ${selectedAppleCount} === 7
-                  ? 100
-                : ${selectedAppleCount} === 8
-                  ? 0
-                : ${selectedAppleCount} === 9
-                  ? 0
+                  ? 87
                 : 0
               ) / 1.25), 4));
 
@@ -300,9 +288,12 @@ moreMenu.alterSnakeCode = function(code) {
   window.lightningSnailSpeed = 1.85;
 
   code = code.assertReplace(tickFunction,
-    tickFunction.assertReplace(
+    tickFunction.replaceAll(
+      '&&', ' && '
+    ).replace(
       replacePoint,
-      replacePoint + `
+      replacePoint
+       + `
         window.bunnyTurtleSpeed = Math.random() < .5 ? .66 : 1.33;
         window.lightningSnailSpeed = Math.random() < .5 ? .45 : 1.85;
         let speedMultiplier;
@@ -501,7 +492,7 @@ moreMenu.alterSnakeCode = function(code) {
           __img.style.left = '50px';
           appleCountDisplay.appendChild(__img);
         }
-      }
+      } 
       `
     )
   )
@@ -534,6 +525,16 @@ moreMenu.alterSnakeCode = function(code) {
   ).assertReplace(
     /f=\.25>Math.random\(\)\?\.25>Math\.random\(\)\?2:1:0/,
     'f = Math.floor(11 * Math.random())'
+  )
+
+
+
+  const appleTypeChosen = code.match(
+    /for\(a=a\.settings\.[a-zA-Z0-9_$]{1,8}/
+  )[0].match(/a\.settings\.[a-zA-Z0-9_$]{1,8}/)[0]
+  code = code.assertReplace(
+    RegExp(`for\\(a\\n?=\\n?${appleTypeChosen}\\n?;\\n?b\\.has\\n?\\(\\n?a\\n?\\)\\n?;\\n?\\)`),
+    `for(a = ${appleTypeChosen}, __i = 0; b.has(a) && __i < 23; __i++)`
   )
 
 
