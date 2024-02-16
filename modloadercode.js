@@ -77,7 +77,6 @@ moreMenu.alterSnakeCode = function(code) {
   )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0];
 
 
-  // handle new apple counts
   code = code.assertReplace(resetFunction,
     resetFunction.assertReplace(
       'if(a)',
@@ -272,7 +271,7 @@ moreMenu.alterSnakeCode = function(code) {
     /this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?\(\n?a\n?\.\n?isMobile\n?\?\n?175\n?:\n?135\n?\)\n?\*\n?b\n?;/
   )[0];
   const selectedSpeed = code.match(
-    /switch\n?\(\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?{\n?case( |\n)1\n?:\n?b\n?=\n?\.66/
+    /switch\n?\(\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?{\n?case(\n? \n?|\n)1\n?:\n?b\n?=\n?\.66/
   )[0].match(
     /a\n?\.\n?[a-zA-Z0-9_$]{1,8}/
   )[0].replace('a', 'this.settings');
@@ -368,13 +367,13 @@ moreMenu.alterSnakeCode = function(code) {
 
 
   const sizeHandleFunction = code.match(
-    /_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\)\n?{\n?var a\n?=\n?_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?\)\n?\);\n?[^]*?\n?a\n?\)\n?}\n?}/
+    /_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\n?\)\n?{\n?var(\n|\n? \n?)a\n?=\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\("[^]*?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}\n?}/
   )[0];
   const selectedSize = sizeHandleFunction.match(
     /switch\n?\(\n?this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?{\n?case 2\n?:/
   )[0].match(/this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0];
   const sizeHold = sizeHandleFunction.match(
-    /d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?new( |\n)_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?Math\n?\.\n?floor\n?\(\n?b\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?,\n?Math\n?\.\n?floor\n?\(\n?c\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?\)\n?[^]*?;/
+    /d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?new(\n? \n?|\n)_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?Math\n?\.\n?floor\n?\(\n?b\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?,\n?Math\n?\.\n?floor\n?\(\n?c\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?\)\n?[^]*?;/
   )[0];
   const sizeHolder = sizeHold.match(/d\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0];
   const dim = sizeHold.match(/b\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0].replace(/b\n?\//, '');
@@ -384,7 +383,7 @@ moreMenu.alterSnakeCode = function(code) {
       'Math.floor(Math.sqrt(e))', 'Math.max(1, Math.floor(Math.sqrt(e)))'
     )
     .assertReplace(
-      /new(\n| )_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?Math\n?\.\n?floor[^]*?\)\n?\)/,
+      /new(\n|\n? \n?)_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?Math\n?\.\n?floor[^]*?\)\n?\)/,
       `
       {
         width:  ${selectedSize} === 3 ? 5 : ${selectedSize} === 4 ? 7 : ${selectedSize} === 5 ? 12 : Math.floor(b / ${dim}),
