@@ -77,7 +77,6 @@ moreMenu.alterSnakeCode = function(code) {
   )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0];
 
 
-  // handle new apple counts
   code = code.assertReplace(resetFunction,
     resetFunction.assertReplace(
       'if(a)',
@@ -272,7 +271,7 @@ moreMenu.alterSnakeCode = function(code) {
     /this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?\(\n?a\n?\.\n?isMobile\n?\?\n?175\n?:\n?135\n?\)\n?\*\n?b\n?;/
   )[0];
   const selectedSpeed = code.match(
-    /switch\n?\(\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?{\n?case( |\n)1\n?:\n?b\n?=\n?\.66/
+    /switch\n?\(\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?{\n?case(\n? \n?|\n)1\n?:\n?b\n?=\n?\.66/
   )[0].match(
     /a\n?\.\n?[a-zA-Z0-9_$]{1,8}/
   )[0].replace('a', 'this.settings');
@@ -368,23 +367,24 @@ moreMenu.alterSnakeCode = function(code) {
 
 
   const sizeHandleFunction = code.match(
-    /_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\)\n?{\n?var a\n?=\n?_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?\)\n?\);\n?[^]*?\n?a\n?\)\n?}\n?}/
+    /_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\n?\)\n?{\n?var(\n|\n? \n?)a\n?=\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\("JI3Aqc[^]*?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}\n?}/
   )[0];
   const selectedSize = sizeHandleFunction.match(
     /switch\n?\(\n?this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?{\n?case 2\n?:/
   )[0].match(/this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0];
   const sizeHold = sizeHandleFunction.match(
-    /d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?new( |\n)_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?Math\n?\.\n?floor\n?\(\n?b\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?,\n?Math\n?\.\n?floor\n?\(\n?c\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?\)\n?[^]*?;/
+    /[a-zA-Z0-9_$]\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?new(\n? \n?|\n)_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?Math\n?\.\n?floor\n?\(\n?[a-zA-Z0-9_$]\n?\/\n?[a-zA-Z0-9_$]\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?,\n?Math\n?\.\n?floor\n?\(\n?[a-zA-Z0-9_$]\n?\/\n?[a-zA-Z0-9_$]\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?\)\n?[^]*?;/
   )[0];
-  const sizeHolder = sizeHold.match(/d\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0];
-  const dim = sizeHold.match(/b\n?\/\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0].replace(/b\n?\//, '');
+  const sizeHolder = sizeHold.match(/[a-zA-Z0-9_$]\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0];
+  const dim = sizeHold.match(/[a-zA-Z0-9_$]\n?\/\n?[a-zA-Z0-9_$]\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0].replace(/[a-zA-Z0-9_$]\n?\//, '');
+  const e = sizeHandleFunction.match(/[a-zA-Z0-9_$]\n?=\n?512/)[0][0]
 
   code = code.assertReplace(sizeHandleFunction,
     sizeHandleFunction.assertReplace(
-      'Math.floor(Math.sqrt(e))', 'Math.max(1, Math.floor(Math.sqrt(e)))'
+      `Math.floor(Math.sqrt(${e}))`, `Math.max(1, Math.floor(Math.sqrt(${e})))`
     )
     .assertReplace(
-      /new(\n| )_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?Math\n?\.\n?floor[^]*?\)\n?\)/,
+      /new(\n|\n? \n?)_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?Math\n?\.\n?floor[^]*?\)\n?\)/,
       `
       {
         width:  ${selectedSize} === 3 ? 5 : ${selectedSize} === 4 ? 7 : ${selectedSize} === 5 ? 12 : Math.floor(b / ${dim}),
@@ -393,34 +393,34 @@ moreMenu.alterSnakeCode = function(code) {
       `
     )
     .assertReplace(
-      'default:e=256}',
+      `default:${e}=256}`,
       `
       case 3:
-        e = 20
+        ${e} = 20
         break
       case 4:
-        e = 42
+        ${e} = 42
         break
       case 5:
-        e = 132
+        ${e} = 132
         break
       case 6:
-        e = 1200
+        ${e} = 1200
         break
       case 7:
-        e = 3600
+        ${e} = 3600
         break
       case 8:
-        e = 9700
+        ${e} = 9700
         break
       case 9:
-        e = 25000
+        ${e} = 25000
         break
       case 10:
-        e = 318000
+        ${e} = 318000
         break
       default:
-        e = 256
+        ${e} = 256
       }
       `
     ).assertReplace(
@@ -469,6 +469,7 @@ moreMenu.alterSnakeCode = function(code) {
       `
     )
   );
+  
 
   const menuUpdateFunction = code.match(
     /[a-zA-Z0-9_$]{1,8}\n?\.\n?prototype\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\)\n?{\n?if\n?\(\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?this\n?\)\n?\)\n?[^]*?"thso6e"\n?\)\n?}\n?}/
