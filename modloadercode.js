@@ -51,8 +51,8 @@ window.moreMenu = {
     )[0]
   
     const selectedAppleCount = resetFunction.match(
-      /0\n?!==\n?this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}/
-    )[0].replace(/0\n?!==/, '').replace(/\n/g, '')
+      /this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?!==\n?0/
+    )[0].replace(/!==\n?0/, '').replace(/\n/g, '')
   
     const applePlacementStem = resetFunction.match(
       /this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?push\n?\(\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?this\n?,/
@@ -63,7 +63,7 @@ window.moreMenu = {
       /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(a\)\n?{\n?return [a-zA-Z0-9_$]{1,8}\n?\(\n?a\n?,\n?2\n?\)\n?\|\|\n?[a-zA-Z0-9_$]{1,8}\n?\(a\n?,\n?8\n?\)\n?\|\|\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?a\n?,\n?9\n?\)\n?\|\|\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?a\n?,\n?10\n?\)\n?}/
     )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0]
     const isModeSelected = code.match(
-      /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\n?a\n?,\n?b\n?\)\n?{\n?return a\.[a-zA-Z0-9_$]{1,8}\?a\.[a-zA-Z0-9_$]{1,8}\.has\(b\):18\n?===\n?a[^]*?===\n?b\n?}/
+      /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\n?a\n?,\n?b\n?\)\n?{\n?return a\.[a-zA-Z0-9_$]{1,8}\?a\.[a-zA-Z0-9_$]{1,8}\.has\(b\):[^]*?===\n?b\n?}/
     )[0].match(/[a-zA-Z0-9_$]{1,8}/)[0]
   
   
@@ -341,7 +341,7 @@ window.moreMenu = {
     );
   
     const speedIconFunction = code.match(
-      /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(a\)\n?{\n?var b\n?=\n?1\n?===\n?a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8};\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?clearRect\n?\(\n?0\n?,\n?0\n?,\n?[^]*?\n?0\n?\)\n?,\n?0\n?,\n?c\n?,\n?a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}/
+      /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(a\)\n?{\n?var b\n?=\n?a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?===\n?1\n?;\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?clearRect\n?\(\n?0\n?,\n?0\n?,\n?[^]*?\n?0\n?\)\n?,\n?0\n?,\n?c\n?,\n?a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}/
     )[0]
     const canvWidth = speedIconFunction.match(
       /var c\n?=\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?width/
@@ -350,8 +350,8 @@ window.moreMenu = {
       /a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?render/g
     )[1].assertReplace(/.\n?render/, '')
     const selectedSpeed1 = speedIconFunction.match(
-      /1\n?===\n?a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}/g
-    )[1].assertReplace(/1\n?===/, '')
+      /a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?===\n?1/g
+    )[1].assertReplace(/\n?===\n?1/, '')
   
     code = code.assertReplace(speedIconFunction,
       speedIconFunction.assertReplace(
@@ -502,41 +502,41 @@ window.moreMenu = {
   
   
     const pixelIssueFunction = code.match(
-      /[a-zA-Z0-9_$]{1,8}=function\(a\){var b=a\.[a-zA-Z0-9_$]{1,8};if[^]*?9\)}}/
+      /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\n?a\n?\)\n?{\n?var(\n| )b\n?=\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?;\n?if[^]*?9\n?\)\n?}\n?}/
     )[0]
     const pixelIssueB = pixelIssueFunction.match(
-      /var b=a\.[a-zA-Z0-9_$]{1,8}/
-    )[0].replace('var b=', '')
+      /var(\n| )b\n?=\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}/
+    )[0].replace(/var(\n| )b\n?=\n?/, '')
     const boardDimensions = pixelIssueFunction.match(
-      /b\.[a-zA-Z0-9_$]{1,8}\.height/
-    )[0].replace('b', pixelIssueB).replace('.height', '')
+      /b\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?height/
+    )[0].replace('b', pixelIssueB).replace(/\n?\.\n?height/, '')
     const boardThing = pixelIssueFunction.match(
-      /b\.[a-zA-Z0-9_$]{1,8}\.[a-zA-Z0-9_$]{1,8}\[e\.y\]\[e\.x\]/
-    )[0].replace('[e.y][e.x]', '')
+      /b\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\[\n?e\n?\.\n?y\n?\]\n?\[\n?e\n?\.\n?x\n?\]/
+    )[0].replace(/\n?\[\n?e\n?\.\n?y\n?\]\n?\[\n?e\n?\.\n?x\n?\]/, '')
     code = code.assertReplaceAll(
-      `${boardThing}[e.y][e.x]=d`,
+      RegExp(`${boardThing}\\n?\\[\\n?e\\n?\\.\\n?y\\n?\\]\\n?\\[\\n?e\\n?\\.\\n?x\\n?\\]\\n?=\\n?d`, 'g'),
       `e.y >= 0 && e.y < ${boardDimensions}.height && e.x >= 0 && e.x < ${boardDimensions}.width && (${boardThing}[e.y][e.x] = d)`
     )
   
   
     code = code.assertReplace(
-      /switch\(\n?Math\.floor\(4\*Math\.random\(\)\)\){default:case[^}]*?}/,
+      /switch\n?\(\n?Math\n?\.\n?floor\n?\(\n?Math\n?\.\n?random\n?\(\n?\)\n?\*4\n?\)\n?\)\n?{\n?default\n?:\n?case[^}]*?}/,
       'g = Math.floor(10 * Math.random());'
     ).assertReplace(
-      /e=\.25>Math.random\(\)\?\.25>Math\.random\(\)\?2:1:0/,
+      /e\n?=\n?Math\n?\.\n?random\n?\(\n?\)\n?<\n?\.25\n?\?\n?Math\n?\.\n?random\n?\(\n?\)\n?<\n?\.25\n?\?\n?2\n?:\n?1\n?:\n?0/,
       'e = Math.floor(14 * Math.random())'
     ).assertReplace(
-      /f=\.25>Math.random\(\)\?\.25>Math\.random\(\)\?2:1:0/,
+      /f\n?=\n?Math\n?\.\n?random\n?\(\n?\)\n?<\n?\.25\n?\?\n?Math\n?\.\n?random\n?\(\n?\)\n?<\n?\.25\n?\?\n?2\n?:\n?1\n?:\n?0/,
       'f = Math.floor(11 * Math.random())'
     )
   
   
   
     const appleTypeChosen = code.match(
-      /for\(a=a\.settings\.[a-zA-Z0-9_$]{1,8}/
-    )[0].match(/a\.settings\.[a-zA-Z0-9_$]{1,8}/)[0]
+      /for\n?\(\n?a\n?=\n?a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}/
+    )[0].match(/a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0]
     code = code.assertReplace(
-      RegExp(`for\\(a\\n?=\\n?${appleTypeChosen}\\n?;\\n?b\\.has\\n?\\(\\n?a\\n?\\)\\n?;\\n?\\)`),
+      RegExp(`for\\n?\\(\\n?a\\n?=\\n?${appleTypeChosen}\\n?;\\n?b\\.has\\n?\\(\\n?a\\n?\\)\\n?;\\n?\\)`),
       `for(a = ${appleTypeChosen}, __i = 0; b.has(a) && __i < 23; __i++)`
     )
   
