@@ -47,7 +47,7 @@ window.moreMenu = {
   },
   alterSnakeCode: code => {
     const resetFunction = code.match(
-      /[a-zA-Z0-9_$]{1,8}\n?\.\n?prototype\n?\.\n?reset\n?=\n?function\n?\(\)\n?{\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?\[\];[^]*?pos\n?\)\n?}/
+      /reset\n?\(\n?\)\n?{\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?\[\];[^]*?pos\n?\)\n?}/
     )[0]
   
     const selectedAppleCount = resetFunction.match(
@@ -209,16 +209,16 @@ window.moreMenu = {
   
   
     const tileLengthSetLine = code.match(
-      /this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?\(\n?a\n?\.\n?isMobile\n?\?\n?175\n?:\n?135\n?\)\n?\*\n?b\n?;/
+      /this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?\(\n?d\n?\.\n?isMobile\n?\?\n?175\n?:\n?135\n?\)\n?\*\n?a\n?;/
     )[0]
     const selectedSpeed = code.match(
-      /switch\n?\(\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?{\n?case(\n? \n?|\n)1\n?:\n?b\n?=\n?\.66/
+      /switch\n?\(\n?d\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?{\n?case(\n? \n?|\n)1\n?:\n?a\n?=\n?\.66/
     )[0].match(
-      /a\n?\.\n?[a-zA-Z0-9_$]{1,8}/
-    )[0].replace('a', 'this.settings')
+      /d\n?\.\n?[a-zA-Z0-9_$]{1,8}/
+    )[0].replace('d', 'this.settings')
   
     const tickFunction = code.match(
-      /[a-zA-Z0-9_$]{1,8}\n?\.\n?prototype\n?\.\n?tick\n?=\n?function\n?\(\)\n?{\n?[^]*?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?keys\n?,\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}\n?}\n?}\n?}/
+      /tick\n?\(\n?\)\n?{\n?[^]*?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?keys\n?,\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}\n?}\n?}\n?}/
     )[0]
     const replacePoint = tickFunction.match(
       /\.5\n?:\n?1\.25\n?\);\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\+\+;/
@@ -281,60 +281,60 @@ window.moreMenu = {
               speedMultiplier = 1
               break
           }
-          ${tileLengthSetLine.replace(/\*\n?b/, '* speedMultiplier').replace('a.isMobile', 'this.settings.isMobile')}
+          ${tileLengthSetLine.replace(/\*\n?a/, '* speedMultiplier').replace('d.isMobile', 'this.settings.isMobile')}
         `
       )
     )
   
     const resetFunction1 = code.match(
-      /[a-zA-Z0-9_$]{1,8}\n?\.\n?prototype\n?\.\n?reset\n?=\n?function\n?\(\)\n?{\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?null[^]*?\.66[^]*?!0\n?\)\n?\)\n?}/
+      /reset\n?\(\n?\)\n?{\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?null[^]*?\.66[^]*?!0\n?\)\n?\)\n?}/
     )[0]
   
     code = code.assertReplace(resetFunction1,
       resetFunction1.assertReplace(
-        /{case 1:b=\.66[^}]*?1}/,
+        /{case 1:a=\.66[^}]*?1}/,
         `{
           case 1:
-            b = .66
+            a = .66
             break a
           case 2:
-            b = 1.33                       
+            a = 1.33                       
             break a
           case 3:
-            b = window.bunnyTurtleSpeed    
+            a = window.bunnyTurtleSpeed    
             break a
           case 4:
-            b = .45                        
+            a = .45                        
             break a
           case 5:
-            b = 1.85                       
+            a = 1.85                       
             break a
           case 6:
-            b = window.lightningSnailSpeed 
+            a = window.lightningSnailSpeed 
             break a
           case 7:
-            b = 18.5                       
+            a = 18.5                       
             break a
           case 8:
-            b = .35                        
+            a = .35                        
             break a
           case 9:
-            b = .25                        
+            a = .25                        
             break a
           case 10:
-            b = .15                        
+            a = .15                        
             break a
           case 11:
-            b = .05                        
+            a = .05                        
             break a
           case 12:
-            b = 26640                      
+            a = 26640                      
             break a
           case 13:
-            b = .00001                     
+            a = .00001                     
             break a
           default:
-            b = 1                          
+            a = 1                          
             break a
         }`
       )
@@ -344,8 +344,8 @@ window.moreMenu = {
       /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(a\)\n?{\n?var b\n?=\n?a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?===\n?1\n?;\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?clearRect\n?\(\n?0\n?,\n?0\n?,\n?[^]*?\n?0\n?\)\n?,\n?0\n?,\n?c\n?,\n?a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}/
     )[0]
     const canvWidth = speedIconFunction.match(
-      /var c\n?=\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?width/
-    )[0].assertReplace(/var c\n?=/, '')
+      /const c\n?=\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?width/
+    )[0].assertReplace(/const c\n?=/, '')
     const canv = speedIconFunction.match(
       /a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?render/g
     )[1].assertReplace(/.\n?render/, '')
@@ -364,7 +364,7 @@ window.moreMenu = {
   
   
     const sizeHandleFunction = code.match(
-      /_\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\n?\)\n?{\n?var(\n|\n? \n?)a\n?=\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\("JI3Aqc[^]*?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}\n?}/
+      /[a-zA-Z0-9_$]{1,8}\n?\(\n?\)\n?{\n?var(\n|\n? \n?)a\n?=\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\("JI3Aqc[^]*?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}\n?}/
     )[0]
     const selectedSize = sizeHandleFunction.match(
       /switch\n?\(\n?this\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?{\n?case 2\n?:/
@@ -471,7 +471,7 @@ window.moreMenu = {
     
   
     const menuUpdateFunction = code.match(
-      /[a-zA-Z0-9_$]{1,8}\n?\.\n?prototype\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\)\n?{\n?if\n?\(\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?this\n?\)\n?\)\n?[^]*?"thso6e"\n?\)\n?}\n?}/
+      /[a-zA-Z0-9_$]{1,8}\n?\(\n?\)\n?{\n?if\n?\(\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?this\n?\)\n?\)\n?[^]*?"thso6e"\n?\)\n?}\n?}/
     )[0]
     const selectedAppleCount1 = `([...document.querySelector('#count').children].indexOf(document.querySelector('#count').getElementsByClassName('tuJOWd')[0]))`
   
@@ -511,23 +511,23 @@ window.moreMenu = {
       /b\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?height/
     )[0].replace('b', pixelIssueB).replace(/\n?\.\n?height/, '')
     const boardThing = pixelIssueFunction.match(
-      /b\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\[\n?e\n?\.\n?y\n?\]\n?\[\n?e\n?\.\n?x\n?\]/
-    )[0].replace(/\n?\[\n?e\n?\.\n?y\n?\]\n?\[\n?e\n?\.\n?x\n?\]/, '')
+      /b\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\[\n?d\n?\.\n?y\n?\]\n?\[\n?d\n?\.\n?x\n?\]/
+    )[0].replace(/\n?\[\n?d\n?\.\n?y\n?\]\n?\[\n?d\n?\.\n?x\n?\]/, '')
     code = code.assertReplaceAll(
-      RegExp(`${boardThing}\\n?\\[\\n?e\\n?\\.\\n?y\\n?\\]\\n?\\[\\n?e\\n?\\.\\n?x\\n?\\]\\n?=\\n?d`, 'g'),
-      `e.y >= 0 && e.y < ${boardDimensions}.height && e.x >= 0 && e.x < ${boardDimensions}.width && (${boardThing}[e.y][e.x] = d)`
+      RegExp(`${boardThing}\\n?\\[\\n?c\\n?\\.\\n?y\\n?\\]\\n?\\[\\n?c\\n?\\.\\n?x\\n?\\]\\n?=\\n?e`, 'g'),
+      `c.y >= 0 && c.y < ${boardDimensions}.height && c.x >= 0 && c.x < ${boardDimensions}.width && (${boardThing}[c.y][c.x] = e)`
     )
   
   
     code = code.assertReplace(
       /switch\n?\(\n?Math\n?\.\n?floor\n?\(\n?Math\n?\.\n?random\n?\(\n?\)\n?\*4\n?\)\n?\)\n?{\n?default\n?:\n?case[^}]*?}/,
-      'g = Math.floor(10 * Math.random());'
-    ).assertReplace(
-      /e\n?=\n?Math\n?\.\n?random\n?\(\n?\)\n?<\n?\.25\n?\?\n?Math\n?\.\n?random\n?\(\n?\)\n?<\n?\.25\n?\?\n?2\n?:\n?1\n?:\n?0/,
-      'e = Math.floor(14 * Math.random())'
+      'h = Math.floor(10 * Math.random());'
     ).assertReplace(
       /f\n?=\n?Math\n?\.\n?random\n?\(\n?\)\n?<\n?\.25\n?\?\n?Math\n?\.\n?random\n?\(\n?\)\n?<\n?\.25\n?\?\n?2\n?:\n?1\n?:\n?0/,
-      'f = Math.floor(11 * Math.random())'
+      'f = Math.floor(14 * Math.random())'
+    ).assertReplace(
+      /g\n?=\n?Math\n?\.\n?random\n?\(\n?\)\n?<\n?\.25\n?\?\n?Math\n?\.\n?random\n?\(\n?\)\n?<\n?\.25\n?\?\n?2\n?:\n?1\n?:\n?0/,
+      'g = Math.floor(11 * Math.random())'
     )
   
   
@@ -535,9 +535,10 @@ window.moreMenu = {
     const appleTypeChosen = code.match(
       /for\n?\(\n?a\n?=\n?a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}/
     )[0].match(/a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}/)[0]
+
     code = code.assertReplace(
-      RegExp(`for\\n?\\(\\n?a\\n?=\\n?${appleTypeChosen}\\n?;\\n?b\\.has\\n?\\(\\n?a\\n?\\)\\n?;\\n?\\)`),
-      `for(a = ${appleTypeChosen}, __i = 0; b.has(a) && __i < 23; __i++)`
+      RegExp(`for\\n?\\(\\n?a\\n?=\\n?${appleTypeChosen}\\n?;\\n?c\\.has\\n?\\(\\n?a\\n?\\)\\n?;\\n?\\)`),
+      `for(a = ${appleTypeChosen}, __i = 0; c.has(a) && __i < 23; __i++)`
     )
   
   
