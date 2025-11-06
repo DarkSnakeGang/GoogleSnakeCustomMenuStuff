@@ -199,7 +199,7 @@ window.moreMenu = {
         `pos)
           if(${isModeSelected}(this.settings, 2) && ${selectedAppleCount} > 4) {
             for(let __i___ = 0; __i___ < ${appleArray}.length; __i___ += 2) {
-              ${appleArray}[__i___].type = ${appleArray}[__i___ + 1].type = Math.floor(Math.random() * 21)
+              ${appleArray}[__i___].type = ${appleArray}[__i___ + 1].type = Math.floor(Math.random() * 24)
             }
           }
   
@@ -538,7 +538,7 @@ window.moreMenu = {
 
     code = code.assertReplace(
       RegExp(`for\\n?\\(\\n?a\\n?=\\n?${appleTypeChosen}\\n?;\\n?c\\.has\\n?\\(\\n?a\\n?\\)\\n?;\\n?\\)`),
-      `for(a = ${appleTypeChosen}, __i = 0; c.has(a) && __i < 23; __i++)`
+      `for(a = ${appleTypeChosen}, __i = 0; c.has(a) && __i < 24; __i++)`
     )
   
   
