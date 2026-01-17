@@ -71,10 +71,10 @@ window.moreMenu = {
       resetFunction.assertReplace(
         'if(a)',
         `
-        if(${selectedAppleCount} > 3) {
+        if(${selectedAppleCount} > 5) {
 
           if(!${checkBadMode}(this.settings)) {
-            if(${selectedAppleCount} === 4) {
+            if(${selectedAppleCount} === 6) {
               ${applePlacementStem} +1, +2))
               ${applePlacementStem} -1, +2))
               ${applePlacementStem} -3, +2))
@@ -88,7 +88,7 @@ window.moreMenu = {
               ${applePlacementStem} +1, -2))
               ${applePlacementStem} -1, -2))
               ${applePlacementStem} -3, -2))
-            } else if(${selectedAppleCount} === 5) {
+            } else if(${selectedAppleCount} === 7) {
               ${applePlacementStem} +1, +2))
               ${applePlacementStem} +0, +2))
               ${applePlacementStem} -1, +2))
@@ -114,7 +114,7 @@ window.moreMenu = {
               ${applePlacementStem} -1, -2))
               ${applePlacementStem} -2, -2))
               ${applePlacementStem} -3, -2))
-            } else if(${selectedAppleCount} === 6) {
+            } else if(${selectedAppleCount} === 8) {
               ${applePlacementStem} +1, +2))
               ${applePlacementStem} +0, +2))
               ${applePlacementStem} -1, +2))
@@ -155,14 +155,14 @@ window.moreMenu = {
               ${applePlacementStem} -1, +3))
               ${applePlacementStem} -2, +3))
               ${applePlacementStem} -3, +3))
-            } else if(${selectedAppleCount} === 7) {
+            } else if(${selectedAppleCount} === 9) {
               for(let dy = -4; dy <= 4; dy++)
                 for(let dx = -7; dx <= 2; dx++)
                   ${applePlacementStem} dx, dy))
-            } else if(${selectedAppleCount} === 8) {
+            } else if(${selectedAppleCount} === 10) {
               for(let i = 0; i < 200; i++)
                 ${applePlacementStem} -1, +0))
-            } else if(${selectedAppleCount} === 9) {
+            } else if(${selectedAppleCount} === 11) {
               for(let i = 0; i < 10000; i++)
                 ${applePlacementStem} -1, +0))
             } else
@@ -170,17 +170,17 @@ window.moreMenu = {
   
           } else {
 
-            if(${selectedAppleCount} < 9) {
+            if(${selectedAppleCount} < 11) {
               const count = (
-                ${selectedAppleCount} === 4
+                ${selectedAppleCount} === 6
                   ? 13
-                : ${selectedAppleCount} === 5
-                  ? 25
-                : ${selectedAppleCount} === 6
-                  ? 40
                 : ${selectedAppleCount} === 7
-                  ? 87
+                  ? 25
                 : ${selectedAppleCount} === 8
+                  ? 40
+                : ${selectedAppleCount} === 9
+                  ? 87
+                : ${selectedAppleCount} === 10
                   ? 200
                 : 0
               )
@@ -197,7 +197,7 @@ window.moreMenu = {
       ).assertReplace(
         'pos)}',
         `pos)
-          if(${isModeSelected}(this.settings, 2) && ${selectedAppleCount} > 4) {
+          if(${isModeSelected}(this.settings, 2) && ${selectedAppleCount} > 6) {
             for(let __i___ = 0; __i___ < ${appleArray}.length; __i___ += 2) {
               ${appleArray}[__i___].type = ${appleArray}[__i___ + 1].type = Math.floor(Math.random() * 24)
             }
@@ -488,7 +488,7 @@ window.moreMenu = {
             appleCountDisplay.removeChild(appleCountDisplay.children[i])
           }
 
-          if(${selectedAppleCount1} > 2) {
+          if(${selectedAppleCount1} > 3) {
             const __src = document.querySelector('#count').children[${selectedAppleCount1}].src
             const __img = window.uiImage(__src)
             __img.style.position = 'relative'
@@ -520,8 +520,8 @@ window.moreMenu = {
   
   
     code = code.assertReplace(
-      /switch\n?\(\n?Math\n?\.\n?floor\n?\(\n?Math\n?\.\n?random\n?\(\n?\)\n?\*\n?4\n?\)\n?\)\n?{\n?default\n?:\n?case[^}]*?}/,
-      'h = Math.floor(10 * Math.random());'
+      /switch\n?\(\n?Math\n?\.\n?floor\n?\(\n?Math\n?\.\n?random\n?\(\n?\)\n?\*\n?6\n?\)\n?\)\n?{\n?default\n?:\n?case[^}]*?}/,
+      'h = Math.floor(12 * Math.random());'
     ).assertReplace(
       /f\n?=\n?Math\n?\.\n?random\n?\(\n?\)\n?<\n?\.25\n?\?\n?Math\n?\.\n?random\n?\(\n?\)\n?<\n?\.25\n?\?\n?2\n?:\n?1\n?:\n?0/,
       'f = Math.floor(14 * Math.random())'
