@@ -540,6 +540,13 @@ window.moreMenu = {
       RegExp(`for\\n?\\(\\n?a\\n?=\\n?${appleTypeChosen}\\n?;\\n?c\\.has\\n?\\(\\n?a\\n?\\)\\n?;\\n?\\)`),
       `for(a = ${appleTypeChosen}, __i = 0; c.has(a) && __i < 24; __i++)`
     )
+
+    // pause mod code
+    code = assertReplace(
+      code,
+      /\(this\.Aa\.direction!=="NONE"\|\|CUD\(this\.Aa\)\)/,
+      "((this.Aa.direction!==\"NONE\"||CUD(this.Aa))&&!window.pauseGame)"
+    );
   
   
     return code
@@ -550,5 +557,22 @@ window.moreMenu = {
     modIndicator.textContent = 'More Menu Mod'
     const canvasNode = document.getElementsByClassName('jNB0Ic')[0]
     document.getElementsByClassName('EjCLSb')[0].insertBefore(modIndicator, canvasNode)
+
+    // pause mod code
+    function keydownHandler(e){
+      if(e.code === "KeyQ"){
+        window.pauseGame = !window.pauseGame;
+        if(window.pauseGame){
+          document.querySelector("body > div.Czus3 > div > div.wjOYOd").style.visibility = "visible";
+          document.querySelector("body > div.Czus3 > div > div.wjOYOd").style.opacity = 1;
+          document.querySelector("body > div.Czus3 > div > div.wjOYOd > div").style.visibility = "hidden";
+        } else {
+          setTimeout(()=>{if(!window.pauseGame){document.querySelector("body > div.Czus3 > div > div.wjOYOd > div").style.visibility = "visible";}},500);
+          document.querySelector("body > div.Czus3 > div > div.wjOYOd").style.visibility = "hidden";
+          document.querySelector("body > div.Czus3 > div > div.wjOYOd").style.opacity = 0;
+        }
+      }
+    }
+    document.addEventListener('keydown', keydownHandler);
   }
 }
