@@ -11,3 +11,4 @@ Learn more and get the extension [here.](https://github.com/DarkSnakeGang/Google
 * [ScienceCrafter](https://github.com/ScienceCrafter)
 * [BrightyLighty](https://github.com/BrightyLighty), technically 
 * [carlgustavh](https://github.com/carlgustavh) (Only Sprites)
+* [y](https://github.com/yIsThisMyName)
