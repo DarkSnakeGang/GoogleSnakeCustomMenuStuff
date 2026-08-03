@@ -344,8 +344,8 @@ window.moreMenu = {
       /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(a\)\n?{\n?var b\n?=\n?a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?===\n?1\n?;\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?clearRect\n?\(\n?0\n?,\n?0\n?,\n?[^]*?\n?0\n?\)\n?,\n?0\n?,\n?c\n?,\n?a\n?\.\n?settings\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}/
     )[0]
     const canvWidth = speedIconFunction.match(
-      /const c\n?=\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?width/
-    )[0].assertReplace(/const c\n?=/, '')
+      /var c\n?=\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?width/
+    )[0].assertReplace(/var c\n?=/, '')
     const canv = speedIconFunction.match(
       /a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?render/g
     )[1].assertReplace(/.\n?render/, '')
@@ -502,7 +502,7 @@ window.moreMenu = {
   
   
     const pixelIssueFunction = code.match(
-      /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\n?a\n?\)\n?{\n?var(\n| )b\n?=\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?;\n?if[^]*?9\n?\)\n?}\n?}/
+      /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\n?a\n?\)\n?{\n?var(\n| )b\n?=\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?;\n?if[^]*?10\n?}\n?}\n?}/
     )[0]
     const pixelIssueB = pixelIssueFunction.match(
       /var(\n| )b\n?=\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}/
@@ -542,37 +542,55 @@ window.moreMenu = {
     )
 
     // pause mod code
-    code = assertReplace(
-      code,
-      /\(this\.Aa\.direction!=="NONE"\|\|CUD\(this\.Aa\)\)/,
-      "((this.Aa.direction!==\"NONE\"||CUD(this.Aa))&&!window.pauseGame)"
-    );
+    const pauseCondition = code.match(
+      /\(\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?direction\n?!==\n?"NONE"\n?\|\|\n?[a-zA-Z0-9_$]{1,8}\n?\(\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?\)/
+    )[0]
+
+    code = code.assertReplace(
+      pauseCondition,
+      `(${pauseCondition} && !window.pauseGame)`
+    )
   
   
     return code
   },
   runCodeAfter: () => {
-    const modIndicator = document.createElement('div');
-    modIndicator.style = 'position:absolute;font-family:Roboto,Arial,sans-serif;color:white;font-size:14px;padding-top:4px;padding-left:30px;user-select: none;'
+    const modIndicator = document.createElement('div')
+    modIndicator.style = `
+      position: absolute;
+      font-family: Roboto, Arial, sans-serif;
+      color: white;
+      font-size: 14px;
+      padding-top: 4px;
+      padding-left: 30px;
+      user-select: none;
+    `
     modIndicator.textContent = 'More Menu Mod'
     const canvasNode = document.getElementsByClassName('jNB0Ic')[0]
     document.getElementsByClassName('EjCLSb')[0].insertBefore(modIndicator, canvasNode)
 
     // pause mod code
-    function keydownHandler(e){
-      if(e.code === "KeyQ"){
-        window.pauseGame = !window.pauseGame;
-        if(window.pauseGame){
-          document.querySelector("body > div.Czus3 > div > div.wjOYOd").style.visibility = "visible";
-          document.querySelector("body > div.Czus3 > div > div.wjOYOd").style.opacity = 1;
-          document.querySelector("body > div.Czus3 > div > div.wjOYOd > div").style.visibility = "hidden";
+    document.addEventListener('keydown', evt => {
+      if(evt.code === 'KeyQ') {
+        window.pauseGame = !window.pauseGame
+
+        const pausedDarkOverlayDiv = document.getElementsByClassName('wjOYOd')[0]
+        const menuDiv = pausedDarkOverlayDiv.children[0]
+
+        if(window.pauseGame) {
+          pausedDarkOverlayDiv.style.visibility = "visible"
+          pausedDarkOverlayDiv.style.opacity = 1
+          menuDiv.style.visibility = "hidden"
         } else {
-          setTimeout(()=>{if(!window.pauseGame){document.querySelector("body > div.Czus3 > div > div.wjOYOd > div").style.visibility = "visible";}},500);
-          document.querySelector("body > div.Czus3 > div > div.wjOYOd").style.visibility = "hidden";
-          document.querySelector("body > div.Czus3 > div > div.wjOYOd").style.opacity = 0;
+          setTimeout(() => {
+            if(!window.pauseGame) {
+              menuDiv.style.visibility = "visible"
+            }
+          }, 500)
+          pausedDarkOverlayDiv.style.visibility = "hidden"
+          pausedDarkOverlayDiv.style.opacity = 0
         }
       }
-    }
-    document.addEventListener('keydown', keydownHandler);
+    })
   }
 }
