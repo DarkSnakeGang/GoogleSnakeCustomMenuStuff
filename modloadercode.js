@@ -47,7 +47,7 @@ window.moreMenu = {
   },
   alterSnakeCode: code => {
     const resetFunction = code.match(
-      /reset\n?\(\n?\)\n?{\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?\[\];[^]*?pos\n?\)\n?}/
+      /reset\n?\(\n?\)\n?{\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?\[\];[^]*?!1\n?\)\n?}/
     )[0]
   
     const selectedAppleCount = resetFunction.match(
@@ -71,10 +71,10 @@ window.moreMenu = {
       resetFunction.assertReplace(
         'if(a)',
         `
-        if(${selectedAppleCount} > 5) {
+        if(${selectedAppleCount} > 6) {
 
           if(!${checkBadMode}(this.settings)) {
-            if(${selectedAppleCount} === 6) {
+            if(${selectedAppleCount} === 7) {
               ${applePlacementStem} +1, +2))
               ${applePlacementStem} -1, +2))
               ${applePlacementStem} -3, +2))
@@ -88,7 +88,7 @@ window.moreMenu = {
               ${applePlacementStem} +1, -2))
               ${applePlacementStem} -1, -2))
               ${applePlacementStem} -3, -2))
-            } else if(${selectedAppleCount} === 7) {
+            } else if(${selectedAppleCount} === 8) {
               ${applePlacementStem} +1, +2))
               ${applePlacementStem} +0, +2))
               ${applePlacementStem} -1, +2))
@@ -114,7 +114,7 @@ window.moreMenu = {
               ${applePlacementStem} -1, -2))
               ${applePlacementStem} -2, -2))
               ${applePlacementStem} -3, -2))
-            } else if(${selectedAppleCount} === 8) {
+            } else if(${selectedAppleCount} === 9) {
               ${applePlacementStem} +1, +2))
               ${applePlacementStem} +0, +2))
               ${applePlacementStem} -1, +2))
@@ -155,14 +155,14 @@ window.moreMenu = {
               ${applePlacementStem} -1, +3))
               ${applePlacementStem} -2, +3))
               ${applePlacementStem} -3, +3))
-            } else if(${selectedAppleCount} === 9) {
+            } else if(${selectedAppleCount} === 10) {
               for(let dy = -4; dy <= 4; dy++)
                 for(let dx = -7; dx <= 2; dx++)
                   ${applePlacementStem} dx, dy))
-            } else if(${selectedAppleCount} === 10) {
+            } else if(${selectedAppleCount} === 11) {
               for(let i = 0; i < 200; i++)
                 ${applePlacementStem} -1, +0))
-            } else if(${selectedAppleCount} === 11) {
+            } else if(${selectedAppleCount} === 12) {
               for(let i = 0; i < 10000; i++)
                 ${applePlacementStem} -1, +0))
             } else
@@ -170,7 +170,7 @@ window.moreMenu = {
   
           } else {
 
-            if(${selectedAppleCount} < 11) {
+            if(${selectedAppleCount} < 12) {
               const count = (
                 ${selectedAppleCount} === 6
                   ? 13
@@ -195,9 +195,9 @@ window.moreMenu = {
         } else if(a)
         `
       ).assertReplace(
-        'pos)}',
-        `pos)
-          if(${isModeSelected}(this.settings, 2) && ${selectedAppleCount} > 6) {
+        /!1\n?\)\n?}/,
+        `!1)
+          if(${isModeSelected}(this.settings, 2) && ${selectedAppleCount} > 7) {
             for(let __i___ = 0; __i___ < ${appleArray}.length; __i___ += 2) {
               ${appleArray}[__i___].type = ${appleArray}[__i___ + 1].type = Math.floor(Math.random() * 24)
             }
@@ -218,7 +218,7 @@ window.moreMenu = {
     )[0].replace('d', 'this.settings')
   
     const tickFunction = code.match(
-      /tick\n?\(\n?\)\n?{\n?[^]*?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?keys\n?,\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}\n?}\n?}\n?}/
+      /tick\n?\(\n?\)\n?{\n?[^]*?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?keys\n?,\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?,\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}\n?}\n?}\n?}/
     )[0]
     const replacePoint = tickFunction.match(
       /\.5\n?:\n?1\.25\n?\);\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\+\+;/
