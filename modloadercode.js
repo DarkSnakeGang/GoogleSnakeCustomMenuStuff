@@ -217,27 +217,33 @@ window.moreMenu = {
       /d\n?\.\n?[a-zA-Z0-9_$]{1,8}/
     )[0].replace('d', 'this.settings')
   
-    const tickFunction = code.match(
-      /tick\n?\(\n?\)\n?{\n?[^]*?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?keys\n?,\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?,\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}\n?}\n?}\n?}/
+    // const tickFunction = code.match(
+    //   /tick\n?\(\n?\)\n?{\n?[^]*?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?keys\n?,\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?,\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\)\n?}\n?}\n?}\n?}/
+    // )[0]
+    // const replacePoint = tickFunction.match(
+    //   /\.5\n?:\n?1\.25\n?\);\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\+\+;/
+    // )[0]
+
+    const speedFunction = code.match(
+      /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\n?a\n?\)\n?{\n?var(\n| )b\n?=\n?!1\n?;\n?a\n?\.\n?settings[^]*?if\n?\(\n?b\n?\)\n?break\n?}\n?}\n?}/
     )[0]
-    const replacePoint = tickFunction.match(
-      /\.5\n?:\n?1\.25\n?\);\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\+\+;/
+    const replacePoint = speedFunction.match(
+      /\.5\n?:\n?1\.25\n?\);\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\+\+;/
     )[0]
   
     window.bunnyTurtleSpeed = 1.33
     window.lightningSnailSpeed = 1.85
   
-    code = code.assertReplace(tickFunction,
-      tickFunction.replaceAll(
-        '&&', ' && '
-      ).replace(
+    
+    code = code.assertReplace(speedFunction,
+      speedFunction.assertReplace(
         replacePoint,
         replacePoint
          + `
           window.bunnyTurtleSpeed = Math.random() < .5 ? .66 : 1.33
           window.lightningSnailSpeed = Math.random() < .5 ? .45 : 1.85
           let speedMultiplier
-          switch(${selectedSpeed}) {
+          switch(${selectedSpeed.replace('this', 'a')}) {
             case 1:
               speedMultiplier = .66
               break
@@ -281,10 +287,70 @@ window.moreMenu = {
               speedMultiplier = 1
               break
           }
-          ${tileLengthSetLine.replace(/\*\n?a/, '* speedMultiplier').replace('d.isMobile', 'this.settings.isMobile')}
+          ${tileLengthSetLine.replace('this.', 'a.').replace(/\*\n?a/, ' * speedMultiplier').replace('d.isMobile', 'a.settings.isMobile')}
         `
       )
     )
+
+
+    // code = code.assertReplace(tickFunction,
+    //   tickFunction.replaceAll(
+    //     '&&', ' && '
+    //   ).replace(
+    //     replacePoint,
+    //     replacePoint
+    //      + `
+    //       window.bunnyTurtleSpeed = Math.random() < .5 ? .66 : 1.33
+    //       window.lightningSnailSpeed = Math.random() < .5 ? .45 : 1.85
+    //       let speedMultiplier
+    //       switch(${selectedSpeed}) {
+    //         case 1:
+    //           speedMultiplier = .66
+    //           break
+    //         case 2:
+    //           speedMultiplier = 1.33
+    //           break
+    //         case 3:
+    //           speedMultiplier = window.bunnyTurtleSpeed
+    //           break
+    //         case 4:
+    //           speedMultiplier = .45
+    //           break
+    //         case 5:
+    //           speedMultiplier = 1.85
+    //           break
+    //         case 6:
+    //           speedMultiplier = window.lightningSnailSpeed
+    //           break
+    //         case 7:
+    //           speedMultiplier = 18.5
+    //           break
+    //         case 8:
+    //           speedMultiplier = .35
+    //           break
+    //         case 9:
+    //           speedMultiplier = .25
+    //           break
+    //         case 10:
+    //           speedMultiplier = .15
+    //           break
+    //         case 11:
+    //           speedMultiplier = .05
+    //           break
+    //         case 12:
+    //           speedMultiplier = 26640
+    //           break
+    //         case 13:
+    //           speedMultiplier = .00001
+    //           break
+    //         default:
+    //           speedMultiplier = 1
+    //           break
+    //       }
+    //       ${tileLengthSetLine.replace(/\*\n?a/, '* speedMultiplier').replace('d.isMobile', 'this.settings.isMobile')}
+    //     `
+    //   )
+    // )
   
     const resetFunction1 = code.match(
       /reset\n?\(\n?\)\n?{\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?null[^]*?\.66[^]*?!0\n?\)\n?\)\n?}/
