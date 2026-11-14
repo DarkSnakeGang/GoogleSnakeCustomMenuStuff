@@ -46,6 +46,9 @@ window.moreMenu = {
     ]) document.querySelector('#count').appendChild(uiImage(src))
   },
   alterSnakeCode: code => {
+    // Game v14 wraps snake.js lines at different spots than v13; patches here target one-line code.
+    // Only the first mod in a chain flattens (later mods' inserted code may rely on its own line breaks).
+    if (!window.__snakeV14Flattened) { window.__snakeV14Flattened = true; code = code.replace(/([\w$]?)\n(?!\/\/)(?=([\w$]?))/g, (m, a, b) => (a && b ? a + " " : a)); }
     const resetFunction = code.match(
       /reset\n?\(\n?\)\n?{\n?this\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?=\n?\[\];[^]*?!1\n?\)\n?}/
     )[0]
@@ -567,21 +570,9 @@ window.moreMenu = {
     )
   
   
-    const pixelIssueFunction = code.match(
-      /[a-zA-Z0-9_$]{1,8}\n?=\n?function\n?\(\n?a\n?\)\n?{\n?var(\n| )b\n?=\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?;\n?if[^]*?10\n?}\n?}\n?}/
-    )[0]
-    const pixelIssueB = pixelIssueFunction.match(
-      /var(\n| )b\n?=\n?a\n?\.\n?[a-zA-Z0-9_$]{1,8}/
-    )[0].replace(/var(\n| )b\n?=\n?/, '')
-    const boardDimensions = pixelIssueFunction.match(
-      /b\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?height/
-    )[0].replace('b', pixelIssueB).replace(/\n?\.\n?height/, '')
-    const boardThing = pixelIssueFunction.match(
-      /b\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\.\n?[a-zA-Z0-9_$]{1,8}\n?\[\n?d\n?\.\n?y\n?\]\n?\[\n?d\n?\.\n?x\n?\]/
-    )[0].replace(/\n?\[\n?d\n?\.\n?y\n?\]\n?\[\n?d\n?\.\n?x\n?\]/, '')
     code = code.assertReplaceAll(
-      RegExp(`${boardThing}\\n?\\[\\n?c\\n?\\.\\n?y\\n?\\]\\n?\\[\\n?c\\n?\\.\\n?x\\n?\\]\\n?=\\n?e`, 'g'),
-      `c.y >= 0 && c.y < ${boardDimensions}.height && c.x >= 0 && c.x < ${boardDimensions}.width && (${boardThing}[c.y][c.x] = e)`
+      /([a-z])\.oa\.wa\[c\.y\]\[c\.x\]=b(?=\))/g,
+      `c.y >= 0 && c.y < $1.oa.oa.height && c.x >= 0 && c.x < $1.oa.oa.width && ($1.oa.wa[c.y][c.x] = b)`
     )
   
   
